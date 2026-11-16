@@ -50,10 +50,34 @@ function requinoa() {
   return filas;
 }
 
+
+// --- DIAGNÓSTICO: deja en data/portal_debug.json lo que ve el robot al abrir el Portal desde GitHub ---
+async function diagnostico(browser) {
+  const dbg = { fecha: new Date().toISOString() };
+  try {
+    const c = await browser.newContext({ locale: 'es-CL' });
+    const pg = await c.newPage();
+    const resp = await pg.goto('https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU260', { waitUntil: 'domcontentloaded', timeout: 60000 });
+    await pg.waitForTimeout(6000);
+    dbg.portal = { status: resp ? resp.status() : null, url: pg.url(), titulo: await pg.title(), texto: (await pg.evaluate(() => document.body.innerText)).replace(/\s+/g, ' ').slice(0, 700), enlaces116: await pg.evaluate(() => [...document.querySelectorAll('a')].filter((a) => /116 bis C/i.test(a.textContent)).length) };
+    fs.mkdirSync(path.join(RAIZ, 'data/debug'), { recursive: true });
+    await pg.screenshot({ path: path.join(RAIZ, 'data/debug/portal.png') });
+  } catch (e) { dbg.portal = { error: String(e.message).slice(0, 300) }; }
+  for (const [k, u] of [['requinoa_pdf', 'https://transparenciarequinoa.cl/nueweb/tact/requinoa/2026/Dom/Enero/Cumplimiento%20articulo%20116%20bis/01_ENERO_2026.pdf'], ['requinoa_home', 'https://transparenciarequinoa.cl/'], ['portal_home', 'https://www.portaltransparencia.cl/']]) {
+    try {
+      const r = await fetch(u, { redirect: 'follow', signal: AbortSignal.timeout(30000) });
+      const b = Buffer.from(await r.arrayBuffer());
+      dbg[k] = { status: r.status, tipo: r.headers.get('content-type'), bytes: b.length, inicio: b.slice(0, 160).toString('latin1').replace(/\s+/g, ' ') };
+    } catch (e) { dbg[k] = { error: String(e.message).slice(0, 200), causa: e.cause ? String(e.cause.code || e.cause.message).slice(0, 120) : null }; }
+  }
+  fs.writeFileSync(path.join(RAIZ, 'data/portal_debug.json'), JSON.stringify(dbg, null, 1));
+}
+
 (async () => {
   const pedidas = process.argv.slice(2);
   const slugs = Object.keys(codigos).filter((s) => !pedidas.length || pedidas.includes(s));
   const browser = await chromium.launch();
+  await diagnostico(browser);
   const ctx = await browser.newContext({ locale: 'es-CL' });
   const manifiesto = [];
   const informe = {};
@@ -61,44 +85,4 @@ function requinoa() {
 
   async function trabajador() {
     const page = await ctx.newPage();
-    await page.goto('https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU260', { waitUntil: 'domcontentloaded', timeout: 90000 });
-    while (i < slugs.length) {
-      const slug = slugs[i++];
-      let res = null;
-      for (let intento = 1; intento <= 2 && !res; intento++) {
-        try {
-          res = await page.evaluate(`(${paginaSrc})(${JSON.stringify(codigos[slug])})`);
-        } catch (e) {
-          console.error(`${slug}: intento ${intento} falló: ${e.message.slice(0, 120)}`);
-          await page.goto('https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU260', { waitUntil: 'domcontentloaded', timeout: 90000 }).catch(() => {});
-        }
-      }
-      if (!res) { informe[slug] = { filas: 0, notas: ['error de ejecución'] }; continue; }
-      const filas = normalizar(slug, res);
-      manifiesto.push(...filas);
-      informe[slug] = { filas: filas.length, sin_mes: filas.filter((f) => !f.ym).length, notas: res.notas, enlaces_externos: res.ext };
-      console.log(`${slug}: ${filas.length} documentos${res.notas.length ? ' · ' + res.notas.slice(0, 2).join(' | ') : ''}`);
-    }
-  }
-  await Promise.all([trabajador(), trabajador(), trabajador(), trabajador()]);
-  await browser.close();
-
-  if (slugs.includes('requinoa') && !manifiesto.some((f) => f.slug === 'requinoa' && f.ym)) {
-    manifiesto.push(...requinoa());
-    informe.requinoa = { filas: manifiesto.filter((f) => f.slug === 'requinoa').length, notas: ['Enlaces inferidos del patrón de transparenciarequinoa.cl; si alguno da 404 se informa en la descarga'] };
-  }
-  manifiesto.sort((a, b) => (a.slug + (a.ym || '')).localeCompare(b.slug + (b.ym || '')));
-
-  // Si se pidieron solo algunas comunas, se conserva el resto del manifiesto anterior.
-  const ruta = path.join(RAIZ, 'data/manifiesto.json');
-  let final = manifiesto, inf = informe;
-  if (pedidas.length && fs.existsSync(ruta)) {
-    const prev = JSON.parse(fs.readFileSync(ruta, 'utf8'));
-    final = prev.filter((f) => !slugs.includes(f.slug)).concat(manifiesto);
-    const ip = path.join(RAIZ, 'data/portal_informe.json');
-    inf = Object.assign(fs.existsSync(ip) ? JSON.parse(fs.readFileSync(ip, 'utf8')) : {}, informe);
-  }
-  fs.writeFileSync(ruta, JSON.stringify(final, null, 1));
-  fs.writeFileSync(path.join(RAIZ, 'data/portal_informe.json'), JSON.stringify(inf, null, 1));
-  console.log(`Manifiesto: ${final.length} documentos en ${new Set(final.map((f) => f.slug)).size} comunas`);
-})();
+    await page.goto('https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU260', { waitUntil: 'domcontentloaded',
