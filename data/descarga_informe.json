@@ -1,0 +1,58 @@
+{
+ "requinoa": {
+  "descargados": 0,
+  "ya_estaban": 0,
+  "fallidos": [
+   {
+    "mes": "2026-01",
+    "url": "https://transparenciarequinoa.cl/nueweb/tact/requinoa/2026/Dom/Enero/Cumplimiento%20articulo%20116%20bis/01_ENERO_2026.pdf",
+    "motivo": "la respuesta no es un PDF (¿requiere iniciar sesión o es imagen/Word?)"
+   },
+   {
+    "mes": "2026-02",
+    "url": "https://transparenciarequinoa.cl/nueweb/tact/requinoa/2026/Dom/Febrero/Cumplimiento%20articulo%20116%20bis/02_FEBRERO_2026.pdf",
+    "motivo": "la respuesta no es un PDF (¿requiere iniciar sesión o es imagen/Word?)"
+   },
+   {
+    "mes": "2026-03",
+    "url": "https://transparenciarequinoa.cl/nueweb/tact/requinoa/2026/Dom/Marzo/Cumplimiento%20articulo%20116%20bis/03_MARZO_2026.pdf",
+    "motivo": "la respuesta no es un PDF (¿requiere iniciar sesión o es imagen/Word?)"
+   },
+   {
+    "mes": "2026-04",
+    "url": "https://transparenciarequinoa.cl/nueweb/tact/requinoa/2026/Dom/Abril/Cumplimiento%20articulo%20116%20bis/04_ABRIL_2026.pdf",
+    "motivo": "la respuesta no es un PDF (¿requiere iniciar sesión o es imagen/Word?)"
+   },
+   {
+    "mes": "2026-05",
+    "url": "https://transparenciarequinoa.cl/nueweb/tact/requinoa/2026/Dom/Mayo/Cumplimiento%20articulo%20116%20bis/05_MAYO_2026.pdf",
+    "motivo": "la respuesta no es un PDF (¿requiere iniciar sesión o es imagen/Word?)"
+   },
+   {
+    "mes": "2026-06",
+    "url": "https://transparenciarequinoa.cl/nueweb/tact/requinoa/2026/Dom/Junio/Cumplimiento%20articulo%20116%20bis/06_JUNIO_2026.pdf",
+    "motivo": "la respuesta no es un PDF (¿requiere iniciar sesión o es imagen/Word?)"
+   },
+   {
+    "mes": "2026-07",
+    "url": "https://transparenciarequinoa.cl/nueweb/tact/requinoa/2026/Dom/Julio/Cumplimiento%20articulo%20116%20bis/07_JULIO_2026.pdf",
+    "motivo": "la respuesta no es un PDF (¿requiere iniciar sesión o es imagen/Word?)"
+   },
+   {
+    "mes": "2026-08",
+    "url": "https://transparenciarequinoa.cl/nueweb/tact/requinoa/2026/Dom/Agosto/Cumplimiento%20articulo%20116%20bis/08_AGOSTO_2026.pdf",
+    "motivo": "la respuesta no es un PDF (¿requiere iniciar sesión o es imagen/Word?)"
+   },
+   {
+    "mes": "2026-09",
+    "url": "https://transparenciarequinoa.cl/nueweb/tact/requinoa/2026/Dom/Septiembre/Cumplimiento%20articulo%20116%20bis/09_SEPTIEMBRE_2026.pdf",
+    "motivo": "la respuesta no es un PDF (¿requiere iniciar sesión o es imagen/Word?)"
+   },
+   {
+    "mes": "2026-10",
+    "url": "https://transparenciarequinoa.cl/nueweb/tact/requinoa/2026/Dom/Octubre/Cumplimiento%20articulo%20116%20bis/10_OCTUBRE_2026.pdf",
+    "motivo": "la respuesta no es un PDF (¿requiere iniciar sesión o es imagen/Word?)"
+   }
+  ]
+ }
+}
