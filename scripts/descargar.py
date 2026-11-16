@@ -117,14 +117,27 @@ def main():
 
     # Configuración opcional (data/descarga_config.json): {"desde": "2026-10", "max_mb": 300}
     # Permite controlar desde el repositorio desde qué mes se descarga y cuánto pesa cada ejecución.
+    # Opcionales: "hasta": "2026-09" (último mes a bajar) y "limpiar": true (borra los PDF de los meses que ya
+    # tienen su archivo en data/crudo/, para que el repositorio no crezca sin límite; el .txt y el .url se conservan).
     max_bytes_run = None
+    hasta = "9999-12"
+    limpiar = False
     cfg = RAIZ / "data" / "descarga_config.json"
     if cfg.exists():
         c = json.loads(cfg.read_text(encoding="utf-8"))
         desde = c.get("desde", desde)
+        hasta = c.get("hasta", hasta)
+        limpiar = bool(c.get("limpiar"))
         if c.get("max_mb"):
             max_bytes_run = int(c["max_mb"]) * 1024 * 1024
-    print(f"Descargando desde {desde}" + (f" (tope {max_bytes_run // 1048576} MB por ejecución)" if max_bytes_run else ""))
+    if limpiar:
+        borrados = 0
+        for pdf in sorted((RAIZ / "pdfs").glob("*/*.pdf")):
+            if (RAIZ / "data" / "crudo" / f"{pdf.parent.name}_{pdf.stem.split('_')[0]}.json").exists():
+                pdf.unlink()
+                borrados += 1
+        print(f"Limpieza: {borrados} PDF ya procesados borrados")
+    print(f"Descargando desde {desde} hasta {hasta}" + (f" (tope {max_bytes_run // 1048576} MB por ejecución)" if max_bytes_run else ""))
     total_bytes = 0
 
     ruta = RAIZ / "data" / "manifiesto.json"
@@ -143,7 +156,7 @@ def main():
         if not f.get("ym"):
             sin_mes[f["slug"]] += 1
             continue
-        if f["ym"] < desde:
+        if f["ym"] < desde or f["ym"] > hasta:
             continue
         por_mes[(f["slug"], f["ym"])].append(f)
 

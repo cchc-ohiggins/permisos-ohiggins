@@ -1,0 +1,50 @@
+{
+ "comuna": "Coinco",
+ "slug": "coinco",
+ "mes": "2026-10",
+ "archivo": "2026-10.pdf",
+ "documento_url": null,
+ "errores": [
+  "La resolución está fechada 03/10/2026, anterior a los permisos del mes (probable error de tipeo del municipio)"
+ ],
+ "registros": [
+  {
+   "numero": "38/26",
+   "fecha": "2026-10-15",
+   "tipo_original": "Permiso edificación",
+   "destino": "Vivienda",
+   "proyecto": null,
+   "direccion": "Coinco",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "51-115",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  },
+  {
+   "numero": "39/26",
+   "fecha": "2026-10-20",
+   "tipo_original": "Regularización vivienda antigua antes 1959",
+   "destino": "Vivienda",
+   "proyecto": null,
+   "direccion": "Coinco",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "24-1",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  }
+ ]
+}

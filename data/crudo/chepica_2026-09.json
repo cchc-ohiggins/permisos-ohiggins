@@ -1,0 +1,50 @@
+{
+ "comuna": "Chépica",
+ "slug": "chepica",
+ "mes": "2026-09",
+ "archivo": "2026-10.pdf",
+ "documento_url": null,
+ "errores": [
+  "En el Portal este documento (Resolución DOM N°10/2026, 05/10/2026) aparece publicado como mes 2026-10, pero corresponde a septiembre"
+ ],
+ "registros": [
+  {
+   "numero": "116",
+   "fecha": "2026-09-07",
+   "tipo_original": "Permiso edificación de obra nueva",
+   "destino": "Residencial",
+   "proyecto": null,
+   "direccion": "Calle 18 de Septiembre N° 1.018",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "31-82",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 2
+  },
+  {
+   "numero": "117",
+   "fecha": "2026-09-16",
+   "tipo_original": "Permiso edificación de obra nueva",
+   "destino": "Servicios",
+   "proyecto": null,
+   "direccion": "Calle 18 de Septiembre N° 2.828",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "32-34",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 2
+  }
+ ]
+}

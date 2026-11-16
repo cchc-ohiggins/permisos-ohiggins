@@ -1,0 +1,31 @@
+{
+ "comuna": "Chépica",
+ "slug": "chepica",
+ "mes": "2026-10",
+ "archivo": "2026-11.pdf",
+ "documento_url": null,
+ "errores": [
+  "En el Portal este documento (Resolución DOM N°11/2026, 03/11/2026) aparece publicado como mes 2026-11, pero corresponde a octubre"
+ ],
+ "registros": [
+  {
+   "numero": "118",
+   "fecha": "2026-10-05",
+   "tipo_original": "Permiso edificación de ampliación hasta 100 m²",
+   "destino": "Residencial",
+   "proyecto": null,
+   "direccion": "Camino I-86 N° 19.293",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "48-110",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 2
+  }
+ ]
+}
