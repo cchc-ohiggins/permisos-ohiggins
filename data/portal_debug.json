@@ -1,0 +1,28 @@
+{
+ "fecha": "2026-11-16T14:52:48.543Z",
+ "portal": {
+  "status": 403,
+  "url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU260",
+  "titulo": "403 Forbidden",
+  "texto": "403 Forbidden",
+  "enlaces116": 0
+ },
+ "portal_home": {
+  "status": 403,
+  "tipo": "text/html",
+  "bytes": 118,
+  "inicio": "<html> <head><title>403 Forbidden</title></head> <body> <center><h1>403 Forbidden</h1></center> </body> </html> "
+ },
+ "requinoa_home": {
+  "status": 200,
+  "tipo": "text/html; charset=UTF-8",
+  "bytes": 5933,
+  "inicio": "<!DOCTYPE html><html><head><meta http-equiv=\"Content-type\" content=\"text/html; charset=UTF-8\" /><meta name=\"viewport\" content=\"width=device-width, initial-scale"
+ },
+ "requinoa_pdf": {
+  "status": 200,
+  "tipo": "application/pdf",
+  "bytes": 212558,
+  "inicio": "%PDF-1.7 %µµµµ 1 0 obj <</Type/Catalog/Pages 2 0 R/Lang(es) /StructTreeRoot 26 0 R/MarkInfo<</Marked true>>/Metadata 221 0 R/ViewerPreferences 222 0 R>> end"
+ }
+}
