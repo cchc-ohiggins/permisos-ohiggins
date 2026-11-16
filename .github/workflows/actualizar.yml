@@ -1,0 +1,68 @@
+name: Actualizar permisos de edificación
+
+on:
+  schedule:
+    - cron: "17 12 10,20 * *"
+  workflow_dispatch:
+    inputs:
+      max_documentos:
+        description: "Máximo de PDF a procesar con IA en esta ejecución (0 = sin límite)."
+        default: "60"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: actualizar-permisos
+  cancel-in-progress: false
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    env:
+      HAY_CLAVE: ${{ secrets.ANTHROPIC_API_KEY != '' }}
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Instalar dependencias
+        run: |
+          pip install -r requirements.txt
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+
+      - name: Recorrer el Portal de Transparencia (las 33 comunas)
+        run: node scripts/portal.js
+
+      - name: Descargar los PDF nuevos
+        continue-on-error: true
+        run: python scripts/descargar.py --desde 2026-01
+
+      - name: Extraer datos de los PDF nuevos con IA (solo si hay clave configurada)
+        if: env.HAY_CLAVE == 'true'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/extraer.py --max "${{ github.event.inputs.max_documentos || '60' }}"
+
+      - name: Construir permisos.json
+        if: always()
+        run: python scripts/construir.py
+
+      - name: Guardar resultados en el repositorio
+        if: always()
+        run: |
+          git config user.name "cchc-ohiggins-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A data
+          if [ -d pdfs ]; then git add -A pdfs; fi
+          git diff --staged --quiet || git commit -m "Actualización de permisos"
+          git pull --rebase origin "${GITHUB_REF_NAME}" || true
+          git push
