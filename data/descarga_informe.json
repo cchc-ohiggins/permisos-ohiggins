@@ -1,58 +1,141 @@
 {
- "requinoa": {
+ "chepica": {
+  "descargados": 2,
+  "ya_estaban": 0,
+  "fallidos": []
+ },
+ "chimbarongo": {
+  "descargados": 1,
+  "ya_estaban": 0,
+  "fallidos": []
+ },
+ "codegua": {
+  "descargados": 1,
+  "ya_estaban": 0,
+  "fallidos": []
+ },
+ "coinco": {
+  "descargados": 1,
+  "ya_estaban": 0,
+  "fallidos": []
+ },
+ "donihue": {
+  "descargados": 1,
+  "ya_estaban": 0,
+  "fallidos": []
+ },
+ "graneros": {
   "descargados": 0,
   "ya_estaban": 0,
   "fallidos": [
    {
-    "mes": "2026-01",
-    "url": "https://transparenciarequinoa.cl/nueweb/tact/requinoa/2026/Dom/Enero/Cumplimiento%20articulo%20116%20bis/01_ENERO_2026.pdf",
-    "motivo": "la respuesta no es un PDF (¿requiere iniciar sesión o es imagen/Word?)"
-   },
-   {
-    "mes": "2026-02",
-    "url": "https://transparenciarequinoa.cl/nueweb/tact/requinoa/2026/Dom/Febrero/Cumplimiento%20articulo%20116%20bis/02_FEBRERO_2026.pdf",
-    "motivo": "la respuesta no es un PDF (¿requiere iniciar sesión o es imagen/Word?)"
-   },
-   {
-    "mes": "2026-03",
-    "url": "https://transparenciarequinoa.cl/nueweb/tact/requinoa/2026/Dom/Marzo/Cumplimiento%20articulo%20116%20bis/03_MARZO_2026.pdf",
-    "motivo": "la respuesta no es un PDF (¿requiere iniciar sesión o es imagen/Word?)"
-   },
-   {
-    "mes": "2026-04",
-    "url": "https://transparenciarequinoa.cl/nueweb/tact/requinoa/2026/Dom/Abril/Cumplimiento%20articulo%20116%20bis/04_ABRIL_2026.pdf",
-    "motivo": "la respuesta no es un PDF (¿requiere iniciar sesión o es imagen/Word?)"
-   },
-   {
-    "mes": "2026-05",
-    "url": "https://transparenciarequinoa.cl/nueweb/tact/requinoa/2026/Dom/Mayo/Cumplimiento%20articulo%20116%20bis/05_MAYO_2026.pdf",
-    "motivo": "la respuesta no es un PDF (¿requiere iniciar sesión o es imagen/Word?)"
-   },
-   {
-    "mes": "2026-06",
-    "url": "https://transparenciarequinoa.cl/nueweb/tact/requinoa/2026/Dom/Junio/Cumplimiento%20articulo%20116%20bis/06_JUNIO_2026.pdf",
-    "motivo": "la respuesta no es un PDF (¿requiere iniciar sesión o es imagen/Word?)"
-   },
-   {
-    "mes": "2026-07",
-    "url": "https://transparenciarequinoa.cl/nueweb/tact/requinoa/2026/Dom/Julio/Cumplimiento%20articulo%20116%20bis/07_JULIO_2026.pdf",
-    "motivo": "la respuesta no es un PDF (¿requiere iniciar sesión o es imagen/Word?)"
-   },
-   {
-    "mes": "2026-08",
-    "url": "https://transparenciarequinoa.cl/nueweb/tact/requinoa/2026/Dom/Agosto/Cumplimiento%20articulo%20116%20bis/08_AGOSTO_2026.pdf",
-    "motivo": "la respuesta no es un PDF (¿requiere iniciar sesión o es imagen/Word?)"
-   },
-   {
-    "mes": "2026-09",
-    "url": "https://transparenciarequinoa.cl/nueweb/tact/requinoa/2026/Dom/Septiembre/Cumplimiento%20articulo%20116%20bis/09_SEPTIEMBRE_2026.pdf",
-    "motivo": "la respuesta no es un PDF (¿requiere iniciar sesión o es imagen/Word?)"
-   },
-   {
     "mes": "2026-10",
-    "url": "https://transparenciarequinoa.cl/nueweb/tact/requinoa/2026/Dom/Octubre/Cumplimiento%20articulo%20116%20bis/10_OCTUBRE_2026.pdf",
-    "motivo": "la respuesta no es un PDF (¿requiere iniciar sesión o es imagen/Word?)"
+    "url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/Resoluci%C3%B3n+155+%28116+bis%29.pdf/6fdc46e9-cee1-4879-b0b2-1abf62ea76e9",
+    "motivo": "HTTPError: HTTP Error 403: Forbidden"
    }
   ]
+ },
+ "la-estrella": {
+  "descargados": 1,
+  "ya_estaban": 0,
+  "fallidos": []
+ },
+ "las-cabras": {
+  "descargados": 1,
+  "ya_estaban": 0,
+  "fallidos": []
+ },
+ "machali": {
+  "descargados": 0,
+  "ya_estaban": 0,
+  "fallidos": [
+   {
+    "mes": "2026-10",
+    "url": "http://transparencia.machali.cl/DOM/2026/OCTUBRE%20FINAL.pdf",
+    "motivo": "HTTPError: HTTP Error 403: Forbidden"
+   }
+  ]
+ },
+ "malloa": {
+  "descargados": 1,
+  "ya_estaban": 0,
+  "fallidos": []
+ },
+ "nancagua": {
+  "descargados": 0,
+  "ya_estaban": 0,
+  "fallidos": [
+   {
+    "mes": "2026-10",
+    "url": "https://www.municipalidadnancagua.cl/descargas/Transparencia2026/07.%20Actos%20con%20efectos%20sobre%20terceros/Obras/Resolucion%20ART%20116%20LGUC/10.%20Octubre/Resolucion%2015-2026%20DOM.pdf",
+    "motivo": "HTTPError: HTTP Error 403: Forbidden"
+   }
+  ]
+ },
+ "paredones": {
+  "descargados": 1,
+  "ya_estaban": 0,
+  "fallidos": []
+ },
+ "peralillo": {
+  "descargados": 1,
+  "ya_estaban": 0,
+  "fallidos": []
+ },
+ "peumo": {
+  "descargados": 0,
+  "ya_estaban": 0,
+  "fallidos": [
+   {
+    "mes": "2026-10",
+    "url": "https://drive.google.com/file/d/1c-C98x5u-m4hNGEnvRr1K2jdv0sAYdjE/view?usp=drive_link",
+    "motivo": "ValueError: archivo mayor a 80 MB"
+   }
+  ]
+ },
+ "pichidegua": {
+  "descargados": 1,
+  "ya_estaban": 0,
+  "fallidos": []
+ },
+ "pichilemu": {
+  "descargados": 1,
+  "ya_estaban": 0,
+  "fallidos": []
+ },
+ "pumanque": {
+  "descargados": 1,
+  "ya_estaban": 0,
+  "fallidos": []
+ },
+ "quinta-de-tilcoco": {
+  "descargados": 1,
+  "ya_estaban": 0,
+  "fallidos": []
+ },
+ "rancagua": {
+  "descargados": 1,
+  "ya_estaban": 0,
+  "fallidos": []
+ },
+ "rengo": {
+  "descargados": 1,
+  "ya_estaban": 0,
+  "fallidos": []
+ },
+ "requinoa": {
+  "descargados": 1,
+  "ya_estaban": 0,
+  "fallidos": []
+ },
+ "san-fernando": {
+  "descargados": 1,
+  "ya_estaban": 0,
+  "fallidos": []
+ },
+ "santa-cruz": {
+  "descargados": 1,
+  "ya_estaban": 0,
+  "fallidos": []
  }
 }

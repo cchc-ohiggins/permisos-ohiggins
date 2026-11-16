@@ -1,79 +1,11 @@
 {
- "generado": "2026-11-16T14:45:46+00:00",
+ "generado": "2026-11-16T18:16:16+00:00",
  "fuente": "Portal de Transparencia (CPLT)",
- "desde": "2025-05",
- "hasta": "2026-10",
+ "desde": "2026-01",
+ "hasta": "2026-11",
  "comunas": {
   "rancagua": {
-   "meses": {},
-   "nota": null
-  },
-  "codegua": {
-   "meses": {},
-   "nota": null
-  },
-  "coinco": {
-   "meses": {},
-   "nota": null
-  },
-  "coltauco": {
-   "meses": {},
-   "nota": "Faltan diciembre 2025 y octubre 2026 en el Portal."
-  },
-  "donihue": {
-   "meses": {},
-   "nota": null
-  },
-  "graneros": {
-   "meses": {},
-   "nota": null
-  },
-  "las-cabras": {
-   "meses": {},
-   "nota": null
-  },
-  "machali": {
-   "meses": {},
-   "nota": null
-  },
-  "malloa": {
-   "meses": {},
-   "nota": null
-  },
-  "mostazal": {
-   "meses": {},
-   "nota": "El Portal solo enlaza documentos hasta mayo 2026."
-  },
-  "olivar": {
-   "meses": {},
-   "nota": "El Portal de Transparencia no tiene el ítem del art. 116 bis C para esta municipalidad."
-  },
-  "peumo": {
-   "meses": {},
-   "nota": null
-  },
-  "pichidegua": {
-   "meses": {},
-   "nota": null
-  },
-  "quinta-de-tilcoco": {
-   "meses": {},
-   "nota": null
-  },
-  "rengo": {
-   "meses": {},
-   "nota": null
-  },
-  "requinoa": {
    "meses": {
-    "2025-05": 1,
-    "2025-06": 1,
-    "2025-07": 1,
-    "2025-08": 1,
-    "2025-09": 1,
-    "2025-10": 1,
-    "2025-11": 1,
-    "2025-12": 1,
     "2026-01": 1,
     "2026-02": 1,
     "2026-03": 1,
@@ -85,18 +17,248 @@
     "2026-09": 1,
     "2026-10": 1
    },
-   "nota": "Publica en su propio sitio (transparenciarequinoa.cl). Solo se confirmó octubre 2026; el resto se verifica en la primera ejecución."
+   "nota": null
+  },
+  "codegua": {
+   "meses": {
+    "2026-01": 1,
+    "2026-02": 1,
+    "2026-03": 1,
+    "2026-04": 1,
+    "2026-05": 1,
+    "2026-06": 1,
+    "2026-07": 1,
+    "2026-08": 1,
+    "2026-09": 1,
+    "2026-10": 1
+   },
+   "nota": null
+  },
+  "coinco": {
+   "meses": {
+    "2026-01": 1,
+    "2026-02": 1,
+    "2026-03": 1,
+    "2026-04": 1,
+    "2026-05": 1,
+    "2026-06": 1,
+    "2026-07": 1,
+    "2026-08": 1,
+    "2026-09": 1,
+    "2026-10": 1
+   },
+   "nota": null
+  },
+  "coltauco": {
+   "meses": {
+    "2026-01": 1,
+    "2026-02": 1,
+    "2026-03": 1,
+    "2026-04": 1,
+    "2026-05": 1,
+    "2026-06": 1,
+    "2026-07": 1,
+    "2026-08": 1,
+    "2026-09": 1
+   },
+   "nota": "Falta octubre 2026 en el Portal."
+  },
+  "donihue": {
+   "meses": {
+    "2026-01": 1,
+    "2026-02": 1,
+    "2026-03": 1,
+    "2026-04": 1,
+    "2026-05": 1,
+    "2026-06": 1,
+    "2026-07": 1,
+    "2026-08": 1,
+    "2026-09": 1,
+    "2026-10": 1
+   },
+   "nota": null
+  },
+  "graneros": {
+   "meses": {
+    "2026-01": 1,
+    "2026-02": 1,
+    "2026-03": 1,
+    "2026-04": 1,
+    "2026-05": 1,
+    "2026-06": 1,
+    "2026-07": 1,
+    "2026-08": 1,
+    "2026-09": 1,
+    "2026-10": 1
+   },
+   "nota": null
+  },
+  "las-cabras": {
+   "meses": {
+    "2026-01": 1,
+    "2026-02": 1,
+    "2026-03": 1,
+    "2026-04": 1,
+    "2026-05": 1,
+    "2026-06": 1,
+    "2026-07": 1,
+    "2026-08": 1,
+    "2026-09": 1,
+    "2026-10": 1
+   },
+   "nota": null
+  },
+  "machali": {
+   "meses": {
+    "2026-01": 1,
+    "2026-02": 1,
+    "2026-03": 1,
+    "2026-04": 1,
+    "2026-05": 1,
+    "2026-06": 1,
+    "2026-07": 1,
+    "2026-08": 1,
+    "2026-09": 1,
+    "2026-10": 1
+   },
+   "nota": null
+  },
+  "malloa": {
+   "meses": {
+    "2026-01": 1,
+    "2026-02": 1,
+    "2026-03": 1,
+    "2026-04": 1,
+    "2026-05": 1,
+    "2026-06": 1,
+    "2026-07": 1,
+    "2026-08": 1,
+    "2026-09": 1,
+    "2026-10": 1
+   },
+   "nota": null
+  },
+  "mostazal": {
+   "meses": {
+    "2026-01": 1,
+    "2026-02": 1,
+    "2026-03": 1,
+    "2026-04": 1,
+    "2026-05": 1
+   },
+   "nota": "El Portal solo enlaza documentos de enero a mayo de 2026."
+  },
+  "olivar": {
+   "meses": {},
+   "nota": "El Portal de Transparencia no tiene el ítem del art. 116 bis C para esta municipalidad."
+  },
+  "peumo": {
+   "meses": {
+    "2026-01": 1,
+    "2026-02": 1,
+    "2026-03": 1,
+    "2026-04": 1,
+    "2026-05": 1,
+    "2026-06": 1,
+    "2026-07": 1,
+    "2026-08": 1,
+    "2026-09": 1,
+    "2026-10": 1
+   },
+   "nota": null
+  },
+  "pichidegua": {
+   "meses": {
+    "2026-01": 1,
+    "2026-02": 1,
+    "2026-03": 1,
+    "2026-04": 1,
+    "2026-05": 1,
+    "2026-06": 1,
+    "2026-07": 1,
+    "2026-08": 1,
+    "2026-09": 1,
+    "2026-10": 1
+   },
+   "nota": null
+  },
+  "quinta-de-tilcoco": {
+   "meses": {
+    "2026-01": 1,
+    "2026-02": 1,
+    "2026-03": 1,
+    "2026-04": 1,
+    "2026-05": 1,
+    "2026-06": 1,
+    "2026-07": 1,
+    "2026-08": 1,
+    "2026-09": 1,
+    "2026-10": 1
+   },
+   "nota": null
+  },
+  "rengo": {
+   "meses": {
+    "2026-01": 1,
+    "2026-02": 1,
+    "2026-03": 1,
+    "2026-04": 1,
+    "2026-05": 1,
+    "2026-06": 1,
+    "2026-07": 1,
+    "2026-08": 1,
+    "2026-09": 1,
+    "2026-10": 1
+   },
+   "nota": null
+  },
+  "requinoa": {
+   "meses": {
+    "2026-01": 1,
+    "2026-02": 1,
+    "2026-03": 1,
+    "2026-04": 1,
+    "2026-05": 1,
+    "2026-06": 1,
+    "2026-07": 1,
+    "2026-08": 1,
+    "2026-09": 1,
+    "2026-10": 1
+   },
+   "nota": "Publica en su propio sitio (transparenciarequinoa.cl); el Portal solo enlaza a él. Los enlaces de enero a octubre 2026 se infirieron del patrón del sitio."
   },
   "san-vicente": {
    "meses": {},
    "nota": "El ítem existe en el Portal, pero no muestra tabla ni enlaces a los documentos."
   },
   "pichilemu": {
-   "meses": {},
+   "meses": {
+    "2026-01": 1,
+    "2026-02": 1,
+    "2026-03": 1,
+    "2026-04": 1,
+    "2026-05": 1,
+    "2026-06": 1,
+    "2026-07": 1,
+    "2026-08": 1,
+    "2026-09": 1,
+    "2026-10": 1
+   },
    "nota": null
   },
   "la-estrella": {
-   "meses": {},
+   "meses": {
+    "2026-01": 1,
+    "2026-02": 1,
+    "2026-03": 1,
+    "2026-04": 1,
+    "2026-05": 1,
+    "2026-06": 1,
+    "2026-07": 1,
+    "2026-08": 1,
+    "2026-09": 1,
+    "2026-10": 1
+   },
    "nota": null
   },
   "litueche": {
@@ -104,27 +266,88 @@
    "nota": "El Portal de Transparencia no tiene el ítem del art. 116 bis C para esta municipalidad."
   },
   "marchihue": {
-   "meses": {},
+   "meses": {
+    "2026-01": 1,
+    "2026-02": 1,
+    "2026-03": 1,
+    "2026-04": 1,
+    "2026-05": 1,
+    "2026-06": 1,
+    "2026-07": 1,
+    "2026-08": 1,
+    "2026-09": 1
+   },
    "nota": "El Portal enlaza documentos hasta septiembre 2026."
   },
   "navidad": {
-   "meses": {},
-   "nota": "Publica resoluciones sueltas (68) con enlaces de SharePoint de invitado: pueden no ser descargables."
+   "meses": {
+    "2026-04": 1,
+    "2026-05": 1,
+    "2026-06": 1,
+    "2026-07": 1,
+    "2026-08": 1
+   },
+   "nota": "Publica resoluciones sueltas (61 en 2026) con enlaces de SharePoint de invitado. El panel registra un documento por mes y pueden no ser descargables."
   },
   "paredones": {
-   "meses": {},
+   "meses": {
+    "2026-01": 1,
+    "2026-02": 1,
+    "2026-03": 1,
+    "2026-04": 1,
+    "2026-05": 1,
+    "2026-06": 1,
+    "2026-07": 1,
+    "2026-08": 1,
+    "2026-09": 1,
+    "2026-10": 1
+   },
    "nota": null
   },
   "san-fernando": {
-   "meses": {},
+   "meses": {
+    "2026-01": 1,
+    "2026-02": 1,
+    "2026-03": 1,
+    "2026-04": 1,
+    "2026-05": 1,
+    "2026-06": 1,
+    "2026-07": 1,
+    "2026-08": 1,
+    "2026-09": 1,
+    "2026-10": 1
+   },
    "nota": null
   },
   "chepica": {
-   "meses": {},
-   "nota": "Faltan mayo 2025 en el Portal."
+   "meses": {
+    "2026-01": 1,
+    "2026-02": 1,
+    "2026-03": 1,
+    "2026-04": 1,
+    "2026-05": 1,
+    "2026-06": 1,
+    "2026-07": 1,
+    "2026-08": 1,
+    "2026-09": 1,
+    "2026-10": 1,
+    "2026-11": 1
+   },
+   "nota": "El Portal lista un documento rotulado noviembre 2026 (publicado el 03-11-2026) además del de octubre."
   },
   "chimbarongo": {
-   "meses": {},
+   "meses": {
+    "2026-01": 1,
+    "2026-02": 1,
+    "2026-03": 1,
+    "2026-04": 1,
+    "2026-05": 1,
+    "2026-06": 1,
+    "2026-07": 1,
+    "2026-08": 1,
+    "2026-09": 1,
+    "2026-10": 1
+   },
    "nota": null
   },
   "lolol": {
@@ -132,7 +355,18 @@
    "nota": "El ítem existe en el Portal, pero no tiene documentos publicados."
   },
   "nancagua": {
-   "meses": {},
+   "meses": {
+    "2026-01": 1,
+    "2026-02": 1,
+    "2026-03": 1,
+    "2026-04": 1,
+    "2026-05": 1,
+    "2026-06": 1,
+    "2026-07": 1,
+    "2026-08": 1,
+    "2026-09": 1,
+    "2026-10": 1
+   },
    "nota": null
   },
   "palmilla": {
@@ -140,7 +374,18 @@
    "nota": "El Portal de Transparencia no tiene el ítem del art. 116 bis C para esta municipalidad."
   },
   "peralillo": {
-   "meses": {},
+   "meses": {
+    "2026-01": 1,
+    "2026-02": 1,
+    "2026-03": 1,
+    "2026-04": 1,
+    "2026-05": 1,
+    "2026-06": 1,
+    "2026-07": 1,
+    "2026-08": 1,
+    "2026-09": 1,
+    "2026-10": 1
+   },
    "nota": null
   },
   "placilla": {
@@ -148,12 +393,34 @@
    "nota": "El Portal de Transparencia no tiene el ítem del art. 116 bis C para esta municipalidad."
   },
   "pumanque": {
-   "meses": {},
+   "meses": {
+    "2026-01": 1,
+    "2026-02": 1,
+    "2026-03": 1,
+    "2026-04": 1,
+    "2026-05": 1,
+    "2026-06": 1,
+    "2026-07": 1,
+    "2026-08": 1,
+    "2026-09": 1,
+    "2026-10": 1
+   },
    "nota": null
   },
   "santa-cruz": {
-   "meses": {},
-   "nota": "Faltan mayo a agosto 2025 en el Portal y hay un enlace roto."
+   "meses": {
+    "2026-01": 1,
+    "2026-02": 1,
+    "2026-03": 1,
+    "2026-04": 1,
+    "2026-05": 1,
+    "2026-06": 1,
+    "2026-07": 1,
+    "2026-08": 1,
+    "2026-09": 1,
+    "2026-10": 1
+   },
+   "nota": "Agosto 2026 tiene un enlace roto, y julio y octubre apuntan al mismo documento."
   }
  }
 }

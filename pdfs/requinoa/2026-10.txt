@@ -1,0 +1,14 @@
+=== página 1 ===
+N° TIPO DE APROBACION FECHA DESTINO DIRECCION PREDIO ROL DE AVALUO PREDIO
+3 Modificación Loteo 01-10-2026 Vivienda/Equipamiento Santa Lucila S/N 30-842
+17 Modificación Edificación 14-10-2026 Vivienda Lote C-3 Golf Los Lirios 68-3
+18 Modificación Edificación 30-10-2026 Educación Caupolicán N° 109 9-1
+34 Permiso de Edificación 08-10-2026 Bodegaje Ruta H-409 S/N 36-454
+35 Permiso de Edificación 28-10-2026 Vivienda Las Mercedes S/N 195-65
+36 Permiso de Edificación 30-10-2026 Vivienda Santa Amalia S/N 90-148
+4 Permiso Obra Menor 07-10-2026 Vivienda Pasaje Toronto N° 78 425-168
+5 Permiso Obra Menor 20-10-2026 Comercio Leonardo Murialdo N° 56 1-28
+Resolucion
+LISTADO DE PERMISOS Y AUTORIZACIONES OTORGADAS POR LA DOM DE REQUINOA
+ANEXO
+OCTUBRE DE 2026
