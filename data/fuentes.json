@@ -1,0 +1,243 @@
+{
+ "nota": "Estado de la fuente de cada comuna. 'por_validar' = se identificó el sitio/portal pero aún no se ha comprobado la estructura de las páginas de permisos. 'sitio_no_ubicado' = no se pudo ubicar/acceder al sitio desde el entorno de desarrollo. Los PDF pueden dejarse a mano en pdfs/<comuna>/<AAAA-MM>.pdf y el resto del sistema funciona igual.",
+ "fuentes": {
+  "rancagua": {
+   "tipo": "portal_transparencia",
+   "portal_org": "MU260",
+   "estado": "por_validar",
+   "nota": "Sitio municipal es una SPA (sin datos en el HTML): usar Portal Transparencia. Estructura de la página aún sin validar.",
+   "sitio": "https://munirancagua.gob.cl/",
+   "portal_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU260",
+   "formato_observado": "PDF único mensual (Resolución RS-16) con formularios escaneados, sin listado resumen. El texto OCR trae tablas desordenadas: leer el PDF como imagen."
+  },
+  "rengo": {
+   "tipo": "portal_transparencia",
+   "estado": "por_validar",
+   "nota": "",
+   "sitio": "https://municipalidadrengo.cl",
+   "portal_org": "MU266",
+   "portal_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU266"
+  },
+  "codegua": {
+   "tipo": "portal_transparencia",
+   "estado": "por_validar",
+   "nota": "",
+   "sitio": "https://www.municipalidaddecodegua.cl",
+   "portal_org": "MU051",
+   "portal_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU051"
+  },
+  "coinco": {
+   "tipo": "sitio_propio",
+   "estado": "por_validar",
+   "nota": "",
+   "sitio": "https://municoinco.gob.cl/"
+  },
+  "coltauco": {
+   "tipo": "portal_transparencia",
+   "estado": "por_validar",
+   "nota": "",
+   "sitio": "https://www.coltauco.cl",
+   "portal_org": "MU059",
+   "portal_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU059"
+  },
+  "donihue": {
+   "tipo": "por_mapear",
+   "estado": "sitio_no_ubicado",
+   "nota": "Sitio no accesible/ubicado desde el entorno de desarrollo (dominio sin respuesta o bloqueado); verificar desde GitHub Actions o manualmente.",
+   "sitio": null
+  },
+  "graneros": {
+   "tipo": "portal_transparencia",
+   "estado": "por_validar",
+   "nota": "",
+   "sitio": "https://www.municipalidadgraneros.cl",
+   "portal_org": "MU100",
+   "portal_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU100"
+  },
+  "las-cabras": {
+   "tipo": "portal_transparencia",
+   "estado": "por_validar",
+   "nota": "",
+   "sitio": "https://munilascabras.cl/",
+   "portal_org": "MU134",
+   "portal_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU134"
+  },
+  "machali": {
+   "tipo": "por_mapear",
+   "estado": "sitio_no_ubicado",
+   "nota": "Sitio no accesible/ubicado desde el entorno de desarrollo (dominio sin respuesta o bloqueado); verificar desde GitHub Actions o manualmente.",
+   "sitio": null,
+   "formato_observado": "PDF mensual: resolución + anexo-listado (tipo, N°, fecha, descripción con m², destino, dirección y rol) + copias escaneadas de cada permiso."
+  },
+  "malloa": {
+   "tipo": "por_mapear",
+   "estado": "sitio_no_ubicado",
+   "nota": "En la fiscalización 2025 del Consejo para la Transparencia quedó bajo el 50% de cumplimiento general; puede haber vacíos. Sitio no accesible/ubicado desde el entorno de desarrollo (dominio sin respuesta o bloqueado); verificar desde GitHub Actions o manualmente.",
+   "sitio": null
+  },
+  "mostazal": {
+   "tipo": "portal_transparencia",
+   "estado": "por_validar",
+   "nota": "",
+   "sitio": "https://www.mostazal.cl",
+   "portal_org": "MU176",
+   "portal_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU176"
+  },
+  "olivar": {
+   "tipo": "portal_transparencia",
+   "estado": "por_validar",
+   "nota": "",
+   "sitio": "https://muniolivar.cl/",
+   "portal_org": "MU188",
+   "portal_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU188"
+  },
+  "peumo": {
+   "tipo": "sitio_propio",
+   "estado": "por_validar",
+   "nota": "",
+   "sitio": "https://peumo.cl/"
+  },
+  "pichidegua": {
+   "tipo": "sitio_propio",
+   "estado": "por_validar",
+   "nota": "",
+   "sitio": "https://www.pichidegua.cl"
+  },
+  "quinta-de-tilcoco": {
+   "tipo": "portal_transparencia",
+   "estado": "por_validar",
+   "nota": "",
+   "sitio": "https://www.quintadetilcoco.cl/",
+   "portal_org": "MU256",
+   "portal_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU256",
+   "seccion_url": "http://transparencia.municipalidadquintadetilcoco.cl/v3/archivos.php?seccion=34"
+  },
+  "requinoa": {
+   "tipo": "por_mapear",
+   "estado": "sitio_no_ubicado",
+   "nota": "Sitio no accesible/ubicado desde el entorno de desarrollo (dominio sin respuesta o bloqueado); verificar desde GitHub Actions o manualmente.",
+   "sitio": null,
+   "formato_observado": "Solo anexo-listado de 1 página (N°, tipo, fecha, destino, dirección, rol); no incluye m², propietario ni copias de los permisos."
+  },
+  "san-vicente": {
+   "tipo": "sitio_propio",
+   "estado": "por_validar",
+   "nota": "",
+   "sitio": "https://www.municipalidadsanvicente.cl"
+  },
+  "pichilemu": {
+   "tipo": "portal_transparencia",
+   "estado": "por_validar",
+   "nota": "Además de Portal MU219, la comuna usa DOM Digital (pichilemu.domdigital.cl).",
+   "sitio": "https://pichilemu.cl/",
+   "portal_org": "MU219",
+   "portal_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU219",
+   "seccion_url": "https://pichilemu.domdigital.cl/"
+  },
+  "la-estrella": {
+   "tipo": "portal_transparencia",
+   "estado": "por_validar",
+   "nota": "",
+   "sitio": "https://munilaestrella.cl/",
+   "portal_org": "MU119",
+   "portal_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU119"
+  },
+  "litueche": {
+   "tipo": "sitio_propio",
+   "estado": "por_validar",
+   "nota": "",
+   "sitio": "https://litueche.cl/"
+  },
+  "marchihue": {
+   "tipo": "por_mapear",
+   "estado": "sitio_no_ubicado",
+   "nota": "Sitio no accesible/ubicado desde el entorno de desarrollo (dominio sin respuesta o bloqueado); verificar desde GitHub Actions o manualmente.",
+   "sitio": null
+  },
+  "navidad": {
+   "tipo": "portal_transparencia",
+   "estado": "por_validar",
+   "nota": "",
+   "sitio": "https://www.muninavidad.cl",
+   "portal_org": "MU180",
+   "portal_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU180"
+  },
+  "paredones": {
+   "tipo": "sitio_propio",
+   "estado": "por_validar",
+   "nota": "",
+   "sitio": "https://www.paredones.cl"
+  },
+  "san-fernando": {
+   "tipo": "portal_transparencia",
+   "estado": "por_validar",
+   "nota": "",
+   "sitio": "https://municipalidadsanfernando.cl/",
+   "portal_org": "MU287",
+   "portal_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU287"
+  },
+  "chepica": {
+   "tipo": "sitio_propio",
+   "estado": "por_validar",
+   "nota": "",
+   "sitio": "https://www.munichepica.cl"
+  },
+  "chimbarongo": {
+   "tipo": "sitio_propio",
+   "estado": "por_validar",
+   "nota": "",
+   "sitio": "https://www.chimbarongo.cl"
+  },
+  "lolol": {
+   "tipo": "portal_transparencia",
+   "estado": "por_validar",
+   "nota": "",
+   "sitio": "https://www.municipalidaddelolol.cl/",
+   "portal_org": "MU147",
+   "portal_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU147"
+  },
+  "nancagua": {
+   "tipo": "sitio_propio",
+   "estado": "por_validar",
+   "nota": "",
+   "sitio": "https://nancagua.cl/"
+  },
+  "palmilla": {
+   "tipo": "portal_transparencia",
+   "estado": "por_validar",
+   "nota": "",
+   "sitio": "https://www.munipalmilla.cl",
+   "portal_org": "MU199",
+   "portal_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU199"
+  },
+  "peralillo": {
+   "tipo": "portal_transparencia",
+   "estado": "por_validar",
+   "nota": "",
+   "sitio": "https://www.muniperalillo.cl",
+   "portal_org": "MU213",
+   "portal_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU213"
+  },
+  "placilla": {
+   "tipo": "sitio_propio",
+   "estado": "por_validar",
+   "nota": "",
+   "sitio": "https://placilla.cl/"
+  },
+  "pumanque": {
+   "tipo": "portal_transparencia",
+   "estado": "por_validar",
+   "nota": "",
+   "sitio": "https://munipumanque.cl/",
+   "portal_org": "MU237",
+   "portal_url": "https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU237"
+  },
+  "santa-cruz": {
+   "tipo": "sitio_propio",
+   "estado": "por_validar",
+   "nota": "",
+   "sitio": "https://municipalidadsantacruz.cl/"
+  }
+ },
+ "verificado": "2026-11-15 (sondeo de dominios y enlaces; sin validar estructura de permisos)"
+}

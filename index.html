@@ -1,0 +1,903 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Permisos de edificación en O'Higgins</title>
+<meta name="description" content="Permisos de edificación de las 33 comunas de la Región de O'Higgins, mes a mes, con enlace al documento municipal. Cámara Chilena de la Construcción, Estudios.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Albert+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css">
+<style>
+:root{
+  /* Marca CChC */
+  --naranja:#E74100; --azul:#006EDC; --navy:#003D6B; --gris:#D9D9D9;
+  /* Tinta y superficies */
+  --tinta:#13253A; --tinta2:#43566B; --suave:#66778A; --fondo:#F2F5F8; --hoja:#FFFFFF; --linea:#DAE1E9;
+  /* Rampa secuencial (azul, de menos a más) para la matriz */
+  --s1:#D6E6F8; --s2:#9CC3EC; --s3:#5A97DB; --s4:#2368B8; --s5:#003D6B;
+  --display:"Archivo","Arial Narrow",system-ui,sans-serif; --texto:"Albert Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--fondo);color:var(--tinta);font:15px/1.5 var(--texto);-webkit-font-smoothing:antialiased}
+h1,h2,h3,p,ul{margin:0}
+ul{padding:0;list-style:none}
+:focus-visible{outline:2px solid var(--azul);outline-offset:2px}
+button{font:inherit;color:inherit}
+.num,.tn{font-variant-numeric:tabular-nums}
+
+/* ───────── Encabezado ───────── */
+.hero{position:relative;background:var(--navy);color:#fff;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:
+  linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px) 0 0/36px 36px,
+  linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px) 0 0/36px 36px;
+  -webkit-mask-image:linear-gradient(100deg,transparent 5%,#000 75%);mask-image:linear-gradient(100deg,transparent 5%,#000 75%)}
+.hero-in{position:relative;max-width:1320px;margin:0 auto;padding:22px 24px 40px}
+.marca{position:relative;z-index:1;display:flex;align-items:center;gap:14px;margin-bottom:34px;min-height:42px;flex-wrap:wrap}
+.nav{margin-left:auto;display:flex;gap:22px;font-size:14px}
+.nav a{color:#D5E2F0;text-decoration:none;padding:4px 0;border-bottom:2px solid transparent;transition:border-color .15s,color .15s}
+.nav a:hover{color:#fff;border-bottom-color:var(--naranja)}
+@media (max-width:760px){.nav{display:none}}
+.hero h1{position:relative;z-index:1}
+.marca img{height:44px;background:#fff;padding:5px 10px;border-radius:4px}
+.marca span{font-size:13.5px;color:#C9D8E8}
+.hero h1{font:800 clamp(30px,4.6vw,54px)/1.02 var(--display);font-variation-settings:"wdth" 118;letter-spacing:-.015em;max-width:15em}
+.frase{position:relative;z-index:1;display:flex;gap:18px;margin-top:26px;max-width:44rem}
+.frase::before{content:"";flex:0 0 5px;background:var(--naranja)}
+.frase p{font-size:clamp(17px,1.9vw,21px);line-height:1.45;color:#E7EEF6}
+.frase b{font:800 1.18em var(--display);font-variation-settings:"wdth" 108;color:#fff;font-variant-numeric:tabular-nums}
+.frase small{display:block;margin-top:10px;font-size:13.5px;line-height:1.5;color:#B8CADC}
+.frase small a{color:#fff}
+/* Horizonte: un edificio por mes; la altura es la cantidad de permisos */
+.sky{position:absolute;right:24px;bottom:0;width:min(43%,540px);height:250px;display:flex;align-items:flex-end;gap:5px;z-index:1}
+.sky::after{content:"";position:absolute;left:-14px;right:-14px;bottom:-1px;height:3px;background:rgba(255,255,255,.4)}
+.bd{--h:40%;position:relative;flex:1;min-width:0;height:var(--h);border:0;padding:0;cursor:pointer;background:linear-gradient(#1F73B8,#0C4C82);border-top:4px solid #5AA0DC;border-radius:2px 2px 0 0;transition:height .7s cubic-bezier(.2,.8,.2,1),filter .15s;transform-origin:bottom;animation:sube .9s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i)*45ms)}
+.bd::after{content:"";position:absolute;inset:9px 4px 3px;background:rgba(255,255,255,.34);-webkit-mask:repeating-linear-gradient(0deg,#000 0 4px,transparent 4px 11px),repeating-linear-gradient(90deg,#000 0 4px,transparent 4px 9px);-webkit-mask-composite:source-in;mask:repeating-linear-gradient(0deg,#000 0 4px,transparent 4px 11px),repeating-linear-gradient(90deg,#000 0 4px,transparent 4px 9px);mask-composite:intersect}
+.bd.fuera{filter:saturate(.3) brightness(.62)}
+.bd:hover,.bd:focus-visible{filter:brightness(1.3);outline-offset:3px}
+.bd.cero{border-top-width:3px}
+.bd.ult{border-top-color:var(--naranja)}
+.grua{position:absolute;bottom:100%;right:3px;width:76px;height:64px;transform:scaleX(-1);pointer-events:none;overflow:visible}
+@keyframes sube{from{transform:scaleY(0)}to{transform:none}}
+@media (prefers-reduced-motion:reduce){.bd{animation:none;transition:none}}
+@media (max-width:1000px){.sky{position:relative;right:auto;width:100%;height:150px;margin-top:30px}.hero-in{padding-bottom:0}.sky::after{left:0;right:0}}
+.demo{background:var(--naranja);color:#fff;text-align:center;padding:9px 16px;font-weight:600;font-size:14px}
+
+/* ───────── Pestañas entre hojas ───────── */
+.tabsbar{background:var(--hoja);border-bottom:1px solid var(--linea)}
+.tabsbar nav{max-width:1320px;margin:0 auto;padding:0 24px;display:flex;gap:6px}
+.tabsbar a{display:inline-flex;align-items:center;min-height:46px;padding:0 18px;text-decoration:none;color:var(--tinta2);font-weight:600;font-size:15px;border-bottom:4px solid transparent;margin-bottom:-1px}
+.tabsbar a:hover{color:var(--navy);background:#F5F8FC}
+.tabsbar a[aria-current=page]{color:var(--navy);border-bottom-color:var(--naranja)}
+@media (max-width:600px){.tabsbar nav{padding:0 12px}.tabsbar a{padding:0 12px;font-size:14px}}
+
+/* ───────── Barra de filtros ───────── */
+.barra{background:var(--hoja);border-bottom:1px solid var(--linea)}
+.barra-in{max-width:1320px;margin:0 auto;padding:12px 24px;display:grid;gap:10px}
+.frow{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:end}
+.f{display:flex;flex-direction:column;gap:3px}
+.f>label,.f>.lbl{font-size:12.5px;color:var(--tinta2);font-weight:600}
+select,input[type=search],input[type=number],.btn{font:inherit;font-size:14px;border:1px solid #B9C3CF;border-radius:4px;background:#fff;padding:6px 9px;color:var(--tinta);min-height:36px}
+.btn{cursor:pointer;transition:border-color .15s,background-color .15s}
+.btn:hover{border-color:var(--navy)}
+.seg{display:inline-flex;border:1px solid #B9C3CF;border-radius:4px;overflow:hidden}
+.seg button{border:0;background:#fff;padding:0 13px;min-height:34px;cursor:pointer;color:var(--tinta2);font-size:14px}
+.seg button+button{border-left:1px solid #B9C3CF}
+.seg button[aria-pressed=true]{background:var(--navy);color:#fff}
+details.dd{position:relative}
+details.dd summary{list-style:none;min-width:150px}
+details.dd summary::-webkit-details-marker{display:none}
+.ddpanel{position:absolute;z-index:1300;top:calc(100% + 4px);left:0;width:300px;max-height:380px;overflow:auto;background:#fff;border:1px solid #B9C3CF;border-radius:4px;box-shadow:0 10px 28px rgba(19,37,58,.18);padding:10px}
+.ddpanel .acc{display:flex;gap:6px;margin-bottom:6px}
+.ddpanel .acc button{flex:1;padding:3px;font-size:13px}
+.ddpanel h3{font-size:13px;font-weight:700;color:var(--navy);margin:10px 0 2px}
+.ddpanel label{display:flex;gap:8px;align-items:center;padding:3px 0;cursor:pointer}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:7px;border:1px solid #B9C3CF;border-radius:4px;padding:0 11px;min-height:36px;background:#fff;cursor:pointer;user-select:none;font-size:14px}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip .pt{width:11px;height:11px;border-radius:2px;background:var(--c);flex:none}
+.chip:has(input:not(:checked)){color:var(--suave)}
+.chip:has(input:not(:checked)) .pt{background:transparent;box-shadow:inset 0 0 0 2px var(--c)}
+.chip:has(input:focus-visible){outline:2px solid var(--azul);outline-offset:2px}
+.chip:has(input:checked){border-color:var(--c)}
+
+/* filtros activos, uso y rango */
+.activos{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;font-size:13.5px}
+.activos[hidden]{display:none}
+.activos .t{color:var(--tinta2);margin-right:2px}
+.act{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--azul);background:#EAF3FD;color:var(--navy);border-radius:4px;padding:3px 6px 3px 10px;cursor:pointer;font-size:13.5px}
+.act:hover{background:#D8E9FB}
+.act b{font-weight:700;font-size:15px;line-height:1}
+.uso{margin-top:34px;border-left:5px solid var(--naranja);background:var(--hoja);padding:4px 22px 16px}
+.uso summary{cursor:pointer;font:700 17px var(--display);color:var(--navy);padding:12px 0}
+.uso .cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 36px}
+.uso .cols p{font-size:14.5px;color:var(--tinta2);max-width:34ch}
+.uso .cols b{display:block;color:var(--tinta);font-size:15px;margin-bottom:2px;max-width:none}
+.uso .tip2{margin-top:12px;font-size:14px;color:var(--navy);font-weight:600}
+.rango{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:end;margin-bottom:18px;padding:14px 16px;background:var(--hoja);border:1px solid var(--linea)}
+.rango .par{display:flex;align-items:center;gap:6px;font-size:14px;color:var(--tinta2)}
+.rango input{width:78px}
+.rango .nota{flex-basis:100%;margin:0}
+.ddrow{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.ddrow label{flex:1}
+.solo{border:0;background:none;color:var(--azul);font-size:12.5px;cursor:pointer;padding:2px 4px;opacity:.0;transition:opacity .15s}
+.ddrow:hover .solo,.solo:focus-visible{opacity:1}
+/* ficha */
+dialog#ficha{border:0;padding:0;max-width:min(680px,94vw);width:100%;border-radius:6px;box-shadow:0 24px 60px rgba(19,37,58,.4);color:var(--tinta);font-family:var(--texto)}
+dialog#ficha::backdrop{background:rgba(10,30,50,.55)}
+.fh{background:var(--navy);color:#fff;padding:20px 24px 18px;border-top:6px solid var(--c)}
+.fh .tg{font-size:13.5px;color:#CFE0F1}
+.fh h3{font:800 24px/1.12 var(--display);font-variation-settings:"wdth" 108;margin:4px 0 4px}
+.fh p{font-size:14px;color:#CFE0F1}
+.fm{display:flex;flex-wrap:wrap;gap:12px 30px;padding:18px 24px;border-bottom:1px solid var(--linea)}
+.fm div{display:flex;flex-direction:column}
+.fm b{font:800 26px/1 var(--display);font-variant-numeric:tabular-nums}
+.fm span{font-size:13px;color:var(--tinta2);margin-top:3px}
+.fd{padding:14px 24px;display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-size:14.5px;margin:0}
+.fd dt{color:var(--suave)}.fd dd{margin:0}
+.fa{display:flex;gap:10px;flex-wrap:wrap;padding:6px 24px 20px}
+.fa .btn,.fa a{min-height:40px;display:inline-flex;align-items:center;padding:0 16px;border-radius:4px;font-weight:600;text-decoration:none;font-size:14.5px}
+.fa a.pri{background:var(--azul);color:#fff;border:1px solid var(--azul)}
+.fa a.pri:hover{background:#005BB8}
+.fa .nodoc{color:var(--suave);font-size:14px;align-self:center}
+.fnota{padding:0 24px 18px;font-size:12.5px;color:var(--suave)}
+.pop .btnf{margin-left:8px;background:none;border:1px solid var(--azul);color:var(--azul);border-radius:4px;padding:6px 11px;font-weight:600;cursor:pointer}
+button.ti2{border:0;background:none;padding:0;text-align:left;font:700 16px/1.25 var(--texto);color:var(--tinta);cursor:pointer}
+button.ti2:hover{color:var(--azul);text-decoration:underline}
+tr.fila{outline-offset:-2px}
+
+/* ───────── Estructura ───────── */
+main{max-width:1320px;margin:0 auto;padding:0 24px 56px}
+.sec{padding-top:48px}
+.sec>header{position:relative;display:flex;justify-content:space-between;align-items:end;gap:12px 24px;flex-wrap:wrap;margin-bottom:18px;border-bottom:2px solid var(--navy);padding-bottom:10px}
+.sec>header::after{content:"";position:absolute;left:0;bottom:-2px;width:72px;height:4px;background:var(--naranja)}
+.sec h2{font:750 clamp(22px,2.4vw,29px)/1.1 var(--display);font-variation-settings:"wdth" 108;letter-spacing:-.01em;color:var(--navy)}
+.sec header p{font-size:14px;color:var(--tinta2);max-width:36rem}
+.nota{font-size:13px;color:var(--suave);margin-top:10px;max-width:60rem}
+.nota a{color:var(--azul)}
+.vacio{padding:26px 6px;color:var(--suave)}
+
+/* ───────── Alertas ───────── */
+.umbrales{display:flex;gap:8px 16px;flex-wrap:wrap;font-size:13px;color:var(--tinta2);align-items:center}
+.umbrales input{width:70px;min-height:30px;padding:2px 6px}
+.umbrales summary{cursor:pointer;color:var(--azul);font-weight:600}
+.umbrales .u{display:flex;gap:8px 16px;flex-wrap:wrap;margin-top:8px}
+.al-lista{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:36px}
+.al{display:grid;grid-template-columns:104px 1fr;gap:4px 16px;align-items:start;padding:14px 0;border-bottom:1px solid var(--linea);border-left:0}
+.al-n{display:flex;flex-direction:column;border-left:5px solid var(--c);padding-left:11px}
+.al-n b{font:800 30px/1 var(--display);font-variation-settings:"wdth" 100;color:var(--tinta);font-variant-numeric:tabular-nums}
+.al-n span{font-size:13px;color:var(--tinta2);margin-top:3px}
+.al .ti{font-weight:700;font-size:16px;line-height:1.25;color:var(--tinta)}
+.al .sb{font-size:13.5px;color:var(--tinta2);margin-top:2px}
+.al .ac{display:flex;gap:16px;margin-top:6px;font-size:13.5px}
+.lk{border:0;background:none;color:var(--azul);font-weight:600;cursor:pointer;padding:0}
+.lk:hover,a.doc:hover{text-decoration:underline}
+a.doc{color:var(--azul);font-weight:600;text-decoration:none}
+.sub{color:var(--suave);font-size:13px}
+
+/* ───────── Matriz de cobertura ───────── */
+.mx-wrap{overflow-x:auto;padding-bottom:6px}
+.mx{--n:18;display:grid;grid-template-columns:150px repeat(var(--n),minmax(25px,1fr)) 58px;gap:3px;min-width:720px;align-items:center}
+.mx .yr{grid-row:1;font:700 13px var(--display);color:var(--navy);border-bottom:1px solid var(--navy);padding-bottom:2px}
+.mx .mh{grid-row:2;font-size:11.5px;color:var(--tinta2);text-align:center;background:none;border:0;padding:3px 0;cursor:pointer;border-radius:3px}
+.mx .mh:hover,.mx .mh[aria-pressed=true]{background:var(--navy);color:#fff}
+.mx .prov{grid-column:1/-1;font:700 13px var(--display);color:var(--navy);margin-top:12px;padding-bottom:2px}
+.mx .rl{background:none;border:0;text-align:left;padding:2px 0;cursor:pointer;font-size:14px;color:var(--tinta);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mx .rl:hover,.mx .rl[aria-pressed=true]{color:var(--azul);font-weight:700}
+.mx .rl.sin{color:var(--suave)}
+.mx .tot{text-align:right;font-size:13px;color:var(--tinta2);font-variant-numeric:tabular-nums}
+.mx .c:hover{outline:2px solid var(--naranja);outline-offset:1px}
+.mx .c{height:22px;border-radius:3px;background:transparent;border:1px dashed #C4CDD8;transition:opacity .15s}
+.mx .c.l{background:#E4EAF1;border:0}
+.mx .c.p{background:#fff;border:2px solid var(--azul)}
+.mx .c.s1{background:var(--s1);border:0}.mx .c.s2{background:var(--s2);border:0}.mx .c.s3{background:var(--s3);border:0}.mx .c.s4{background:var(--s4);border:0}.mx .c.s5{background:var(--s5);border:0}
+.mx .c.fuera{opacity:.28}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.mx-leyenda{display:flex;gap:8px 20px;flex-wrap:wrap;align-items:center;margin-top:14px;font-size:13px;color:var(--tinta2)}
+.mx-leyenda i{display:inline-block;width:18px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:6px}
+.rampa{display:inline-flex;gap:2px;vertical-align:-2px;margin:0 6px}
+.rampa i{margin:0;width:16px}
+.motivos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 36px;margin-top:22px}
+.motivos h3{grid-column:1/-1;font:700 16px var(--display);color:var(--navy);margin:10px 0 4px}
+.motivos li{padding:9px 0;border-bottom:1px solid var(--linea);font-size:14px;color:var(--tinta2)}
+.motivos li b{color:var(--tinta);display:block}
+
+/* ───────── Mapa y gráficos ───────── */
+.dos{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:36px;align-items:start}
+#map{height:600px;background:#E8EDF2}
+.leaflet-tile-pane{filter:grayscale(.75) contrast(.92) brightness(1.06)}
+.ubic{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;margin-bottom:10px;font-size:13.5px}
+.ubic .t{color:var(--tinta2);margin-right:2px}
+.ubic button{border:1px solid var(--linea);background:#fff;border-radius:4px;padding:4px 10px;font-size:13.5px;cursor:pointer;color:var(--tinta)}
+.ubic button:hover{border-color:var(--azul);color:var(--azul)}
+.ubic button b{font-weight:700;color:var(--navy);margin-left:4px}
+.ubic .reg{margin-left:auto;border-color:var(--navy);color:var(--navy);font-weight:600}
+.ctag{background:none;border:0;box-shadow:none;padding:0;font:600 11px var(--texto);color:#5B6772;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff;white-space:nowrap}
+.ctag:before{display:none}
+.ctag.on{color:var(--navy);font-weight:800;font-size:13px}
+.zlow .ctag:not(.on){display:none}
+.ctrl-donde{background:rgba(255,255,255,.96);border:1px solid var(--linea);border-left:4px solid var(--naranja);padding:8px 12px;font:600 13.5px var(--texto);color:var(--navy);box-shadow:0 2px 8px rgba(19,37,58,.15);max-width:260px}
+.ctrl-donde small{display:block;font-weight:400;color:var(--tinta2);font-size:12px;margin-top:2px}
+.lado>section+section{margin-top:30px;padding-top:22px;border-top:1px solid var(--linea)}
+.lado h3{font:700 17px var(--display);font-variation-settings:"wdth" 104;color:var(--navy)}
+.lado .cab{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.legend{display:flex;gap:6px 16px;flex-wrap:wrap;margin-top:8px;font-size:13px;color:var(--tinta2)}
+.leyenda-mapa{display:flex;gap:4px 16px;flex-wrap:wrap;margin-bottom:6px;color:var(--tinta2)}
+.leyenda-mapa i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:6px;background:var(--c)}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:6px;background:var(--c)}
+svg text{font:11.5px var(--texto);fill:var(--tinta2)}
+rect.seg{cursor:pointer}rect.seg:hover{opacity:.8}
+.rank{display:grid;gap:8px;margin-top:10px}
+.rk{display:grid;grid-template-columns:120px 1fr 62px;gap:10px;align-items:center;font-size:14px;width:100%;background:none;border:0;padding:3px 4px;margin:-3px -4px;text-align:left;cursor:pointer;border-radius:3px;transition:background-color .15s}
+.rk:hover{background:#E8F0F9}
+.rk[aria-pressed=true]{background:#D8E9FB;font-weight:700}
+.rk.emp{grid-template-columns:230px 1fr 42px}
+.rk>span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rk .bar{height:9px;background:#E6EBF1}
+.rk .bar b{display:block;height:100%;background:var(--azul);border-radius:0 4px 4px 0}
+.rk .n{text-align:right;font-variant-numeric:tabular-nums}
+.leaflet-popup-content{margin:14px 16px;min-width:250px;font-family:var(--texto)}
+.pop-tit{font:700 16px/1.2 var(--display);color:var(--navy)}
+.pop-sub{color:var(--suave);font-size:13px;margin:2px 0 8px}
+.pop .tag{display:inline-flex;align-items:center;gap:7px;font-size:13px;margin-bottom:6px}
+.pop .tag i{width:10px;height:10px;border-radius:2px;background:var(--c)}
+.pop dl{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;margin:6px 0;font-size:13px}
+.pop dt{color:var(--suave)}.pop dd{margin:0}
+.pop .aprox{font-size:12.5px;color:#7a3a00;background:#FFF1E4;padding:5px 8px;margin:8px 0;border-radius:3px}
+.pop .btnd{display:inline-block;margin-top:8px;background:var(--azul);color:#fff;text-decoration:none;border-radius:4px;padding:7px 13px;font-weight:600}
+.pop .nodoc{font-size:13px;color:var(--suave);margin-top:8px}
+.cl{background:var(--navy);color:#fff;border:2px solid #fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;box-shadow:0 1px 5px rgba(0,0,0,.35)}
+.tip{position:fixed;z-index:3000;background:var(--tinta);color:#fff;font-size:13px;padding:7px 10px;border-radius:4px;pointer-events:none;max-width:260px;line-height:1.35}
+
+/* ───────── Tabla ───────── */
+.tw{overflow:auto;max-height:560px;border-top:1px solid var(--linea)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th{position:sticky;top:0;background:var(--hoja);text-align:left;padding:10px 12px;border-bottom:2px solid var(--navy);cursor:pointer;white-space:nowrap;color:var(--navy);font-weight:700}
+th[aria-sort=ascending]::after{content:" ▲"}th[aria-sort=descending]::after{content:" ▼"}
+td{padding:9px 12px;border-bottom:1px solid var(--linea);vertical-align:top;background:var(--hoja)}
+tr.fila:hover td{background:#F5F8FC;cursor:pointer}
+td:first-child{white-space:nowrap}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+td .pt{display:inline-block;width:10px;height:10px;border-radius:2px;background:var(--c);margin-right:7px}
+.acciones{display:flex;gap:12px;align-items:center;margin-top:14px;flex-wrap:wrap}
+
+footer{margin-top:56px;padding:26px 0 0;border-top:2px solid var(--navy);font-size:13.5px;color:var(--tinta2);display:grid;grid-template-columns:repeat(3,1fr);gap:20px 36px}
+footer h3{font:700 15px var(--display);color:var(--navy);margin-bottom:4px}
+
+@media (max-width:1000px){
+  .uso .cols{grid-template-columns:1fr}
+  .dos{grid-template-columns:1fr;gap:28px}.al-lista{grid-template-columns:1fr}.motivos{grid-template-columns:1fr}
+  #map{height:440px}footer{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .hero-in,.barra-in,main{padding-left:16px;padding-right:16px}
+  .rk{grid-template-columns:96px 1fr 54px}.rk.emp{grid-template-columns:130px 1fr 38px}
+  .al{grid-template-columns:88px 1fr}
+}
+</style>
+</head>
+<body>
+<header class="hero"><div class="hero-in">
+  <div class="marca"><img src="logo.png" alt="Cámara Chilena de la Construcción, O'Higgins" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'Cámara Chilena de la Construcción, O\'Higgins'}))"><span id="sub">Estudios</span>
+    <nav class="nav" aria-label="Secciones"><a href="#alertas-sec">Proyectos grandes</a><a href="#cobertura">Mes a mes</a><a href="#mapa-sec">Mapa</a><a href="#detalle">Detalle</a></nav></div>
+  <h1>Permisos de edificación en la Región de O'Higgins</h1>
+  <div class="frase"><p id="frase">Cargando permisos…</p></div>
+  <div class="sky" id="sky" role="group" aria-label="Permisos por mes, un edificio por mes"></div>
+</div></header>
+<div class="tabsbar"><nav aria-label="Hojas del panel"><a href="index.html" aria-current="page">Panel de permisos</a><a href="analisis.html">Análisis histórico</a></nav></div>
+<div id="demo" class="demo" hidden>Datos de ejemplo: registros ficticios para probar el diseño. Los meses publicados por cada comuna son reales; los permisos, no.</div>
+
+<div class="barra"><div class="barra-in" role="search" aria-label="Filtros">
+  <div class="frow">
+    <div class="f"><span class="lbl">Año</span><div class="seg" id="anios" role="group" aria-label="Año"></div></div>
+    <div class="f"><label for="mes">Mes</label><select id="mes"></select></div>
+    <div class="f"><label for="desde">Desde</label><select id="desde"></select></div>
+    <div class="f"><label for="hasta">Hasta</label><select id="hasta"></select></div>
+    <div class="f"><span class="lbl">Comunas</span>
+      <details class="dd" id="ddCom"><summary class="btn" id="ddComTxt">Todas</summary><div class="ddpanel" id="ddComPanel"></div></details></div>
+    <div class="f"><label for="destino">Destino</label><select id="destino"></select></div>
+    <div class="f" style="flex:1;min-width:200px"><label for="q">Buscar proyecto, dirección, empresa o rol</label><input type="search" id="q" placeholder="Ej.: Av. Libertador, villa, 635-160"></div>
+  </div>
+  <div class="frow">
+    <div class="f"><span class="lbl">Tipo de permiso</span><div class="chips" id="chips"></div></div>
+    <button class="btn" id="limpiar" type="button">Limpiar filtros</button>
+  </div>
+  <div class="activos" id="activos" hidden aria-live="polite"></div>
+</div></div>
+
+<main>
+  <details class="uso" open id="uso"><summary>Cómo usar este panel</summary>
+    <div class="cols">
+      <p><b>Ver dónde se concentra la inversión.</b>La matriz y los rankings muestran qué comunas, meses y empresas reúnen más permisos.</p>
+      <p><b>Encontrar proyectos grandes antes de que partan las obras.</b>Un permiso de edificación suele venir antes de la construcción. Filtra por viviendas o superficie y deja en el mapa solo los más grandes.</p>
+      <p><b>Llegar al documento oficial.</b>Toca un punto del mapa o una fila de la tabla: verás empresa, dirección y superficies, y el enlace al PDF del municipio.</p>
+    </div>
+    <p class="tip2">Todo está conectado: al elegir un mes, una comuna o una empresa, cambian el mapa, los gráficos y la tabla.</p>
+  </details>
+
+  <section class="sec" id="alertas-sec" aria-labelledby="hAl">
+    <header><div><h2 id="hAl">Proyectos grandes para mirar</h2></div>
+      <details class="umbrales"><summary>Cambiar los umbrales</summary><div class="u">
+        <label>Viviendas desde <input type="number" id="uViv" min="1" value="50"></label>
+        <label>Industria o bodegas desde <input type="number" id="uInd" min="1" value="1000"> m²</label>
+        <label>Comercio o equipamiento desde <input type="number" id="uCom" min="1" value="1000"> m²</label>
+        <label>Vivienda sin N° de viviendas desde <input type="number" id="uHab" min="1" value="3000"> m²</label>
+      </div></details></header>
+    <ul id="alertas" class="al-lista"></ul>
+    <p class="nota" id="notaAl"></p>
+  </section>
+
+  <section class="sec" id="cobertura" aria-labelledby="hMx">
+    <header><div><h2 id="hMx">Mes a mes, comuna por comuna</h2></div>
+      <p>Cada casilla es un mes. Cuanto más oscura, más permisos. Toca una comuna o un mes para filtrar todo el panel.</p></header>
+    <div class="mx-wrap"><div class="mx" id="mx" role="img" aria-label="Matriz de permisos por comuna y mes"></div></div>
+    <div class="mx-leyenda" id="mxLey"></div>
+    <div class="motivos" id="motivos"></div>
+  </section>
+
+  <section class="sec" id="mapa-sec" aria-labelledby="hMapa">
+    <header><div><h2 id="hMapa">Dónde se está permitiendo construir</h2></div>
+      <p>Filtra por mes, comuna y número de viviendas: el mapa, los gráficos y la tabla se ajustan juntos. Toca un punto para ver el proyecto.</p></header>
+    <div class="rango" role="group" aria-label="Filtrar por tamaño del proyecto">
+      <div class="f"><span class="lbl">Viviendas por proyecto</span><div class="seg" id="vivPre"></div></div>
+      <div class="f"><span class="lbl">Rango a medida</span><span class="par"><input type="number" id="vMin" min="0" placeholder="mín." aria-label="Viviendas mínimo"> a <input type="number" id="vMax" min="0" placeholder="máx." aria-label="Viviendas máximo"> viviendas</span></div>
+      <div class="f"><span class="lbl">Superficie</span><span class="par">desde <input type="number" id="m2Min" min="0" placeholder="m²" aria-label="Superficie mínima en metros cuadrados"> m²</span></div>
+      <p class="nota" id="notaRango"></p>
+    </div>
+    <div class="dos">
+      <div><div class="ubic" id="ubic" hidden></div><div id="map" role="application" aria-label="Mapa de permisos de edificación"></div><p class="nota" id="notaMapa"></p></div>
+      <div class="lado">
+        <section>
+          <div class="cab"><h3 id="tChart">Permisos por mes</h3>
+            <div class="seg" role="group" aria-label="Medida">
+              <button type="button" id="mN" aria-pressed="true">Permisos</button>
+              <button type="button" id="mM" aria-pressed="false">m²</button>
+              <button type="button" id="mV" aria-pressed="false">Viviendas</button></div></div>
+          <div id="chart"></div><div class="legend" id="legend"></div><p class="nota" id="notaChart"></p>
+        </section>
+        <section><h3 id="tRank">Comunas con más permisos</h3><div class="rank" id="rank"></div></section>
+        <section><h3 id="tEmp">Empresas con más actividad</h3><div class="rank" id="rankEmp"></div>
+          <p class="nota">Solo personas jurídicas que piden el permiso, según el documento.</p></section>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="detalle" aria-labelledby="tTabla">
+    <header><div><h2 id="tTabla">Detalle de permisos</h2></div></header>
+    <div class="tw"><table id="tabla"><thead></thead><tbody></tbody></table></div>
+    <div class="acciones"><button class="btn" id="mas" type="button" hidden>Mostrar más</button>
+      <button class="btn" id="csv" type="button">Descargar CSV con estos filtros</button>
+      <span class="sub" id="contador"></span></div>
+  </section>
+
+  <footer>
+    <div><h3>De dónde salen los datos</h3><p>Las 33 municipalidades deben publicar cada mes, hasta el 5° día hábil, los permisos del mes anterior (art. 116 bis C de la LGUC, Ley 21.718). Se leen desde el Portal de Transparencia y los sitios municipales.</p></div>
+    <div><h3>Qué tener presente</h3><p>La lectura de los PDF es automática y puede tener errores: confirma siempre en el documento original. Sin datos en una comuna no significa que no tenga permisos. Solo se muestran empresas, no personas naturales.</p></div>
+    <div><h3>Cómo se actualiza</h3><p id="pie">El panel se actualiza solo los días 10 y 20 de cada mes, con lo que cada municipio haya publicado.</p></div>
+  </footer>
+</main>
+<dialog id="ficha" aria-label="Ficha del permiso"><div id="fichaC"></div></dialog>
+<div id="tip" class="tip" hidden></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
+<script>
+(function(){
+'use strict';
+/* ---------- constantes ---------- */
+var COL={nueva:'#E74100',modificacion:'#006EDC',regularizacion:'#003D6B',otros:'#6B7280'};
+var GKEYS=['nueva','modificacion','regularizacion','otros'];
+var GRUPOS=[['nueva','Obra nueva'],['modificacion','Modificación o ampliación'],['regularizacion','Regularizaciones'],['otros','Otros (recepciones, subdivisiones, obras menores)']];
+var MES=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+var CAT_TXT={nueva:'Obra nueva',modificacion:'Modificación',ampliacion:'Ampliación',obra_menor:'Obra menor',regularizacion:'Regularización',recepcion:'Recepción',subdivision:'Subdivisión o loteo',demolicion:'Demolición',anteproyecto:'Anteproyecto',otros:'Otros'};
+var S={comunas:[],permisos:[],meta:{},pub:null,f:{},metrica:'n',orden:{k:'fecha',d:-1},limite:100,map:null,cluster:null,marcadores:{},primera:true};
+
+/* ---------- utilidades ---------- */
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function urlSegura(u){return /^https?:\/\//i.test(u||'')?u:null}
+function fmt(n){return Number(n||0).toLocaleString('es-CL',{maximumFractionDigits:0})}
+function norm(s){return String(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')}
+function grupoDe(cat){return cat==='nueva'?'nueva':(cat==='modificacion'||cat==='ampliacion')?'modificacion':cat==='regularizacion'?'regularizacion':'otros'}
+var MESL=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+function mesLargo(m){var p=m.split('-');return MESL[+p[1]-1]+' de '+p[0]}
+function mesTxt(m){var p=m.split('-');return MES[+p[1]-1]+' '+p[0]}
+function fechaTxt(f){var p=String(f||'').split('-');return p.length===3?(+p[2])+' '+MES[+p[1]-1]+' '+p[0]:f}
+function mesesRango(d,h){var o=[],a=d.split('-').map(Number),b=h.split('-').map(Number),y=a[0],m=a[1];
+  while(y<b[0]||(y===b[0]&&m<=b[1])){o.push(y+'-'+(m<10?'0':'')+m);m++;if(m>12){m=1;y++}}return o}
+function val(p){return S.metrica==='n'?1:S.metrica==='viv'?(p.viviendas||0):(p.superficie_m2||0)}
+function niceMax(v){var e=Math.pow(10,Math.floor(Math.log10(v))),f=v/e;return (f<=1?1:f<=2?2:f<=5?5:10)*e}
+function slugDe(nombre){var c=S.comunas.filter(function(x){return x.nombre===nombre})[0];return c&&c.slug}
+
+/* ---------- lógica de datos (sin DOM) ---------- */
+function filtrar(f){
+  var q=norm(f.q);
+  return S.permisos.filter(function(p){
+    return f.comunas.has(p.comuna)&&p.mes>=f.desde&&p.mes<=f.hasta&&f.grupos.has(grupoDe(p.categoria))&&
+      (!f.destino||p.destino===f.destino)&&(!f.empresa||p.propietario===f.empresa)&&
+      ((f.vivMin==null&&f.vivMax==null)||(p.viviendas!=null&&(f.vivMin==null||p.viviendas>=f.vivMin)&&(f.vivMax==null||p.viviendas<=f.vivMax)))&&
+      (f.m2Min==null||(p.superficie_m2!=null&&p.superficie_m2>=f.m2Min))&&
+      (!q||norm([p.proyecto,p.descripcion,p.direccion,p.propietario,p.constructora,p.numero,p.rol].join(' ')).indexOf(q)>=0);
+  });
+}
+function agregarMensual(rows,meses){
+  var por={};meses.forEach(function(m){por[m]={nueva:0,modificacion:0,regularizacion:0,otros:0}});
+  rows.forEach(function(p){if(por[p.mes])por[p.mes][grupoDe(p.categoria)]+=val(p)});
+  return por;
+}
+function rankingComunas(rows,n){
+  var acc={};rows.forEach(function(p){acc[p.comuna]=(acc[p.comuna]||0)+val(p)});
+  return Object.keys(acc).map(function(k){return [k,acc[k]]}).sort(function(a,b){return b[1]-a[1]}).slice(0,n);
+}
+function umbrales(){
+  function n(id,d){var v=Number((document.getElementById(id)||{}).value);return v>0?v:d}
+  return {viv:n('uViv',50),ind:n('uInd',1000),com:n('uCom',1000),hab:n('uHab',3000)};
+}
+/* Alertas: solo permisos de edificación nuevos o ampliaciones (no regularizaciones, recepciones ni obras menores). */
+function alertasDe(rows,u){
+  var out=[];
+  rows.forEach(function(p){
+    if(p.categoria!=='nueva'&&p.categoria!=='ampliacion')return;
+    var sup=p.superficie_m2||0,viv=p.viviendas||0,tipo=null,motivo='';
+    if(viv>=u.viv){tipo='hab';motivo=fmt(viv)+' viviendas'}
+    else if(p.destino==='Vivienda'&&p.viviendas==null&&sup>=u.hab){tipo='hab';motivo=fmt(sup)+' m² de vivienda (N° de viviendas no informado)'}
+    else if(p.destino==='Industria y bodegas'&&sup>=u.ind){tipo='ind';motivo=fmt(sup)+' m² industria / bodegas'}
+    else if((p.destino==='Comercio y servicios'||p.destino==='Equipamiento')&&sup>=u.com){tipo='com';motivo=fmt(sup)+' m² '+(p.destino==='Equipamiento'?'equipamiento':'comercio y servicios')}
+    if(tipo)out.push({p:p,tipo:tipo,motivo:motivo,peso:tipo==='hab'&&viv?viv*80:sup});
+  });
+  return out.sort(function(a,b){return b.peso-a.peso});
+}
+function rankingEmpresas(rows,n){
+  var acc={};rows.forEach(function(p){if(p.propietario)acc[p.propietario]=(acc[p.propietario]||0)+val(p)});
+  return Object.keys(acc).map(function(k){return [k,acc[k]]}).filter(function(x){return x[1]>0}).sort(function(a,b){return b[1]-a[1]}).slice(0,n);
+}
+/* Comunas con datos leídos en el período (meta.cobertura) */
+function cobertura(f){
+  var cov=S.meta.cobertura||{},meses=mesesRango(f.desde,f.hasta),con=[],sin=[],parcial=[];
+  S.comunas.filter(function(c){return f.comunas.has(c.nombre)}).forEach(function(c){
+    var tiene=(cov[c.nombre]||[]).filter(function(m){return m>=f.desde&&m<=f.hasta});
+    if(!tiene.length)sin.push(c.nombre);else{con.push(c.nombre);if(tiene.length<meses.length)parcial.push(c.nombre)}
+  });
+  return {con:con,sin:sin,parcial:parcial,meses:meses.length};
+}
+/* Matriz: por comuna y mes, cuántos permisos (con los filtros de tipo/destino/búsqueda, sin los de comuna y fechas) */
+function filtroCon(o){var f={},k;for(k in S.f)f[k]=S.f[k];for(k in o)f[k]=o[k];return f}
+function matrizDatos(){
+  var f=filtroCon({comunas:new Set(S.comunas.map(function(c){return c.nombre})),desde:'0000-00',hasta:'9999-99'});
+  var cnt={};filtrar(f).forEach(function(p){var k=p.comuna+'|'+p.mes;cnt[k]=(cnt[k]||0)+1});
+  return cnt;
+}
+
+/* ---------- carga ---------- */
+function getJSON(u){return fetch(u,{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error(u+' '+r.status);return r.json()})}
+function cargar(){
+  return Promise.all([
+    getJSON('data/comunas.json'),
+    (/[?&]demo\b/.test(location.search)?getJSON('data/demo.json'):getJSON('data/permisos.json').then(function(d){if(!d.permisos||!d.permisos.length)throw 0;return d}).catch(function(){return getJSON('data/demo.json')})),
+    getJSON('data/publicacion.json').catch(function(){return null}),
+    getJSON('data/limites.json').catch(function(){return null})
+  ]).then(function(r){
+    S.comunas=r[0].comunas;S.permisos=r[1].permisos;S.meta=r[1].meta||{};S.pub=r[2];S.lim=r[3];
+    iniciarFiltros();aplicarURL();iniciarMapa();render();
+  }).catch(function(e){
+    document.getElementById('frase').textContent='No se pudieron cargar los datos ('+(e&&e.message||e)+'). Si abriste el archivo desde tu computador, publícalo en GitHub Pages o ábrelo con un servidor local.';
+  });
+}
+/* Enlaces desde la hoja de análisis: index.html?comuna=Rancagua&desde=2026-01&hasta=2026-06 */
+function aplicarURL(){
+  try{
+    var q=new URLSearchParams(location.search),c=q.get('comuna'),d=q.get('desde'),h=q.get('hasta');
+    if(c&&S.comunas.some(function(x){return x.nombre===c}))S.f.comunas=new Set([c]);
+    var ok=function(v){return /^\d{4}-\d{2}$/.test(v||'')};
+    if(ok(d)&&d>=S.rango[0]&&d<=S.rango[1])S.f.desde=d;
+    if(ok(h)&&h>=S.rango[0]&&h<=S.rango[1])S.f.hasta=h;
+    if(S.f.desde>S.f.hasta)S.f.hasta=S.f.desde;
+    sincronizarControles();
+  }catch(e){}
+}
+function rangoMeses(){
+  var ms=S.permisos.map(function(p){return p.mes});
+  if(S.pub){ms.push(S.pub.desde,S.pub.hasta)}
+  ms=ms.filter(Boolean).sort();return mesesRango(ms[0],ms[ms.length-1]);
+}
+
+/* ---------- filtros ---------- */
+function iniciarFiltros(){
+  var lista=rangoMeses(),min=lista[0],max=lista[lista.length-1];
+  var opt=lista.map(function(m){return '<option value="'+m+'">'+mesTxt(m)+'</option>'}).join('');
+  var d=document.getElementById('desde'),h=document.getElementById('hasta');d.innerHTML=opt;h.innerHTML=opt;d.value=min;h.value=max;
+  var dests=Array.from(new Set(S.permisos.map(function(p){return p.destino}))).filter(Boolean).sort();
+  document.getElementById('destino').innerHTML='<option value="">Todos</option>'+dests.map(function(x){return '<option>'+esc(x)+'</option>'}).join('');
+  S.f={comunas:new Set(S.comunas.map(function(c){return c.nombre})),desde:min,hasta:max,grupos:new Set(['nueva','modificacion']),destino:'',q:'',anio:'',empresa:'',vivMin:null,vivMax:null,m2Min:null};
+  S.rango=[min,max];
+  document.getElementById('q').value='';
+  document.getElementById('mes').innerHTML='<option value="">Todos</option>'+lista.map(function(m){return '<option value="'+m+'">'+mesTxt(m)+'</option>'}).join('');
+  var pre=[['Todos',null,null],['1 a 5',1,5],['6 a 20',6,20],['21 a 50',21,50],['51 a 100',51,100],['101 a 200',101,200],['Más de 200',201,null]];
+  S.pre=pre;
+  document.getElementById('vivPre').innerHTML=pre.map(function(x,i){return '<button type="button" data-i="'+i+'" aria-pressed="false">'+x[0]+'</button>'}).join('');
+  document.getElementById('chips').innerHTML=GRUPOS.map(function(g){
+    return '<label class="chip" style="--c:'+COL[g[0]]+'"><input type="checkbox" data-g="'+g[0]+'"'+(S.f.grupos.has(g[0])?' checked':'')+'><span class="pt"></span>'+esc(g[1])+'</label>'}).join('');
+  var prov={};S.comunas.forEach(function(c){(prov[c.provincia]=prov[c.provincia]||[]).push(c)});
+  document.getElementById('ddComPanel').innerHTML='<div class="acc"><button type="button" class="btn" data-a="todas">Todas</button><button type="button" class="btn" data-a="ninguna">Ninguna</button></div>'+
+    Object.keys(prov).map(function(p){return '<h3>Provincia de '+esc(p)+'</h3>'+prov[p].map(function(c){return '<div class="ddrow"><label><input type="checkbox" data-c="'+esc(c.nombre)+'" checked>'+esc(c.nombre)+'</label><button type="button" class="solo" data-solo="'+esc(c.nombre)+'" aria-label="Ver solo '+esc(c.nombre)+'">solo</button></div>'}).join('')}).join('');
+
+  var anios=Array.from(new Set(lista.map(function(m){return m.slice(0,4)}))).sort();
+  var an=document.getElementById('anios');
+  an.innerHTML='<button type="button" data-y="" aria-pressed="true">Todo</button>'+anios.map(function(y){return '<button type="button" data-y="'+y+'" aria-pressed="false">'+y+'</button>'}).join('');
+  an.onclick=function(e){var y=e.target.dataset&&e.target.dataset.y;if(y==null)return;fijarAnio(y,lista)};
+  d.onchange=function(){S.f.anio='';S.f.desde=d.value;if(S.f.hasta<S.f.desde){S.f.hasta=S.f.desde;h.value=S.f.hasta}render()};
+  h.onchange=function(){S.f.anio='';S.f.hasta=h.value;if(S.f.desde>S.f.hasta){S.f.desde=S.f.hasta;d.value=S.f.desde}render()};
+  document.getElementById('destino').onchange=function(e){S.f.destino=e.target.value;render()};
+  document.getElementById('q').oninput=function(e){S.f.q=e.target.value;render()};
+  document.getElementById('chips').onchange=function(e){var g=e.target.dataset.g;if(e.target.checked)S.f.grupos.add(g);else S.f.grupos.delete(g);render()};
+  document.getElementById('ddComPanel').onchange=function(e){var c=e.target.dataset.c;if(!c)return;if(e.target.checked)S.f.comunas.add(c);else S.f.comunas.delete(c);render()};
+  document.getElementById('ddComPanel').onclick=function(e){var so=e.target.dataset.solo;if(so){S.f.comunas=new Set([so]);render();return}
+    var a=e.target.dataset.a;if(!a)return;
+    S.f.comunas=a==='todas'?new Set(S.comunas.map(function(c){return c.nombre})):new Set();render()};
+  document.getElementById('mes').onchange=function(e){var v=e.target.value;S.f.anio='';if(v){S.f.desde=v;S.f.hasta=v}else{S.f.desde=S.rango[0];S.f.hasta=S.rango[1]}render()};
+  document.getElementById('vivPre').onclick=function(e){var i=e.target.dataset&&e.target.dataset.i;if(i==null)return;var x=S.pre[+i];S.f.vivMin=x[1];S.f.vivMax=x[2];render()};
+  function num(id,k){document.getElementById(id).oninput=function(e){var v=e.target.value;S.f[k]=v===''?null:Math.max(0,+v);render()}}
+  num('vMin','vivMin');num('vMax','vivMax');num('m2Min','m2Min');
+  document.getElementById('activos').onclick=function(e){var b=e.target.closest('[data-q]');if(b&&S.quitar[+b.dataset.q])S.quitar[+b.dataset.q]()};
+  document.getElementById('limpiar').onclick=function(){iniciarFiltros();render()};
+  document.getElementById('mN').onclick=function(){setMetrica('n')};
+  document.getElementById('mM').onclick=function(){setMetrica('m2')};
+  document.getElementById('mV').onclick=function(){setMetrica('viv')};
+  document.getElementById('mas').onclick=function(){S.limite+=100;render()};
+  document.getElementById('csv').onclick=descargarCSV;
+  document.getElementById('mx').onclick=clicMatriz;
+  if(!S.ddBound){S.ddBound=true;document.addEventListener('click',function(e){var dd=document.getElementById('ddCom');if(dd.open&&!dd.contains(e.target))dd.open=false})}
+}
+function fijarAnio(y,lista){
+  lista=lista||rangoMeses();var ms=y?lista.filter(function(m){return m.slice(0,4)===y}):lista;
+  S.f.anio=y;S.f.desde=ms[0];S.f.hasta=ms[ms.length-1];render();
+}
+function setMetrica(m){S.metrica=m;document.getElementById('mN').setAttribute('aria-pressed',m==='n');document.getElementById('mM').setAttribute('aria-pressed',m==='m2');document.getElementById('mV').setAttribute('aria-pressed',m==='viv');render()}
+function sincronizarControles(){
+  document.getElementById('desde').value=S.f.desde;document.getElementById('hasta').value=S.f.hasta;
+  document.getElementById('mes').value=S.f.desde===S.f.hasta?S.f.desde:'';
+  document.querySelectorAll('#vivPre button').forEach(function(b){var x=S.pre[+b.dataset.i];b.setAttribute('aria-pressed',x[1]===S.f.vivMin&&x[2]===S.f.vivMax)});
+  [['vMin','vivMin'],['vMax','vivMax'],['m2Min','m2Min']].forEach(function(x){var el=document.getElementById(x[0]);if(document.activeElement!==el)el.value=S.f[x[1]]==null?'':S.f[x[1]]});
+  document.getElementById('q').value!==S.f.q&&document.activeElement!==document.getElementById('q')&&(document.getElementById('q').value=S.f.q);
+  document.getElementById('destino').value=S.f.destino;
+  document.querySelectorAll('#anios button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.y===(S.f.anio||''))});
+  document.querySelectorAll('#ddComPanel input[data-c]').forEach(function(i){i.checked=S.f.comunas.has(i.dataset.c)});
+  document.querySelectorAll('#chips input').forEach(function(i){i.checked=S.f.grupos.has(i.dataset.g)});
+}
+
+/* ---------- render ---------- */
+function render(){
+  var rows=filtrar(S.f);
+  S.limite=Math.max(100,S.limite);
+  var nCom=S.f.comunas.size,total=S.comunas.length;
+  sincronizarControles();
+  document.getElementById('ddComTxt').textContent=nCom===total?'Todas ('+total+')':nCom===0?'Ninguna':nCom===1?Array.from(S.f.comunas)[0]:nCom+' de '+total;
+  document.getElementById('demo').hidden=!S.meta.demo;
+  document.getElementById('sub').textContent='Estudios'+(S.meta.generado?', actualizado el '+new Date(S.meta.generado).toLocaleDateString('es-CL',{day:'numeric',month:'long',year:'numeric'}):'');
+  activos();hero(rows);skyline();alertas(rows);matriz();grafico(rows);ranking(rows);notaRango(rows);mapa(rows);tabla(rows);
+  S.primera=false;
+}
+/* Filtros activos: cada uno se puede quitar con un clic */
+function activos(){
+  var a=[],q=[],box=document.getElementById('activos'),total=S.comunas.length;
+  function add(t,fn){a.push('<button type="button" class="act" data-q="'+q.length+'" aria-label="Quitar filtro: '+esc(t)+'">'+esc(t)+' <b aria-hidden="true">×</b></button>');q.push(fn)}
+  if(S.f.desde!==S.rango[0]||S.f.hasta!==S.rango[1])add(S.f.desde===S.f.hasta?mesTxt(S.f.desde):mesTxt(S.f.desde)+' a '+mesTxt(S.f.hasta),function(){S.f.desde=S.rango[0];S.f.hasta=S.rango[1];S.f.anio='';render()});
+  if(S.f.comunas.size!==total){var n=Array.from(S.f.comunas);add(n.length===0?'Ninguna comuna':n.length<=2?n.join(' y '):n.length+' comunas',function(){S.f.comunas=new Set(S.comunas.map(function(c){return c.nombre}));render()})}
+  var g=S.f.grupos;if(!(g.size===2&&g.has('nueva')&&g.has('modificacion')))add('Tipos: '+(GRUPOS.filter(function(x){return g.has(x[0])}).map(function(x){return x[1]}).join(', ')||'ninguno'),function(){S.f.grupos=new Set(['nueva','modificacion']);render()});
+  if(S.f.destino)add('Destino: '+S.f.destino,function(){S.f.destino='';render()});
+  if(S.f.empresa)add('Empresa: '+S.f.empresa,function(){S.f.empresa='';render()});
+  if(S.f.q)add('Texto: '+S.f.q,function(){S.f.q='';document.getElementById('q').value='';render()});
+  if(S.f.vivMin!=null||S.f.vivMax!=null)add('Viviendas: '+(S.f.vivMax==null?'más de '+(S.f.vivMin-1>0?S.f.vivMin-1:0):S.f.vivMin==null?'hasta '+S.f.vivMax:S.f.vivMin+' a '+S.f.vivMax),function(){S.f.vivMin=null;S.f.vivMax=null;render()});
+  if(S.f.m2Min!=null)add('Superficie desde '+fmt(S.f.m2Min)+' m²',function(){S.f.m2Min=null;render()});
+  S.quitar=q;box.hidden=!a.length;
+  box.innerHTML=a.length?'<span class="t">Filtros activos:</span>'+a.join('')+'<button type="button" class="lk" id="limpiarTodo">Quitar todos</button>':'';
+  var lt=document.getElementById('limpiarTodo');if(lt)lt.onclick=function(){iniciarFiltros();render()};
+}
+function hero(rows){
+  var m2=rows.filter(function(p){return p.superficie_m2!=null}),sup=m2.reduce(function(a,p){return a+p.superficie_m2},0);
+  var vv=rows.filter(function(p){return p.viviendas!=null}),viv=vv.reduce(function(a,p){return a+p.viviendas},0);
+  var cv=cobertura(S.f),per=S.f.desde===S.f.hasta?'En '+mesLargo(S.f.desde):'Entre '+mesLargo(S.f.desde)+' y '+mesLargo(S.f.hasta);
+  var uno=S.f.comunas.size===1,donde=S.f.comunas.size===S.comunas.length?'las municipalidades de O\'Higgins':uno?'la municipalidad de '+esc(Array.from(S.f.comunas)[0]):'las comunas elegidas';
+  var gs=GRUPOS.filter(function(g){return S.f.grupos.has(g[0])}).map(function(g){return g[1].toLowerCase()});
+  var tipos=gs.length===0?'ningún tipo de permiso':gs.length===GRUPOS.length?'todos los tipos de permiso':gs.length===1?gs[0]:gs.slice(0,-1).join(', ')+' y '+gs[gs.length-1];
+  var pub=S.pub?S.comunas.filter(function(c){var x=S.pub.comunas[c.slug];return x&&Object.keys(x.meses).length}).length:null;
+  document.getElementById('frase').innerHTML=per+', '+donde+(uno?' registró ':' registraron ')+'<b>'+fmt(rows.length)+(rows.length===1?' permiso':' permisos')+'</b> de '+esc(tipos)+(rows.length?', con <b>'+fmt(viv)+(viv===1?' vivienda':' viviendas')+'</b> y <b>'+fmt(sup)+' m²</b> informados.':'.')+
+    '<small>'+(m2.length||vv.length?'La superficie viene en '+fmt(m2.length)+' de esos permisos y las viviendas en '+fmt(vv.length)+'; el resto no las informa. ':'')+
+    'Hay permisos leídos de '+cv.con.length+' de '+S.f.comunas.size+' comunas'+(pub!=null?' ('+pub+' de '+S.comunas.length+' publican documentos). ':'. ')+
+    '<a href="#cobertura">Ver cuáles faltan y por qué</a>.</small>';
+}
+
+/* Matriz de cobertura */
+function matriz(){
+  var meses=rangoMeses(),cnt=matrizDatos(),cov=S.meta.cobertura||{},pub=S.pub&&S.pub.comunas||{};
+  var max=0;Object.keys(cnt).forEach(function(k){if(cnt[k]>max)max=cnt[k]});
+  function paso(n){if(!max)return 's1';var r=n/max;return r>.66?'s5':r>.4?'s4':r>.2?'s3':r>.08?'s2':'s1'}
+  var el=document.getElementById('mx');el.style.setProperty('--n',meses.length);
+  var h='',yrs={};meses.forEach(function(m,i){var y=m.slice(0,4);if(!yrs[y])yrs[y]=[i+2,i+2];yrs[y][1]=i+2});
+  h+='<span style="grid-row:1;grid-column:1"></span>';
+  Object.keys(yrs).forEach(function(y){h+='<span class="yr" style="grid-column:'+yrs[y][0]+'/'+(yrs[y][1]+1)+'">'+y+'</span>'});
+  h+='<span class="mh" style="grid-row:2;grid-column:1;cursor:default;background:none;color:inherit"></span>';
+  meses.forEach(function(m){var sel=S.f.desde===m&&S.f.hasta===m;h+='<button type="button" class="mh" data-m="'+m+'" aria-pressed="'+sel+'" aria-label="'+esc(mesTxt(m))+'">'+MES[+m.slice(5)-1]+'</button>'});
+  h+='<span class="mh" style="cursor:default;background:none;color:var(--suave)">total</span>';
+  var prov=[],porProv={};S.comunas.forEach(function(c){if(!porProv[c.provincia]){porProv[c.provincia]=[];prov.push(c.provincia)}porProv[c.provincia].push(c)});
+  var k=0,filtroAct=!(S.f.comunas.size===S.comunas.length&&S.f.desde===meses[0]&&S.f.hasta===meses[meses.length-1]);
+  prov.forEach(function(p){
+    h+='<span class="prov">Provincia de '+esc(p)+'</span>';
+    porProv[p].slice().sort(function(a,b){return a.nombre.localeCompare(b.nombre,'es')}).forEach(function(c){
+      var pm=(pub[c.slug]&&pub[c.slug].meses)||{},leidos=cov[c.nombre]||[],tot=0,sel=S.f.comunas.size===1&&S.f.comunas.has(c.nombre);
+      var hay=Object.keys(pm).length>0;
+      h+='<button type="button" class="rl'+(hay?'':' sin')+'" data-c="'+esc(c.nombre)+'" aria-pressed="'+sel+'" title="'+esc(c.nombre)+'">'+esc(c.nombre)+'</button>';
+      meses.forEach(function(m,i){
+        var n=cnt[c.nombre+'|'+m]||0,fuera=filtroAct&&(m<S.f.desde||m>S.f.hasta||!S.f.comunas.has(c.nombre));tot+=n;
+        var cl,t;
+        if(n>0){cl=paso(n);t=c.nombre+', '+mesTxt(m)+': '+fmt(n)+' permiso'+(n===1?'':'s')}
+        else if(leidos.indexOf(m)>=0){cl='l';t=c.nombre+', '+mesTxt(m)+': documento leído, sin permisos que calcen con los filtros'}
+        else if(pm[m]){cl='p';t=c.nombre+', '+mesTxt(m)+': documento publicado, aún sin leer'}
+        else{cl='';t=c.nombre+', '+mesTxt(m)+': sin documento publicado'}
+        h+='<span class="c '+cl+(fuera?' fuera':'')+'" style="--k:'+(i+(k%3))+'" data-t="'+esc(t)+'"></span>';
+      });
+      h+='<span class="tot">'+(tot?fmt(tot):'')+'</span>';k++;
+    });
+  });
+  el.innerHTML=h;
+  var rampa='<span class="rampa"><i style="background:var(--s1)"></i><i style="background:var(--s2)"></i><i style="background:var(--s3)"></i><i style="background:var(--s4)"></i><i style="background:var(--s5)"></i></span>';
+  document.getElementById('mxLey').innerHTML='<span>Menos'+rampa+'más permisos'+(max?' (hasta '+fmt(max)+' en un mes)':'')+'</span>'+
+    '<span><i style="background:#fff;border:2px solid var(--azul)"></i>Documento publicado, aún sin leer</span>'+
+    '<span><i style="background:#E4EAF1"></i>Leído, sin permisos con estos filtros</span>'+
+    '<span><i style="border:1px dashed #C4CDD8"></i>Sin documento publicado</span>';
+  /* motivos */
+  var sinPub=[],parc=[];
+  S.comunas.forEach(function(c){var x=pub[c.slug];if(!x)return;var n=Object.keys(x.meses).length;
+    if(!n)sinPub.push([c.nombre,x.nota||'No hay documentos publicados.']);else if(x.nota)parc.push([c.nombre,x.nota])});
+  function lista(t,a){return a.length?'<h3>'+t+'</h3>'+a.map(function(x){return '<li><b>'+esc(x[0])+'</b>'+esc(x[1])+'</li>'}).join(''):''}
+  document.getElementById('motivos').innerHTML=S.pub?'<ul style="display:contents">'+lista(sinPub.length+' comunas sin documentos en el Portal',sinPub)+lista(parc.length+' comunas con vacíos o con observaciones',parc)+'</ul>':'';
+}
+function elegirMes(mm){
+  var solo=S.f.desde===mm&&S.f.hasta===mm;
+  if(solo){var l=rangoMeses();S.f.desde=l[0];S.f.hasta=l[l.length-1]}else{S.f.desde=mm;S.f.hasta=mm}
+  S.f.anio='';render();
+}
+function notaRango(rows){
+  var on=S.f.vivMin!=null||S.f.vivMax!=null||S.f.m2Min!=null;
+  document.getElementById('notaRango').textContent=on?'Mostrando '+fmt(rows.length)+' permisos que cumplen el rango. Los que no informan viviendas o superficie quedan fuera mientras el rango esté activo.':'Sin rango: se muestran todos los permisos del filtro, informen o no su tamaño.';
+}
+function skyline(){
+  var el=document.getElementById('sky'),ms=rangoMeses(),cnt={};
+  filtrar(filtroCon({desde:'0000-00',hasta:'9999-99'})).forEach(function(p){cnt[p.mes]=(cnt[p.mes]||0)+1});
+  var mx=1;ms.forEach(function(m){if((cnt[m]||0)>mx)mx=cnt[m]});
+  var crane='<svg class="grua" viewBox="0 0 76 64" aria-hidden="true"><g fill="none" stroke="#E74100" stroke-width="3" stroke-linecap="square"><path d="M14 64V8M14 8H74M14 8L2 20M14 8L40 0M40 0L58 8"/><path d="M58 8V34" stroke-width="1.5"/></g><rect x="53" y="34" width="10" height="8" fill="#E74100"/></svg>';
+  if(el.children.length!==ms.length){
+    el.innerHTML=ms.map(function(m,i){return '<button type="button" class="bd" data-m="'+m+'" style="--i:'+i+'"></button>'}).join('');
+  }
+  ms.forEach(function(m,i){
+    var b=el.children[i],n=cnt[m]||0,h=n?16+84*Math.pow(n/mx,.85):5,ult=i===ms.length-1;
+    b.style.setProperty('--h',h+'%');
+    b.className='bd'+(n?'':' cero')+(ult?' ult':'')+((m<S.f.desde||m>S.f.hasta)?' fuera':'');
+    b.dataset.t=mesTxt(m)+': '+(n?fmt(n)+(n===1?' permiso':' permisos'):'sin permisos con estos filtros');
+    b.setAttribute('aria-label',b.dataset.t);
+    var g=b.querySelector('.grua');
+    if(ult&&n&&!g)b.insertAdjacentHTML('beforeend',crane);else if(g&&!(ult&&n))g.remove();
+  });
+  if(!el.dataset.on){el.dataset.on=1;el.addEventListener('click',function(e){var b=e.target.closest('[data-m]');if(b)elegirMes(b.dataset.m)})}
+}
+function soloComuna(n){S.f.comunas=(S.f.comunas.size===1&&S.f.comunas.has(n))?new Set(S.comunas.map(function(x){return x.nombre})):new Set([n]);render()}
+document.getElementById('rank').addEventListener('click',function(e){var b=e.target.closest('[data-c]');if(b)soloComuna(b.dataset.c)});
+document.getElementById('rankEmp').addEventListener('click',function(e){var b=e.target.closest('[data-e]');if(b){S.f.empresa=S.f.empresa===b.dataset.e?'':b.dataset.e;render()}});
+function clicMatriz(e){
+  var c=e.target.closest&&e.target.closest('[data-c]'),m=e.target.closest&&e.target.closest('[data-m]');
+  if(c){soloComuna(c.dataset.c)}
+  else if(m){elegirMes(m.dataset.m)}
+}
+
+function grafico(rows){
+  var meses=mesesRango(S.f.desde,S.f.hasta),por=agregarMensual(rows,meses),esN=S.metrica==='n',uni=S.metrica==='viv'?' viviendas':' m²';
+  document.getElementById('tChart').textContent=esN?'Permisos por mes':S.metrica==='viv'?'Viviendas por mes':'Superficie por mes (m²)';
+  var tot=meses.map(function(m){return por[m].nueva+por[m].modificacion+por[m].regularizacion+por[m].otros}),mx=niceMax(Math.max(1,Math.max.apply(null,tot)));
+  var W=560,H=250,ml=46,mr=8,mt=10,mb=28,pw=W-ml-mr,ph=H-mt-mb,bw=Math.min(34,pw/meses.length*.7),sv='<svg viewBox="0 0 '+W+' '+H+'" width="100%" role="img" aria-label="Barras apiladas por mes">';
+  for(var i=0;i<=4;i++){var y=mt+ph-ph*i/4;sv+='<line x1="'+ml+'" x2="'+(W-mr)+'" y1="'+y+'" y2="'+y+'" stroke="#E3E8EE"/><text x="'+(ml-6)+'" y="'+(y+4)+'" text-anchor="end">'+fmt(mx*i/4)+'</text>'}
+  var paso=Math.ceil(meses.length/10);
+  meses.forEach(function(m,k){
+    var cx=ml+pw*(k+.5)/meses.length,y0=mt+ph;
+    GKEYS.forEach(function(g){
+      var v=por[m][g];if(!v)return;var h=ph*v/mx;y0-=h;
+      sv+='<rect class="seg" x="'+(cx-bw/2)+'" y="'+y0+'" width="'+bw+'" height="'+Math.max(h,1)+'" rx="2" fill="'+COL[g]+'" stroke="#fff" stroke-width="2" data-m="'+m+'" data-t="'+esc(mesTxt(m)+', '+GRUPOS.filter(function(x){return x[0]===g})[0][1]+': '+fmt(v)+(esN?'':uni)+'. Total del mes: '+fmt(tot[k]))+'"/>';
+    });
+    if(k%paso===0)sv+='<text x="'+cx+'" y="'+(H-9)+'" text-anchor="middle">'+MES[+m.split('-')[1]-1]+(m.slice(5)==='01'||k===0?' '+m.slice(2,4):'')+'</text>';
+  });
+  document.getElementById('chart').innerHTML=rows.length?sv+'</svg>':'<div class="vacio">Ningún permiso con estos filtros.</div>';
+  document.getElementById('legend').innerHTML=GRUPOS.map(function(g){return '<span><i style="--c:'+COL[g[0]]+'"></i>'+esc(g[1])+'</span>'}).join('');
+  document.getElementById('notaChart').textContent=esN?'Las modificaciones y ampliaciones pueden repetir superficie ya contada en el permiso original.':'Solo suma los permisos que informan '+(S.metrica==='viv'?'el N° de viviendas':'su superficie')+'.';
+}
+function ranking(rows){
+  var r=rankingComunas(rows,8),mx=r.length?r[0][1]:1,esN=S.metrica==='n';
+  document.getElementById('tRank').textContent=esN?'Comunas con más permisos':S.metrica==='viv'?'Comunas con más viviendas':'Comunas con más superficie';
+  document.getElementById('rank').innerHTML=r.length?r.map(function(x){return '<button type="button" class="rk" data-c="'+esc(x[0])+'" aria-pressed="'+(S.f.comunas.size===1&&S.f.comunas.has(x[0]))+'" title="Ver solo '+esc(x[0])+'"><span>'+esc(x[0])+'</span><span class="bar"><b style="width:'+Math.max(2,100*x[1]/mx)+'%"></b></span><span class="n">'+fmt(x[1])+'</span></button>'}).join(''):'<div class="vacio">Sin datos.</div>';
+  var e=rankingEmpresas(rows,8),me=e.length?e[0][1]:1;
+  document.getElementById('tEmp').textContent=esN?'Empresas con más permisos':S.metrica==='viv'?'Empresas con más viviendas':'Empresas con más superficie';
+  document.getElementById('rankEmp').innerHTML=e.length?e.map(function(x){return '<button type="button" class="rk emp" data-e="'+esc(x[0])+'" aria-pressed="'+(S.f.empresa===x[0])+'" title="Ver solo '+esc(x[0])+'"><span>'+esc(x[0])+'</span><span class="bar"><b style="width:'+Math.max(2,100*x[1]/me)+'%"></b></span><span class="n">'+fmt(x[1])+'</span></button>'}).join(''):'<div class="vacio">Ninguna empresa identificada con estos filtros.</div>';
+}
+
+var AL_TXT={hab:['Gran proyecto habitacional','#E74100'],ind:['Industria o logística','#003D6B'],com:['Comercio o equipamiento','#006EDC']};
+function alertas(rows){
+  var al=alertasDe(rows,umbrales()),box=document.getElementById('alertas'),ver=S.verTodas?al:al.slice(0,8);
+  box.innerHTML=al.length?ver.map(function(a){var p=a.p,u=urlSegura(p.documento_url),t=AL_TXT[a.tipo],viv=p.viviendas&&a.tipo==='hab';
+    var big=viv?fmt(p.viviendas):fmt(p.superficie_m2),unit=viv?'viviendas':'m²'+(a.tipo==='hab'?' de vivienda':a.tipo==='ind'?' industria':'');
+    return '<li class="al" style="--c:'+t[1]+'"><div class="al-n"><b>'+big+'</b><span>'+unit+'</span></div><div>'+
+      '<button type="button" class="ti2" data-ficha="'+esc(p.id)+'">'+esc(p.proyecto||p.direccion||'Proyecto sin nombre')+'</button>'+
+      '<div class="sb">'+esc(t[0])+' en '+esc(p.comuna)+', '+esc(fechaTxt(p.fecha||p.mes))+(p.propietario?'<br>'+esc(p.propietario):'')+(p.direccion?'<br>'+esc(p.direccion):'')+'</div>'+
+      '<div class="ac"><button type="button" class="lk" data-id="'+esc(p.id)+'">Ver en el mapa</button>'+(u?'<a class="doc" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer">Abrir documento</a>':'<span class="sub">Sin documento vinculado</span>')+'</div></div></li>'}).join(''):
+    '<li class="vacio">Ningún permiso nuevo o ampliación supera los umbrales con estos filtros.</li>';
+  document.getElementById('notaAl').innerHTML=(al.length>8?'<button type="button" class="btn" id="verTodas">'+(S.verTodas?'Ver menos':'Ver las '+al.length+' alertas')+'</button> ':'')+
+    'Se revisan solo permisos de obra nueva y ampliaciones. Una alerta es una señal para abrir el documento, no una cifra verificada.';
+  var b=document.getElementById('verTodas');if(b)b.onclick=function(){S.verTodas=!S.verTodas;alertas(rows)};
+}
+document.getElementById('alertas').addEventListener('click',function(e){var id=e.target.dataset&&e.target.dataset.id;if(!id||!S.map)return;
+  var m=S.marcadores[id];if(!m)return;document.getElementById('map').scrollIntoView({behavior:'smooth',block:'center'});
+  S.cluster.zoomToShowLayer(m,function(){m.openPopup()})});
+['uViv','uInd','uCom','uHab'].forEach(function(id){document.getElementById(id).addEventListener('input',function(){render()})});
+
+/* ---------- mapa ---------- */
+var ESTILO={
+  off:{color:'#9AA5B1',weight:1,fillColor:'#FFFFFF',fillOpacity:0,opacity:.9,dashArray:null},
+  sel:{color:'#003D6B',weight:2.5,fillColor:'#006EDC',fillOpacity:.10,opacity:1,dashArray:null},
+  vacia:{color:'#003D6B',weight:2,fillColor:'#FFFFFF',fillOpacity:.0,opacity:.9,dashArray:'5 4'}
+};
+function iniciarMapa(){
+  if(!window.L||S.map)return;
+  S.map=L.map('map').setView([-34.45,-71.0],9);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(S.map);
+  S.polis={};S.regionB=null;
+  if(S.lim&&L.geoJSON){
+    S.capaLim=L.geoJSON(S.lim,{style:function(){return ESTILO.off},onEachFeature:function(f,l){
+      S.polis[f.properties.nombre]=l;
+      l.bindTooltip(f.properties.nombre,{permanent:true,direction:'center',className:'ctag'});
+      l.on('click',function(){S.map.fitBounds(l.getBounds(),{padding:[20,20],maxZoom:12})});
+    }}).addTo(S.map);
+    S.regionB=S.capaLim.getBounds();
+  }
+  var ctl=L.control({position:'bottomleft'});
+  ctl.onAdd=function(){var d=L.DomUtil.create('div','ctrl-donde');d.setAttribute('aria-live','polite');S.donde=d;return d};
+  ctl.addTo(S.map);
+  var zl=function(){S.map.getContainer().classList.toggle('zlow',S.map.getZoom()<9)};
+  S.map.on('zoomend',zl);zl();
+  S.cluster=L.markerClusterGroup({showCoverageOnHover:false,maxClusterRadius:42,iconCreateFunction:function(c){var n=c.getChildCount(),s=n<10?34:n<100?40:48;
+    return L.divIcon({html:'<div class="cl" style="width:'+s+'px;height:'+s+'px">'+n+'</div>',className:'',iconSize:[s,s]})}});
+  S.map.addLayer(S.cluster);
+}
+function popup(p){
+  var col=COL[grupoDe(p.categoria)],u=urlSegura(p.documento_url);
+  var dl=[['Destino',p.destino],['Dirección',p.direccion],['Rol',p.rol],['N° de permiso',p.numero],
+    ['Descripción',p.descripcion],['Superficie construida',p.superficie_m2!=null?fmt(p.superficie_m2)+' m²':null],['Superficie del terreno',p.superficie_terreno_m2!=null?fmt(p.superficie_terreno_m2)+' m²':null],['Viviendas',p.viviendas],['Pisos',p.pisos],['Presupuesto',p.presupuesto],['Empresa',p.propietario],['Constructora',p.constructora]]
+    .filter(function(x){return x[1]!=null&&x[1]!==''}).map(function(x){return '<dt>'+x[0]+'</dt><dd>'+esc(x[1])+'</dd>'}).join('');
+  return '<div class="pop"><div class="pop-tit">'+esc(p.proyecto||p.direccion||'Proyecto sin nombre')+'</div>'+
+    '<div class="pop-sub">'+esc(p.comuna)+', '+esc(fechaTxt(p.fecha||p.mes))+'</div>'+
+    '<span class="tag" style="--c:'+col+'"><i></i>'+esc(p.tipo_original||CAT_TXT[p.categoria])+(p.categoria_inferida?' (clasificación inferida)':'')+'</span>'+
+    '<dl>'+dl+'</dl>'+(p.precision==='comuna'?'<div class="aprox">Ubicación aproximada: centro de la comuna.</div>':'')+
+    (u?'<a class="btnd" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer">Abrir documento</a>':'<div class="nodoc">Documento original no vinculado.</div>')+
+    '<button type="button" class="btnf" data-ficha="'+esc(p.id)+'">Ver ficha</button></div>';
+}
+/* Ficha completa del permiso */
+function fichaHTML(p){
+  var col=COL[grupoDe(p.categoria)],u=urlSegura(p.documento_url);
+  var met=[[p.viviendas,'viviendas'],[p.superficie_m2!=null?fmt(p.superficie_m2):null,'m² construidos'],[p.superficie_terreno_m2!=null?fmt(p.superficie_terreno_m2):null,'m² de terreno'],[p.pisos,'pisos']].filter(function(x){return x[0]!=null&&x[0]!==''})
+    .map(function(x){return '<div><b>'+esc(typeof x[0]==='number'?fmt(x[0]):x[0])+'</b><span>'+x[1]+'</span></div>'}).join('');
+  var dl=[['Destino',p.destino],['Descripción',p.descripcion],['Dirección',p.direccion],['Rol de avalúo',p.rol],['N° de permiso',p.numero],['Presupuesto',p.presupuesto],['Empresa',p.propietario],['Constructora',p.constructora],['Ubicación en el mapa',p.lat==null?'Sin ubicación':p.precision==='comuna'?'Aproximada (centro de la comuna)':'Según la dirección']]
+    .filter(function(x){return x[1]!=null&&x[1]!==''}).map(function(x){return '<dt>'+x[0]+'</dt><dd>'+esc(x[1])+'</dd>'}).join('');
+  return '<div class="fh" style="--c:'+col+'"><div class="tg">'+esc(p.tipo_original||CAT_TXT[p.categoria])+(p.categoria_inferida?' (clasificación inferida)':'')+'</div><h3>'+esc(p.proyecto||p.direccion||'Proyecto sin nombre')+'</h3><p>'+esc(p.comuna)+', '+esc(fechaTxt(p.fecha||p.mes))+'</p></div>'+
+    (met?'<div class="fm">'+met+'</div>':'')+'<dl class="fd">'+dl+'</dl>'+
+    '<div class="fa">'+(u?'<a class="pri" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer">Abrir documento original</a>':'<span class="nodoc">Este permiso no tiene documento vinculado.</span>')+
+    (p.lat!=null?'<button type="button" class="btn" data-mapa="'+esc(p.id)+'">Ver en el mapa</button>':'')+'<button type="button" class="btn" data-cerrar="1">Cerrar</button></div>'+
+    '<p class="fnota">Datos leídos automáticamente del documento municipal. Confírmalos en el original antes de decidir.</p>';
+}
+function abrirFicha(id){
+  var p=S.permisos.filter(function(x){return x.id===id})[0],d=document.getElementById('ficha');if(!p)return;
+  document.getElementById('fichaC').innerHTML=fichaHTML(p);
+  if(d.showModal){if(!d.open)d.showModal()}else d.setAttribute('open','');
+}
+function verEnMapa(id){
+  var p=S.permisos.filter(function(x){return x.id===id})[0],d=document.getElementById('ficha');if(!p||!S.map||p.lat==null)return;
+  if(d.close)d.close();else d.removeAttribute('open');
+  document.getElementById('map').scrollIntoView({behavior:'smooth',block:'center'});
+  S.map.setView([p.lat,p.lon],16);L.popup({maxWidth:330}).setLatLng([p.lat,p.lon]).setContent(popup(p)).openOn(S.map);
+}
+document.addEventListener('click',function(e){
+  var f=e.target.closest&&e.target.closest('[data-ficha]'),m=e.target.closest&&e.target.closest('[data-mapa]'),c=e.target.closest&&e.target.closest('[data-cerrar]'),d=document.getElementById('ficha');
+  if(f)abrirFicha(f.dataset.ficha);else if(m)verEnMapa(m.dataset.mapa);else if(c){if(d.close)d.close();else d.removeAttribute('open')}
+  else if(e.target===d){if(d.close)d.close()}
+});
+function mapa(rows){
+  if(!S.map)return;
+  S.cluster.clearLayers();S.marcadores={};var pts=[],aprox=0;
+  rows.forEach(function(p){
+    if(p.lat==null||p.lon==null)return;
+    var porViv=S.f.vivMin!=null||S.f.vivMax!=null;
+    var col=COL[grupoDe(p.categoria)],r=porViv&&p.viviendas?Math.min(24,Math.max(6,4+Math.sqrt(p.viviendas)*1.3)):p.superficie_m2?Math.min(16,Math.max(6,4+Math.sqrt(p.superficie_m2)/4)):6,ap=p.precision==='comuna';if(ap)aprox++;if(rows.length<=60)r+=3;
+    var m=L.circleMarker([p.lat,p.lon],{radius:r,color:'#fff',weight:2,fillColor:col,fillOpacity:ap?.35:.9,dashArray:ap?'3 3':null});
+    m.bindPopup(function(){return popup(p)},{maxWidth:330});S.cluster.addLayer(m);S.marcadores[p.id]=m;pts.push([p.lat,p.lon]);
+  });
+  contextoMapa(rows,pts);
+  document.getElementById('notaMapa').innerHTML=rows.length?('<div class="leyenda-mapa">'+GRUPOS.filter(function(g){return S.f.grupos.has(g[0])}).map(function(g){return '<span><i style="--c:'+COL[g[0]]+'"></i>'+esc(g[1])+'</span>'}).join('')+'</div>'+pts.length+' de '+rows.length+' permisos en el mapa. '+aprox+' tienen ubicación aproximada (centro de la comuna, círculos punteados).'):'';
+}
+
+/* Contexto territorial: límites, nombres y comunas con resultados siempre a la vista */
+function contextoMapa(rows,pts){
+  var cnt={},todas=S.f.comunas.size===S.comunas.length;
+  rows.forEach(function(p){cnt[p.comuna]=(cnt[p.comuna]||0)+1});
+  var con=Object.keys(cnt).sort(function(a,b){return cnt[b]-cnt[a]});
+  var angosto=!todas||con.length<S.comunas.length;
+  var b=null;
+  Object.keys(S.polis).forEach(function(n){
+    var l=S.polis[n],tiene=!!cnt[n],elegida=S.f.comunas.has(n)&&!todas;
+    var on=angosto&&(tiene||elegida);
+    l.setStyle(on?(tiene?ESTILO.sel:ESTILO.vacia):ESTILO.off);
+    var t=l.getTooltip();if(t){t.setContent(tiene&&angosto?n+' · '+fmt(cnt[n]):n);
+      var el=t.getElement&&t.getElement();if(el)el.classList.toggle('on',on);t.options.className='ctag'+(on?' on':'')}
+    if(on&&(tiene||!con.length)){b=b?b.extend(l.getBounds()):L.latLngBounds(l.getBounds().getSouthWest(),l.getBounds().getNorthEast())}
+  });
+  if(b){pts.forEach(function(q){b.extend(q)})}
+  else if(pts.length){b=L.latLngBounds(pts)}
+  else if(S.regionB){b=S.regionB}
+  if(b)S.map.fitBounds(b,{padding:[34,34],maxZoom:12});
+  // etiquetas ya creadas: reaplicar clase
+  Object.keys(S.polis).forEach(function(n){var t=S.polis[n].getTooltip(),el=t&&t.getElement&&t.getElement();if(el){var on=angosto&&(cnt[n]||(S.f.comunas.has(n)&&!todas));el.classList.toggle('on',!!on)}});
+  // control dentro del mapa y barra sobre el mapa
+  var tit=!rows.length?'Sin permisos con estos filtros':con.length===1?con[0]:con.length<=3?con.join(', '):fmt(con.length)+' comunas con resultados';
+  var sub=!rows.length?'Cambia o quita algún filtro.':fmt(pts.length)+' de '+fmt(rows.length)+' permisos ubicados en el mapa';
+  if(S.donde)S.donde.innerHTML=tit+'<small>'+sub+'</small>';
+  var u=document.getElementById('ubic');
+  if(u){
+    u.hidden=!con.length;
+    u.innerHTML=con.length?'<span class="t">Dónde están:</span>'+con.slice(0,8).map(function(n){return '<button type="button" data-z="'+esc(n)+'">'+esc(n)+'<b>'+fmt(cnt[n])+'</b></button>'}).join('')+(con.length>8?'<span class="t">y '+(con.length-8)+' más</span>':'')+'<button type="button" class="reg" data-z="*">Ver toda la región</button>':'';
+    u.onclick=function(e){var z=e.target.closest('[data-z]');if(!z||!S.map)return;var n=z.dataset.z;
+      if(n==='*'){if(S.regionB)S.map.fitBounds(S.regionB,{padding:[10,10]})}else if(S.polis[n])S.map.fitBounds(S.polis[n].getBounds(),{padding:[20,20],maxZoom:12})};
+  }
+}
+
+/* ---------- tabla / csv ---------- */
+var COLS=[['fecha','Fecha'],['comuna','Comuna'],['proyecto','Proyecto o dirección'],['tipo_original','Tipo'],['destino','Destino'],['superficie_m2','m²'],['viviendas','Viv.'],['propietario','Empresa'],['documento_url','Documento']];
+function ordenar(rows){
+  var k=S.orden.k,d=S.orden.d;
+  return rows.slice().sort(function(a,b){var x=a[k],y=b[k];if(x==null&&y==null)return 0;if(x==null)return 1;if(y==null)return -1;
+    return (typeof x==='number'?x-y:String(x).localeCompare(String(y),'es'))*d});
+}
+function tabla(rows){
+  var th=document.querySelector('#tabla thead');
+  th.innerHTML='<tr>'+COLS.map(function(c){return '<th data-k="'+c[0]+'" tabindex="0"'+(S.orden.k===c[0]?' aria-sort="'+(S.orden.d>0?'ascending':'descending')+'"':'')+'>'+c[1]+'</th>'}).join('')+'</tr>';
+  th.onclick=function(e){var k=e.target.dataset.k;if(!k)return;S.orden=S.orden.k===k?{k:k,d:-S.orden.d}:{k:k,d:1};render()};
+  var ord=ordenar(rows),vis=ord.slice(0,S.limite);
+  document.querySelector('#tabla tbody').innerHTML=vis.length?vis.map(function(p){var u=urlSegura(p.documento_url),col=COL[grupoDe(p.categoria)];
+    return '<tr class="fila" tabindex="0" data-id="'+esc(p.id)+'"><td>'+esc(fechaTxt(p.fecha||p.mes))+'</td><td>'+esc(p.comuna)+'</td><td>'+esc(p.proyecto||'—')+'<div class="sub">'+esc(p.direccion||'')+'</div></td>'+
+      '<td><span class="pt" style="--c:'+col+'"></span>'+esc(p.tipo_original||CAT_TXT[p.categoria])+'</td><td>'+esc(p.destino)+'</td>'+
+      '<td class="num">'+(p.superficie_m2!=null?fmt(p.superficie_m2):'—')+'</td><td class="num">'+(p.viviendas!=null?fmt(p.viviendas):'—')+'</td><td>'+esc(p.propietario||'—')+'</td>'+
+      '<td>'+(u?'<a class="doc" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer">Abrir</a>':'—')+'</td></tr>'}).join(''):'<tr><td colspan="9" class="vacio">Ningún permiso con estos filtros.</td></tr>';
+  document.querySelector('#tabla tbody').onclick=function(e){
+    if(e.target.closest('a'))return;var tr=e.target.closest('tr.fila');if(tr)abrirFicha(tr.dataset.id)};
+  document.querySelector('#tabla tbody').onkeydown=function(e){if(e.key==='Enter'){var tr=e.target.closest('tr.fila');if(tr)abrirFicha(tr.dataset.id)}};
+  document.getElementById('mas').hidden=ord.length<=S.limite;
+  document.getElementById('contador').textContent='Mostrando '+fmt(vis.length)+' de '+fmt(ord.length)+'. Toca una fila para ver la ficha completa.';
+  document.getElementById('tTabla').textContent='Detalle de permisos ('+fmt(ord.length)+')';
+}
+function descargarCSV(){
+  var rows=ordenar(filtrar(S.f)),cols=[['fecha','Fecha'],['comuna','Comuna'],['numero','N° permiso'],['tipo_original','Tipo'],['categoria','Categoría'],['destino','Destino'],['proyecto','Proyecto'],['descripcion','Descripción'],['direccion','Dirección'],['rol','Rol'],['superficie_m2','Superficie construida m2'],['superficie_terreno_m2','Superficie terreno m2'],['viviendas','Viviendas'],['pisos','Pisos'],['presupuesto','Presupuesto'],['propietario','Empresa'],['constructora','Constructora'],['precision','Precisión ubicación'],['lat','Lat'],['lon','Lon'],['documento_url','Documento']];
+  function cel(v){if(v==null)return '';v=String(v);if(/^[=+\-@]/.test(v))v="'"+v;return '"'+v.replace(/"/g,'""')+'"'}
+  var txt='﻿'+cols.map(function(c){return cel(c[1])}).join(';')+'\r\n'+rows.map(function(p){return cols.map(function(c){return cel(p[c[0]])}).join(';')}).join('\r\n');
+  var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([txt],{type:'text/csv;charset=utf-8'}));a.download='permisos_ohiggins.csv';document.body.appendChild(a);a.click();a.remove();
+}
+
+/* ---------- tooltips (gráfico y matriz) ---------- */
+var tip=document.getElementById('tip');
+function mostrar(e,t){tip.textContent=t;tip.hidden=false;tip.style.left=Math.min(e.clientX+12,window.innerWidth-270)+'px';tip.style.top=(e.clientY+14)+'px'}
+['chart','mx','sky'].forEach(function(id){var el=document.getElementById(id);
+  el.addEventListener('mousemove',function(e){var t=e.target.closest&&e.target.closest('[data-t]');if(!t){tip.hidden=true;return}mostrar(e,t.dataset.t)});
+  el.addEventListener('mouseleave',function(){tip.hidden=true});
+  el.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('rect.seg,.c[data-t]');if(!t)return;if(t.matches('rect.seg'))elegirMes(t.dataset.m);else mostrar(e,t.dataset.t)})});
+
+window.__permisos={S:S,filtrar:filtrar,agregarMensual:agregarMensual,rankingComunas:rankingComunas,cobertura:cobertura,grupoDe:grupoDe,mesesRango:mesesRango,alertasDe:alertasDe,rankingEmpresas:rankingEmpresas,matrizDatos:matrizDatos,fijarAnio:fijarAnio,abrirFicha:abrirFicha};
+cargar();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Análisis histórico de permisos · CChC O'Higgins</title>
+<meta name="description" content="Análisis histórico de los permisos de edificación de la Región de O'Higgins: tendencia, tipo de uso, comunas, tamaño de proyectos y empresas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Albert+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  /* Marca CChC */
+  --naranja:#E74100; --azul:#006EDC; --navy:#003D6B; --gris:#D9D9D9;
+  /* Tinta y superficies */
+  --tinta:#13253A; --tinta2:#43566B; --suave:#66778A; --fondo:#F2F5F8; --hoja:#FFFFFF; --linea:#DAE1E9;
+  /* Rampa secuencial (azul, de menos a más) para la matriz */
+  --s1:#D6E6F8; --s2:#9CC3EC; --s3:#5A97DB; --s4:#2368B8; --s5:#003D6B;
+  --display:"Archivo","Arial Narrow",system-ui,sans-serif; --texto:"Albert Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--fondo);color:var(--tinta);font:15px/1.5 var(--texto);-webkit-font-smoothing:antialiased}
+h1,h2,h3,p,ul{margin:0}
+ul{padding:0;list-style:none}
+:focus-visible{outline:2px solid var(--azul);outline-offset:2px}
+button{font:inherit;color:inherit}
+.num,.tn{font-variant-numeric:tabular-nums}
+
+/* ───────── Encabezado ───────── */
+.hero{position:relative;background:var(--navy);color:#fff;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:
+  linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px) 0 0/36px 36px,
+  linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px) 0 0/36px 36px;
+  -webkit-mask-image:linear-gradient(100deg,transparent 5%,#000 75%);mask-image:linear-gradient(100deg,transparent 5%,#000 75%)}
+.hero-in{position:relative;max-width:1320px;margin:0 auto;padding:22px 24px 40px}
+.marca{position:relative;z-index:1;display:flex;align-items:center;gap:14px;margin-bottom:34px;min-height:42px;flex-wrap:wrap}
+.nav{margin-left:auto;display:flex;gap:22px;font-size:14px}
+.nav a{color:#D5E2F0;text-decoration:none;padding:4px 0;border-bottom:2px solid transparent;transition:border-color .15s,color .15s}
+.nav a:hover{color:#fff;border-bottom-color:var(--naranja)}
+@media (max-width:760px){.nav{display:none}}
+.hero h1{position:relative;z-index:1}
+.marca img{height:44px;background:#fff;padding:5px 10px;border-radius:4px}
+.marca span{font-size:13.5px;color:#C9D8E8}
+.hero h1{font:800 clamp(30px,4.6vw,54px)/1.02 var(--display);font-variation-settings:"wdth" 118;letter-spacing:-.015em;max-width:15em}
+.frase{position:relative;z-index:1;display:flex;gap:18px;margin-top:26px;max-width:44rem}
+.frase::before{content:"";flex:0 0 5px;background:var(--naranja)}
+.frase p{font-size:clamp(17px,1.9vw,21px);line-height:1.45;color:#E7EEF6}
+.frase b{font:800 1.18em var(--display);font-variation-settings:"wdth" 108;color:#fff;font-variant-numeric:tabular-nums}
+.frase small{display:block;margin-top:10px;font-size:13.5px;line-height:1.5;color:#B8CADC}
+.frase small a{color:#fff}
+.demo{background:var(--naranja);color:#fff;text-align:center;padding:9px 16px;font-weight:600;font-size:14px}
+
+/* ───────── Barra de filtros ───────── */
+.barra{background:var(--hoja);border-bottom:1px solid var(--linea)}
+.barra-in{max-width:1320px;margin:0 auto;padding:12px 24px;display:grid;gap:10px}
+.frow{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:end}
+.f{display:flex;flex-direction:column;gap:3px}
+.f>label,.f>.lbl{font-size:12.5px;color:var(--tinta2);font-weight:600}
+select,input[type=search],input[type=number],.btn{font:inherit;font-size:14px;border:1px solid #B9C3CF;border-radius:4px;background:#fff;padding:6px 9px;color:var(--tinta);min-height:36px}
+.btn{cursor:pointer;transition:border-color .15s,background-color .15s}
+.btn:hover{border-color:var(--navy)}
+.seg{display:inline-flex;border:1px solid #B9C3CF;border-radius:4px;overflow:hidden}
+.seg button{border:0;background:#fff;padding:0 13px;min-height:34px;cursor:pointer;color:var(--tinta2);font-size:14px}
+.seg button+button{border-left:1px solid #B9C3CF}
+.seg button[aria-pressed=true]{background:var(--navy);color:#fff}
+details.dd{position:relative}
+details.dd summary{list-style:none;min-width:150px}
+details.dd summary::-webkit-details-marker{display:none}
+.ddpanel{position:absolute;z-index:1300;top:calc(100% + 4px);left:0;width:300px;max-height:380px;overflow:auto;background:#fff;border:1px solid #B9C3CF;border-radius:4px;box-shadow:0 10px 28px rgba(19,37,58,.18);padding:10px}
+.ddpanel .acc{display:flex;gap:6px;margin-bottom:6px}
+.ddpanel .acc button{flex:1;padding:3px;font-size:13px}
+.ddpanel h3{font-size:13px;font-weight:700;color:var(--navy);margin:10px 0 2px}
+.ddpanel label{display:flex;gap:8px;align-items:center;padding:3px 0;cursor:pointer}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:7px;border:1px solid #B9C3CF;border-radius:4px;padding:0 11px;min-height:36px;background:#fff;cursor:pointer;user-select:none;font-size:14px}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip .pt{width:11px;height:11px;border-radius:2px;background:var(--c);flex:none}
+.chip:has(input:not(:checked)){color:var(--suave)}
+.chip:has(input:not(:checked)) .pt{background:transparent;box-shadow:inset 0 0 0 2px var(--c)}
+.chip:has(input:focus-visible){outline:2px solid var(--azul);outline-offset:2px}
+.chip:has(input:checked){border-color:var(--c)}
+
+.activos{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;font-size:13.5px}
+.activos[hidden]{display:none}
+.activos .t{color:var(--tinta2);margin-right:2px}
+.act{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--azul);background:#EAF3FD;color:var(--navy);border-radius:4px;padding:3px 6px 3px 10px;cursor:pointer;font-size:13.5px}
+.act:hover{background:#D8E9FB}
+.act b{font-weight:700;font-size:15px;line-height:1}
+/* ───────── Estructura ───────── */
+main{max-width:1320px;margin:0 auto;padding:0 24px 56px}
+.sec{padding-top:48px}
+.sec>header{position:relative;display:flex;justify-content:space-between;align-items:end;gap:12px 24px;flex-wrap:wrap;margin-bottom:18px;border-bottom:2px solid var(--navy);padding-bottom:10px}
+.sec>header::after{content:"";position:absolute;left:0;bottom:-2px;width:72px;height:4px;background:var(--naranja)}
+.sec h2{font:750 clamp(22px,2.4vw,29px)/1.1 var(--display);font-variation-settings:"wdth" 108;letter-spacing:-.01em;color:var(--navy)}
+.sec header p{font-size:14px;color:var(--tinta2);max-width:36rem}
+.nota{font-size:13px;color:var(--suave);margin-top:10px;max-width:60rem}
+.nota a{color:var(--azul)}
+.vacio{padding:26px 6px;color:var(--suave)}
+
+.lk{border:0;background:none;color:var(--azul);font-weight:600;cursor:pointer;padding:0}
+.lk:hover,a.doc:hover{text-decoration:underline}
+.tip{position:fixed;z-index:3000;background:var(--tinta);color:#fff;font-size:13px;padding:7px 10px;border-radius:4px;pointer-events:none;max-width:260px;line-height:1.35}
+
+/* ───────── Tabla ───────── */
+.tw{overflow:auto;max-height:560px;border-top:1px solid var(--linea)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th{position:sticky;top:0;background:var(--hoja);text-align:left;padding:10px 12px;border-bottom:2px solid var(--navy);cursor:pointer;white-space:nowrap;color:var(--navy);font-weight:700}
+th[aria-sort=ascending]::after{content:" ▲"}th[aria-sort=descending]::after{content:" ▼"}
+td{padding:9px 12px;border-bottom:1px solid var(--linea);vertical-align:top;background:var(--hoja)}
+tr.fila:hover td{background:#F5F8FC;cursor:pointer}
+td:first-child{white-space:nowrap}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+td .pt{display:inline-block;width:10px;height:10px;border-radius:2px;background:var(--c);margin-right:7px}
+.acciones{display:flex;gap:12px;align-items:center;margin-top:14px;flex-wrap:wrap}
+
+footer{margin-top:56px;padding:26px 0 0;border-top:2px solid var(--navy);font-size:13.5px;color:var(--tinta2);display:grid;grid-template-columns:repeat(3,1fr);gap:20px 36px}
+footer h3{font:700 15px var(--display);color:var(--navy);margin-bottom:4px}
+/* ───────── Pestañas entre hojas ───────── */
+.tabsbar{background:var(--hoja);border-bottom:1px solid var(--linea)}
+.tabsbar nav{max-width:1320px;margin:0 auto;padding:0 24px;display:flex;gap:6px}
+.tabsbar a{display:inline-flex;align-items:center;min-height:46px;padding:0 18px;text-decoration:none;color:var(--tinta2);font-weight:600;font-size:15px;border-bottom:4px solid transparent;margin-bottom:-1px}
+.tabsbar a:hover{color:var(--navy);background:#F5F8FC}
+.tabsbar a[aria-current=page]{color:var(--navy);border-bottom-color:var(--naranja)}
+/* ───────── Hoja de análisis ───────── */
+.hero-in{padding-bottom:34px}
+.hero h1{max-width:18em}
+.kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;margin-top:34px;border:1px solid var(--linea);background:var(--hoja)}
+.kpi{padding:16px 18px 14px;border-left:1px solid var(--linea);min-width:0}
+.kpi:first-child{border-left:0}
+.kpi .l{font-size:13px;color:var(--tinta2);font-weight:600}
+.kpi .v{font:800 clamp(26px,2.8vw,36px)/1.05 var(--display);font-variation-settings:"wdth" 108;color:var(--navy);font-variant-numeric:tabular-nums;margin-top:4px}
+.kpi .s{font-size:12.5px;color:var(--suave);margin-top:6px;line-height:1.35}
+.kpi .d{display:block;font-size:13px;font-weight:700;margin-top:6px;font-variant-numeric:tabular-nums}
+.kpi .d.up{color:var(--azul)}.kpi .d.dn{color:var(--naranja)}.kpi .d.na{color:var(--suave);font-weight:500}
+.hall{margin-top:30px;padding:18px 22px 16px;background:var(--hoja);border-left:5px solid var(--naranja)}
+.hall h2{font:750 18px var(--display);color:var(--navy);margin-bottom:8px}
+.hall ul{display:grid;gap:7px}
+.hall li{font-size:15px;line-height:1.5;color:var(--tinta);padding-left:16px;position:relative;max-width:78ch}
+.hall li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;background:var(--azul);border-radius:1px}
+.hall li b{font-variant-numeric:tabular-nums}
+.hall small{display:block;margin-top:10px;color:var(--suave);font-size:12.5px}
+.panel{background:var(--hoja);border:1px solid var(--linea);padding:18px 20px 16px}
+.panel h3{font:750 17px var(--display);color:var(--navy)}
+.panel .sub{font-size:13.5px;color:var(--tinta2);margin:2px 0 12px;max-width:62ch}
+.ph{display:flex;justify-content:space-between;align-items:flex-start;gap:10px 18px;flex-wrap:wrap}
+.leg{display:flex;flex-wrap:wrap;gap:4px 18px;margin:10px 0 0;font-size:13px;color:var(--tinta2)}
+.leg span{display:inline-flex;align-items:center;gap:6px}
+.leg i{width:11px;height:11px;border-radius:2px;background:var(--c);flex:none}
+.leg b{color:var(--tinta);font-variant-numeric:tabular-nums}
+.dos2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:22px}
+.dos2>.panel{margin:0}
+.t100{display:grid;grid-template-columns:132px 1fr 56px;gap:10px;align-items:center;margin:9px 0;font-size:13.5px}
+.t100 .n{text-align:right;color:var(--tinta2);font-variant-numeric:tabular-nums}
+.b100{display:flex;height:30px;gap:2px;background:var(--hoja)}
+.b100 span{display:flex;align-items:center;justify-content:center;min-width:0;color:#fff;font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;background:var(--c)}
+.t100 em{display:block;font-style:normal;color:var(--suave);font-size:12px}
+.hb{display:grid;grid-template-columns:150px 1fr 70px;gap:10px;align-items:center;margin:7px 0;font-size:13.5px}
+.hb.emp{grid-template-columns:230px 1fr 60px}
+.hb .bar{height:16px;background:#EEF2F6;position:relative}
+.hb .bar b{display:block;height:100%;background:var(--azul);border-radius:0 3px 3px 0}
+.hb .bar b.g{background:#9AA5B1}
+.hb .bar b.o{background:var(--naranja)}
+.hb .n{text-align:right;font-variant-numeric:tabular-nums;color:var(--tinta2)}
+.hb.edif span:first-child{font-weight:700;color:var(--navy)}
+.par2{display:grid;grid-template-columns:150px 1fr;gap:10px;margin:8px 0;align-items:center;font-size:13.5px}
+.par2 .bars{display:grid;gap:3px}
+.par2 .bar{height:13px;background:#EEF2F6;display:flex;align-items:center}
+.par2 .bar b{display:block;height:100%;background:var(--azul);border-radius:0 3px 3px 0}
+.par2 .bar b.v{background:var(--naranja)}
+.par2 .bar i{font-style:normal;font-size:12px;margin-left:6px;color:var(--tinta2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.sp{display:block}
+.chg{font-variant-numeric:tabular-nums;white-space:nowrap}
+.chg.up{color:var(--azul);font-weight:700}.chg.dn{color:var(--naranja);font-weight:700}.chg.na{color:var(--suave)}
+.cal{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:6px}
+.cal div{font-size:13.5px;color:var(--tinta2)}
+.cal b{display:block;font:800 26px/1 var(--display);color:var(--navy);margin-bottom:4px;font-variant-numeric:tabular-nums}
+.cal .bar{height:6px;background:#EEF2F6;margin-top:8px}.cal .bar i{display:block;height:100%;background:var(--azul)}
+.aviso{margin-top:16px;padding:12px 14px;background:#FFF4EE;border-left:4px solid var(--naranja);font-size:13.5px;color:var(--tinta);max-width:80ch}
+details.tab{margin-top:12px}
+details.tab summary{cursor:pointer;color:var(--azul);font-weight:600;font-size:14px}
+#cuerpoC td a{color:var(--azul);font-weight:600;text-decoration:none}
+#cuerpoC td a:hover{text-decoration:underline}
+.th-s{cursor:pointer}
+svg text{font:11.5px var(--texto);fill:var(--tinta2)}
+.gridl{stroke:#E4EAF0;stroke-width:1}
+.axl{stroke:#9AA5B1;stroke-width:1}
+@media (max-width:1000px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.kpi{border-top:1px solid var(--linea)}.kpi:nth-child(odd){border-left:0}.dos2{grid-template-columns:1fr}.cal{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.t100{grid-template-columns:96px 1fr 44px}.hb,.hb.emp{grid-template-columns:120px 1fr 52px}.par2{grid-template-columns:1fr}.tabsbar nav{padding:0 12px}.tabsbar a{padding:0 12px;font-size:14px}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="hero-in">
+  <div class="marca"><img src="logo.png" alt="Cámara Chilena de la Construcción, O'Higgins" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'Cámara Chilena de la Construcción, O\'Higgins'}))"><span id="sub">Estudios</span>
+    <nav class="nav" aria-label="Secciones"><a href="#tendencia">Tendencia</a><a href="#uso">Vivienda y comercio</a><a href="#comunas">Comunas</a><a href="#tamano">Proyectos</a><a href="#calidad">Calidad de datos</a></nav></div>
+  <h1>Análisis histórico de los permisos de edificación</h1>
+  <div class="frase"><p id="frase">Cargando permisos…</p></div>
+</div></header>
+<div class="tabsbar"><nav aria-label="Hojas del panel"><a href="index.html">Panel de permisos</a><a href="analisis.html" aria-current="page">Análisis histórico</a></nav></div>
+<div id="demo" class="demo" hidden>Datos de ejemplo: registros ficticios para probar el diseño. Los meses publicados por cada comuna son reales; los permisos, no.</div>
+
+<div class="barra"><div class="barra-in" role="search" aria-label="Filtros del análisis">
+  <div class="frow">
+    <div class="f"><label for="desde">Desde</label><select id="desde"></select></div>
+    <div class="f"><label for="hasta">Hasta</label><select id="hasta"></select></div>
+    <div class="f"><label for="prov">Provincia</label><select id="prov"></select></div>
+    <div class="f"><label for="com">Comuna</label><select id="com"></select></div>
+    <div class="f"><span class="lbl">Qué incluir</span><div class="seg" id="alc" role="group" aria-label="Qué incluir">
+      <button type="button" data-a="edif" aria-pressed="true">Permisos de edificación</button><button type="button" data-a="todo" aria-pressed="false">Todo lo publicado</button></div></div>
+    <button class="btn" id="limpiar" type="button">Restablecer</button>
+  </div>
+  <div class="activos" id="activos" hidden aria-live="polite"></div>
+</div></div>
+
+<main>
+  <div class="kpis" id="kpis" aria-label="Indicadores del período"></div>
+  <section class="hall" id="hall" aria-labelledby="hallT"><h2 id="hallT">Lo que dicen los datos</h2><ul id="hallL"></ul><small id="hallN"></small></section>
+
+  <section class="sec" id="tendencia">
+    <header><h2>Tendencia mes a mes</h2><p>Cuánto se otorgó cada mes y para qué uso. Toca una barra para ver el detalle.</p></header>
+    <div class="panel">
+      <div class="ph"><div><h3 id="tTend">Permisos por mes y destino</h3><p class="sub" id="sTend"></p></div>
+        <div class="seg" id="metT" role="group" aria-label="Medida de la tendencia"><button type="button" data-m="n" aria-pressed="true">Permisos</button><button type="button" data-m="viv" aria-pressed="false">Viviendas</button><button type="button" data-m="m2" aria-pressed="false">m²</button></div></div>
+      <div id="chartT"></div>
+      <div class="leg" id="legT"></div>
+      <details class="tab"><summary>Ver como tabla y descargar</summary>
+        <div class="tw" style="margin-top:10px"><table><thead id="hMes"></thead><tbody id="bMes"></tbody></table></div>
+        <div class="acciones"><button class="btn" id="csvMes" type="button">Descargar resumen mensual (CSV)</button></div></details>
+    </div>
+  </section>
+
+  <section class="sec" id="uso">
+    <header><h2>¿Más vivienda o más comercio?</h2><p>Cómo se reparte lo otorgado entre usos, trimestre a trimestre, y qué tipo de permiso predomina.</p></header>
+    <div class="dos2">
+      <div class="panel"><div class="ph"><div><h3>Reparto por destino y trimestre</h3><p class="sub">Cada barra suma 100 %.</p></div>
+        <div class="seg" id="metU" role="group" aria-label="Medida del reparto"><button type="button" data-m="n" aria-pressed="true">Permisos</button><button type="button" data-m="m2" aria-pressed="false">m²</button></div></div>
+        <div id="mix"></div><div class="leg" id="legU"></div></div>
+      <div class="panel"><h3>Qué se está otorgando</h3><p class="sub">Documentos publicados por tipo. En negrita, los que cuentan como permiso de edificación.</p><div id="tipos"></div>
+        <p class="nota" id="notaTipos"></p></div>
+    </div>
+  </section>
+
+  <section class="sec" id="comunas">
+    <header><h2>Comunas</h2><p>Ordena por cualquier columna. “Variación” compara los últimos 3 meses del período con los 3 anteriores, solo si la comuna publicó los 6.</p></header>
+    <div class="panel" style="padding:0">
+      <div class="tw" style="max-height:640px;border-top:0"><table id="tCom"><thead></thead><tbody id="cuerpoC"></tbody></table></div>
+    </div>
+    <p class="nota" id="notaCom"></p>
+  </section>
+
+  <section class="sec" id="tamano">
+    <header><h2>Tamaño de los proyectos y quién los hace</h2><p>Pocos proyectos grandes suelen concentrar la mayoría de las viviendas.</p></header>
+    <div class="dos2">
+      <div class="panel"><h3>Proyectos habitacionales por tamaño</h3><p class="sub">Azul: parte de los proyectos. Naranja: parte de las viviendas.</p><div id="bins"></div><p class="nota" id="notaBins"></p></div>
+      <div class="panel"><div class="ph"><div><h3>Empresas con más viviendas</h3><p class="sub">Solo personas jurídicas que el documento informa como propietarias.</p></div></div><div id="emp"></div><p class="nota" id="notaEmp"></p></div>
+    </div>
+  </section>
+
+  <section class="sec" id="calidad">
+    <header><h2>Calidad de los datos y qué no se puede medir</h2><p>Para saber cuánto confiar en cada cifra de esta hoja.</p></header>
+    <div class="panel"><div class="cal" id="cal"></div>
+      <div class="aviso"><b>Sobre “aprobados”.</b> El artículo 116 bis C obliga a publicar los permisos y autorizaciones <b>otorgados</b>. Las solicitudes rechazadas o en trámite no se publican, así que con esta fuente no se puede calcular una tasa de aprobación ni tiempos de tramitación. Todo lo que aparece aquí ya fue aprobado.</div>
+      <p class="nota">Las variaciones comparan solo comunas con los meses completos publicados. Meses sin documento no cuentan como cero. La lectura de los PDF es automática: confirma en el documento original antes de usar una cifra en un informe.</p>
+    </div>
+  </section>
+  <footer>
+    <div><h3>De dónde salen los datos</h3><p>Permisos y autorizaciones que las 33 municipalidades publican cada mes en Transparencia Activa (art. 116 bis C de la LGUC, Ley 21.718). El Portal parte en mayo de 2025.</p></div>
+    <div><h3>Cómo se calcula</h3><p>Todas las cifras salen de los mismos registros del panel principal, con los filtros de arriba. Los porcentajes se calculan sobre lo informado en cada documento.</p></div>
+    <div><h3>Cómo se actualiza</h3><p>Se actualiza solo junto con el panel principal, los días 10 y 20 de cada mes, con lo que cada municipio haya publicado.</p></div>
+  </footer>
+</main>
+<div id="tip" class="tip" hidden></div>
+<script>
+(function(){
+'use strict';
+var DEST=[['Vivienda','#006EDC'],['Comercio y servicios','#E74100'],['Equipamiento','#2A9D8F'],['Industria y bodegas','#8E6BBF'],['Otros','#9AA5B1']];
+var DK=DEST.map(function(d){return d[0]}),DC={};DEST.forEach(function(d){DC[d[0]]=d[1]});
+var TIPOS=[['nueva','Obra nueva',1],['ampliacion','Ampliación',1],['modificacion','Modificación',1],['regularizacion','Regularización',0],['recepcion','Recepción definitiva',0],['obra_menor','Obra menor',0],['subdivision','Subdivisión o loteo',0],['otros','Otros',0]];
+var EDIF={nueva:1,ampliacion:1,modificacion:1};
+var MES=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+var MESL=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+var S={comunas:[],permisos:[],meta:{},pub:null,f:{},metT:'n',metU:'n',orden:{k:'n1',d:-1}};
+
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function fmt(n){return Number(n||0).toLocaleString('es-CL',{maximumFractionDigits:0})}
+function pct(a,b,d){if(!b)return '—';var v=100*a/b;return v.toLocaleString('es-CL',{maximumFractionDigits:d==null?0:d})+' %'}
+function mesTxt(m){var p=m.split('-');return MES[+p[1]-1]+' '+p[0]}
+function mesCorto(m){var p=m.split('-');return MES[+p[1]-1]+' '+p[0].slice(2)}
+function mesLargo(m){var p=m.split('-');return MESL[+p[1]-1]+' de '+p[0]}
+function mesesRango(d,h){var o=[],a=d.split('-').map(Number),b=h.split('-').map(Number),y=a[0],m=a[1];while(y<b[0]||(y===b[0]&&m<=b[1])){o.push(y+'-'+(m<10?'0':'')+m);m++;if(m>12){m=1;y++}}return o}
+function desplazar(ym,k){var p=ym.split('-').map(Number),t=p[0]*12+p[1]-1+k;var y=Math.floor(t/12),m=t%12+1;return y+'-'+(m<10?'0':'')+m}
+function niceMax(v){var e=Math.pow(10,Math.floor(Math.log10(v))),f=v/e;return (f<=1?1:f<=2?2:f<=5?5:10)*e}
+function dest(p){return DC[p.destino]?p.destino:'Otros'}
+function val(p,m){return m==='n'?1:m==='viv'?(p.viviendas||0):(p.superficie_m2||0)}
+function unidad(m){return m==='n'?'permisos':m==='viv'?'viviendas':'m²'}
+function sum(rows,m){var t=0;rows.forEach(function(p){t+=val(p,m)});return t}
+function nombres(a){return a.length<=1?(a[0]||''):a.slice(0,-1).join(', ')+' y '+a[a.length-1]}
+
+/* ---------- datos ---------- */
+function provDe(n){var c=S.comunas.filter(function(x){return x.nombre===n})[0];return c?c.provincia:''}
+function comunasAlcance(){return S.comunas.filter(function(c){return(!S.f.prov||c.provincia===S.f.prov)&&(!S.f.com||c.nombre===S.f.com)})}
+function filas(o){ // o: {desde,hasta,comunas:Set,todo:bool}
+  return S.permisos.filter(function(p){return p.mes>=o.desde&&p.mes<=o.hasta&&o.comunas.has(p.comuna)&&(o.todo||EDIF[p.categoria])})}
+function setComunas(){return new Set(comunasAlcance().map(function(c){return c.nombre}))}
+function actuales(todo){return filas({desde:S.f.desde,hasta:S.f.hasta,comunas:setComunas(),todo:todo===true||(todo==null&&S.f.alc==='todo')})}
+function publicado(slug,ym){var x=S.pub&&S.pub.comunas&&S.pub.comunas[slug];return !!(x&&x.meses&&x.meses[ym])}
+/* Variación entre dos ventanas de meses, solo con comunas que publicaron todos los meses de ambas */
+function variacion(mA,mB,m,cs){
+  if(!S.pub)return {no:'Sin datos de publicación'};
+  if(mB.some(function(x){return x<S.pub.desde}))return {no:'El Portal parte en '+mesTxt(S.pub.desde)};
+  var ok=cs.filter(function(c){return mA.concat(mB).every(function(x){return publicado(c.slug,x)})});
+  if(!ok.length)return {no:'Sin comunas con los meses completos'};
+  var set=new Set(ok.map(function(c){return c.nombre})),todo=S.f.alc==='todo';
+  var a=sum(filas({desde:mA[0],hasta:mA[mA.length-1],comunas:set,todo:todo}),m),b=sum(filas({desde:mB[0],hasta:mB[mB.length-1],comunas:set,todo:todo}),m);
+  if(!b)return {no:'Sin base de comparación',a:a,b:b,n:ok.length};
+  return {a:a,b:b,p:(a-b)/b,n:ok.length};
+}
+function ventanas(){var ms=mesesRango(S.f.desde,S.f.hasta);if(ms.length<3)return null;var A=ms.slice(-3);return {A:A,B:A.map(function(x){return desplazar(x,-3)}),Y:A.map(function(x){return desplazar(x,-12)})}}
+function chg(v){if(!v||v.p==null)return '<span class="chg na">'+esc(v&&v.no||'—')+'</span>';var up=v.p>=0;return '<span class="chg '+(up?'up':'dn')+'">'+(up?'▲ +':'▼ −')+(Math.abs(v.p)*100).toLocaleString('es-CL',{maximumFractionDigits:0})+' %</span>'}
+
+/* ---------- carga ---------- */
+function getJSON(u){return fetch(u,{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error(u+' '+r.status);return r.json()})}
+function cargar(){
+  return Promise.all([getJSON('data/comunas.json'),
+    (/[?&]demo\b/.test(location.search)?getJSON('data/demo.json'):getJSON('data/permisos.json').then(function(d){if(!d.permisos||!d.permisos.length)throw 0;return d}).catch(function(){return getJSON('data/demo.json')})),
+    getJSON('data/publicacion.json').catch(function(){return null})
+  ]).then(function(r){S.comunas=r[0].comunas;S.permisos=r[1].permisos;S.meta=r[1].meta||{};S.pub=r[2];iniciar();render()})
+  .catch(function(e){document.getElementById('frase').textContent='No se pudieron cargar los datos ('+(e&&e.message||e)+'). Publica la carpeta en GitHub Pages o ábrela con un servidor local.'});
+}
+function rangoMeses(){var ms=S.permisos.map(function(p){return p.mes});if(S.pub){ms.push(S.pub.desde,S.pub.hasta)}ms=ms.filter(Boolean).sort();return mesesRango(ms[0],ms[ms.length-1])}
+function iniciar(){
+  var lista=rangoMeses();S.rango=[lista[0],lista[lista.length-1]];S.f={desde:S.rango[0],hasta:S.rango[1],prov:'',com:'',alc:'edif'};
+  var op=lista.map(function(m){return '<option value="'+m+'">'+mesTxt(m)+'</option>'}).join('');
+  document.getElementById('desde').innerHTML=op;document.getElementById('hasta').innerHTML=op;
+  var provs=[];S.comunas.forEach(function(c){if(provs.indexOf(c.provincia)<0)provs.push(c.provincia)});
+  document.getElementById('prov').innerHTML='<option value="">Toda la región</option>'+provs.map(function(p){return '<option>'+esc(p)+'</option>'}).join('');
+  listarComunas();
+  document.getElementById('desde').onchange=function(e){S.f.desde=e.target.value;if(S.f.desde>S.f.hasta)S.f.hasta=S.f.desde;render()};
+  document.getElementById('hasta').onchange=function(e){S.f.hasta=e.target.value;if(S.f.hasta<S.f.desde)S.f.desde=S.f.hasta;render()};
+  document.getElementById('prov').onchange=function(e){S.f.prov=e.target.value;S.f.com='';listarComunas();render()};
+  document.getElementById('com').onchange=function(e){S.f.com=e.target.value;render()};
+  document.getElementById('alc').onclick=function(e){var a=e.target.dataset&&e.target.dataset.a;if(a){S.f.alc=a;render()}};
+  document.getElementById('limpiar').onclick=function(){S.f={desde:S.rango[0],hasta:S.rango[1],prov:'',com:'',alc:'edif'};listarComunas();render()};
+  document.getElementById('metT').onclick=function(e){var m=e.target.dataset&&e.target.dataset.m;if(m){S.metT=m;render()}};
+  document.getElementById('metU').onclick=function(e){var m=e.target.dataset&&e.target.dataset.m;if(m){S.metU=m;render()}};
+  document.getElementById('csvMes').onclick=csvMes;
+  document.getElementById('activos').onclick=function(e){var b=e.target.closest('[data-q]');if(b&&S.quitar[+b.dataset.q])S.quitar[+b.dataset.q]()};
+  var t;window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(render,150)});
+}
+function listarComunas(){
+  var cs=S.comunas.filter(function(c){return !S.f.prov||c.provincia===S.f.prov});
+  document.getElementById('com').innerHTML='<option value="">Todas las comunas</option>'+cs.map(function(c){return '<option>'+esc(c.nombre)+'</option>'}).join('');
+}
+
+/* ---------- render ---------- */
+function render(){
+  document.getElementById('demo').hidden=!S.meta.demo;
+  document.getElementById('desde').value=S.f.desde;document.getElementById('hasta').value=S.f.hasta;
+  document.getElementById('prov').value=S.f.prov;document.getElementById('com').value=S.f.com;
+  document.querySelectorAll('#alc button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.a===S.f.alc)});
+  document.querySelectorAll('#metT button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.m===S.metT)});
+  document.querySelectorAll('#metU button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.m===S.metU)});
+  var rows=actuales(),todas=actuales(true);
+  activos();hero(rows);kpis(rows);resumen(rows);tendencia(rows);mezcla(rows);tipos(todas);comunasTabla(rows);bins(rows);empresas(rows);calidad(rows);
+}
+function activos(){
+  var a=[],q=[],box=document.getElementById('activos');
+  function add(t,fn){a.push('<button type="button" class="act" data-q="'+q.length+'" aria-label="Quitar filtro: '+esc(t)+'">'+esc(t)+' <b aria-hidden="true">×</b></button>');q.push(fn)}
+  if(S.f.desde!==S.rango[0]||S.f.hasta!==S.rango[1])add(S.f.desde===S.f.hasta?mesTxt(S.f.desde):mesTxt(S.f.desde)+' a '+mesTxt(S.f.hasta),function(){S.f.desde=S.rango[0];S.f.hasta=S.rango[1];render()});
+  if(S.f.prov)add('Provincia de '+S.f.prov,function(){S.f.prov='';S.f.com='';listarComunas();render()});
+  if(S.f.com)add(S.f.com,function(){S.f.com='';render()});
+  if(S.f.alc==='todo')add('Incluye regularizaciones, recepciones y otros',function(){S.f.alc='edif';render()});
+  S.quitar=q;box.hidden=!a.length;box.innerHTML=a.length?'<span class="t">Filtros activos:</span>'+a.join(''):'';
+}
+function donde(){return S.f.com?'la comuna de '+S.f.com:S.f.prov?'la provincia de '+S.f.prov:'la región'}
+function hero(rows){
+  var v=sum(rows,'viv'),per=S.f.desde===S.f.hasta?'En '+mesLargo(S.f.desde):'Entre '+mesLargo(S.f.desde)+' y '+mesLargo(S.f.hasta);
+  document.getElementById('frase').innerHTML=per+', en '+esc(donde())+' se otorgaron <b>'+fmt(rows.length)+(rows.length===1?' permiso':' permisos')+'</b>'+(S.f.alc==='edif'?' de edificación':'')+(rows.length&&v?', con <b>'+fmt(v)+(v===1?' vivienda':' viviendas')+'</b> informadas':'')+'.<small>'+(S.meta.demo?'Datos de ejemplo. ':'')+'Se cuentan permisos otorgados según lo publicado por cada municipalidad.</small>';
+}
+function kpis(rows){
+  var cs=comunasAlcance(),vv=ventanas(),m2=sum(rows,'m2'),viv=sum(rows,'viv'),n=rows.length;
+  var meses=mesesRango(S.f.desde,S.f.hasta);
+  var vN=vv?variacion(vv.A,vv.B,'n',cs):null,yN=vv?variacion(vv.A,vv.Y,'n',cs):null;
+  var vV=vv?variacion(vv.A,vv.B,'viv',cs):null;
+  var pos=cs.length*meses.length,pub=0;if(S.pub){cs.forEach(function(c){meses.forEach(function(m){if(publicado(c.slug,m))pub++})})}
+  var hab=rows.filter(function(p){return p.viviendas>0}).map(function(p){return p.viviendas}).sort(function(a,b){return a-b});
+  var med=hab.length?(hab.length%2?hab[(hab.length-1)/2]:(hab[hab.length/2-1]+hab[hab.length/2])/2):null;
+  function d(v,t){return '<span class="d '+(v&&v.p!=null?(v.p>=0?'up':'dn'):'na')+'">'+(v&&v.p!=null?chg(v)+' '+t:esc((v&&v.no)||'')+'')+'</span>'}
+  var win=vv?mesTxt(vv.A[0])+' a '+mesTxt(vv.A[2]):'';
+  var t=[
+    ['Permisos otorgados',fmt(n),vv?d(vN,'últimos 3 meses vs 3 anteriores')+(yN&&yN.p!=null?d(yN,'vs mismos meses del año anterior'):'<span class="d na">Año anterior: '+esc(yN&&yN.no||'')+'</span>'):''],
+    ['Viviendas autorizadas',fmt(viv),vv?d(vV,'últimos 3 meses vs 3 anteriores'):''],
+    ['m² autorizados',fmt(m2),'<span class="s">Suma de la superficie edificada informada</span>'],
+    ['Proyecto habitacional típico',med==null?'—':fmt(med)+' viv.','<span class="s">Mediana de viviendas por proyecto'+(hab.length?' ('+fmt(hab.length)+' proyectos)':'')+'</span>'],
+    ['Cobertura del período',S.pub&&pos?pct(pub,pos):'—','<span class="s">'+(S.pub&&pos?fmt(pub)+' de '+fmt(pos)+' meses de comuna con documento publicado':'Sin información de publicación')+'</span>']
+  ];
+  document.getElementById('kpis').innerHTML=t.map(function(x){return '<div class="kpi"><div class="l">'+x[0]+'</div><div class="v">'+x[1]+'</div>'+(x[2].indexOf('class="s"')>=0&&x[2].indexOf('class="d')<0?x[2].replace('<span class="s">','<div class="s">').replace('</span>','</div>'):x[2])+'</div>'}).join('');
+  if(vv)document.getElementById('kpis').setAttribute('data-ventana',win);
+}
+function resumen(rows){
+  var L=[],cs=comunasAlcance(),n=rows.length;
+  if(!n){document.getElementById('hallL').innerHTML='<li>No hay permisos con estos filtros. Amplía el período o quita algún filtro.</li>';document.getElementById('hallN').textContent='';return}
+  var porD={};DK.forEach(function(k){porD[k]={n:0,m2:0}});rows.forEach(function(p){var k=dest(p);porD[k].n++;porD[k].m2+=p.superficie_m2||0});
+  var m2t=sum(rows,'m2'),v=porD['Vivienda'],c=porD['Comercio y servicios'];
+  L.push('<b>Uso del suelo:</b> la vivienda es el <b>'+pct(v.n,n)+'</b> de los permisos'+(m2t?' y el <b>'+pct(v.m2,m2t)+'</b> de los m² autorizados':'')+'; comercio y servicios, el <b>'+pct(c.n,n)+'</b>'+(m2t?' de los permisos y el <b>'+pct(c.m2,m2t)+'</b> de los m²':'')+'.');
+  var vv=ventanas();
+  if(vv){var a=variacion(vv.A,vv.B,'n',cs);
+    if(a.p!=null)L.push('<b>Ritmo reciente:</b> entre '+mesTxt(vv.A[0])+' y '+mesTxt(vv.A[2])+' se otorgaron <b>'+fmt(a.a)+'</b> permisos, '+(a.p>=0?'un <b>'+(a.p*100).toLocaleString('es-CL',{maximumFractionDigits:0})+' % más':'un <b>'+(-a.p*100).toLocaleString('es-CL',{maximumFractionDigits:0})+' % menos')+'</b> que en los 3 meses anteriores ('+fmt(a.b)+'), medido en las '+a.n+' comunas con esos 6 meses publicados.');
+    else L.push('<b>Ritmo reciente:</b> '+esc(a.no||'sin datos suficientes')+' para comparar los últimos 3 meses.');}
+  var porC={};rows.forEach(function(p){porC[p.comuna]=(porC[p.comuna]||0)+1});
+  var top=Object.keys(porC).sort(function(a,b){return porC[b]-porC[a]}).slice(0,3);
+  if(Object.keys(porC).length>3){var s3=top.reduce(function(a,k){return a+porC[k]},0);L.push('<b>Concentración:</b> '+nombres(top)+' reúnen el <b>'+pct(s3,n)+'</b> de los permisos.')}
+  var hab=rows.filter(function(p){return p.viviendas>0}),vt=sum(hab,'viv'),gr=hab.filter(function(p){return p.viviendas>100});
+  if(gr.length&&vt)L.push('<b>Proyectos grandes:</b> los <b>'+fmt(gr.length)+'</b> proyectos de más de 100 viviendas son el '+pct(gr.length,hab.length)+' de los habitacionales, pero suman el <b>'+pct(sum(gr,'viv'),vt)+'</b> de las viviendas.');
+  document.getElementById('hallL').innerHTML=L.map(function(x){return '<li>'+x+'</li>'}).join('');
+  document.getElementById('hallN').textContent='Resumen calculado automáticamente con los filtros de arriba. Revisa la calidad de los datos al final de la hoja.';
+}
+
+/* ---------- gráficos ---------- */
+var tipEl=document.getElementById('tip');
+function tip(e,html){tipEl.innerHTML=html;tipEl.hidden=false;var w=tipEl.offsetWidth,x=Math.min(e.clientX+14,innerWidth-w-10);tipEl.style.left=Math.max(8,x)+'px';tipEl.style.top=(e.clientY+16)+'px'}
+function notip(){tipEl.hidden=true}
+function tendencia(rows){
+  var meses=mesesRango(S.f.desde,S.f.hasta),m=S.metT,dat={};
+  meses.forEach(function(x){dat[x]={}});
+  rows.forEach(function(p){var o=dat[p.mes];if(o){var k=dest(p);o[k]=(o[k]||0)+val(p,m)}});
+  document.getElementById('tTend').textContent=(m==='n'?'Permisos':m==='viv'?'Viviendas':'m²')+' por mes y destino';
+  var tot=sum(rows,m);document.getElementById('sTend').textContent='Total del período: '+fmt(tot)+' '+unidad(m)+'.'+(m==='viv'?' Solo los destinos que informan viviendas aportan a esta medida.':'');
+  var W=Math.max(300,document.getElementById('chartT').clientWidth||760),H=320,mg={l:48,r:10,t:12,b:34},iw=W-mg.l-mg.r,ih=H-mg.t-mg.b;
+  var tt=meses.map(function(x){return DK.reduce(function(a,k){return a+(dat[x][k]||0)},0)}),mx=niceMax(Math.max(1,Math.max.apply(null,tt)));
+  var bw=iw/meses.length,s='<svg viewBox="0 0 '+W+' '+H+'" width="100%" role="img" aria-label="Gráfico de columnas apiladas por mes">';
+  for(var i=0;i<=4;i++){var y=mg.t+ih-ih*i/4;s+='<line class="gridl" x1="'+mg.l+'" x2="'+(W-mg.r)+'" y1="'+y+'" y2="'+y+'"/><text x="'+(mg.l-8)+'" y="'+(y+4)+'" text-anchor="end">'+fmt(mx*i/4)+'</text>'}
+  var cada=Math.ceil(meses.length/Math.max(2,Math.floor(iw/62)));
+  meses.forEach(function(x,j){
+    var cx=mg.l+j*bw,w=Math.max(4,bw*.72),x0=cx+(bw-w)/2,acc=0;
+    DK.forEach(function(k){var v=dat[x][k]||0;if(!v)return;var h=ih*v/mx,y=mg.t+ih-ih*acc/mx-h;acc+=v;
+      s+='<rect x="'+x0.toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+w.toFixed(1)+'" height="'+Math.max(0,h-(h>3?2:0)).toFixed(1)+'" fill="'+DC[k]+'"/>'});
+    if(j%cada===0||j===meses.length-1)s+='<text x="'+(cx+bw/2)+'" y="'+(H-12)+'" text-anchor="middle">'+mesCorto(x)+'</text>';
+    var lines=DK.filter(function(k){return dat[x][k]}).map(function(k){return '<span style="color:#fff"><i style="display:inline-block;width:8px;height:8px;background:'+DC[k]+';margin-right:5px"></i>'+esc(k)+': <b>'+fmt(dat[x][k])+'</b></span>'}).join('<br>');
+    s+='<rect class="hv" x="'+cx.toFixed(1)+'" y="'+mg.t+'" width="'+bw.toFixed(1)+'" height="'+ih+'" fill="transparent" data-t="'+esc('<b>'+mesLargo(x)+'</b><br>Total: <b>'+fmt(tt[j])+'</b> '+unidad(m)+(lines?'<br>'+lines:''))+'"/>';
+  });
+  s+='<line class="axl" x1="'+mg.l+'" x2="'+(W-mg.r)+'" y1="'+(mg.t+ih)+'" y2="'+(mg.t+ih)+'"/></svg>';
+  var box=document.getElementById('chartT');box.innerHTML=s;
+  box.querySelectorAll('.hv').forEach(function(r){r.addEventListener('mousemove',function(e){tip(e,r.dataset.t)});r.addEventListener('mouseleave',notip);r.addEventListener('click',function(e){tip(e,r.dataset.t)})});
+  var tD={};DK.forEach(function(k){tD[k]=0});rows.forEach(function(p){tD[dest(p)]+=val(p,m)});
+  document.getElementById('legT').innerHTML=DEST.map(function(d){return '<span style="--c:'+d[1]+'"><i></i>'+esc(d[0])+(tot?' <b>'+pct(tD[d[0]],tot)+'</b>':'')+'</span>'}).join('');
+  document.getElementById('hMes').innerHTML='<tr><th>Mes</th><th>Total</th>'+DK.map(function(k){return '<th>'+esc(k)+'</th>'}).join('')+'</tr>';
+  document.getElementById('bMes').innerHTML=meses.map(function(x,j){return '<tr><td>'+mesTxt(x)+'</td><td class="num">'+fmt(tt[j])+'</td>'+DK.map(function(k){return '<td class="num">'+fmt(dat[x][k]||0)+'</td>'}).join('')+'</tr>'}).join('');
+}
+function csvMes(){
+  var rows=actuales(),meses=mesesRango(S.f.desde,S.f.hasta),o=[['Mes','Permisos','Viviendas','m2'].concat(DK.map(function(k){return 'Permisos '+k}))];
+  meses.forEach(function(x){var r=rows.filter(function(p){return p.mes===x});o.push([x,r.length,sum(r,'viv'),Math.round(sum(r,'m2'))].concat(DK.map(function(k){return r.filter(function(p){return dest(p)===k}).length})))});
+  var txt='﻿'+o.map(function(r){return r.join(';')}).join('\r\n'),a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([txt],{type:'text/csv;charset=utf-8'}));a.download='resumen-mensual-permisos-ohiggins.csv';document.body.appendChild(a);a.click();a.remove();
+}
+function trimestres(meses){var g=[];meses.forEach(function(x){var p=x.split('-'),k=p[0]+' T'+Math.ceil(+p[1]/3),l=g[g.length-1];if(l&&l.k===k)l.m.push(x);else g.push({k:k,m:[x]})});return g}
+function mezcla(rows){
+  var meses=mesesRango(S.f.desde,S.f.hasta),m=S.metU,h='';
+  trimestres(meses).forEach(function(q){
+    var r=rows.filter(function(p){return q.m.indexOf(p.mes)>=0}),tot=sum(r,m),par=q.m.length<3;
+    var seg=DK.map(function(k){var v=sum(r.filter(function(p){return dest(p)===k}),m);return [k,v]}).filter(function(x){return x[1]>0});
+    var lab=q.k.replace(' ',' ')+(par?'<em>'+mesCorto(q.m[0]).split(' ')[0]+(q.m.length>1?' a '+mesCorto(q.m[q.m.length-1]).split(' ')[0]:'')+' (parcial)</em>':'');
+    h+='<div class="t100"><span>'+lab+'</span><div class="b100" role="img" aria-label="'+esc(q.k+': '+seg.map(function(x){return x[0]+' '+pct(x[1],tot)}).join(', '))+'">'+(tot?seg.map(function(x){var p=100*x[1]/tot;return '<span style="flex:'+x[1]+';--c:'+DC[x[0]]+'" title="'+esc(x[0]+': '+fmt(x[1])+' '+unidad(m)+' ('+pct(x[1],tot)+')')+'">'+(p>=9?Math.round(p)+' %':'')+'</span>'}).join(''):'<span style="flex:1;--c:#E4EAF0;color:#66778A">Sin datos</span>')+'</div><span class="n">'+fmt(tot)+'</span></div>';
+  });
+  document.getElementById('mix').innerHTML=h;
+  var tot=sum(rows,m),tD={};DK.forEach(function(k){tD[k]=0});rows.forEach(function(p){tD[dest(p)]+=val(p,m)});
+  document.getElementById('legU').innerHTML=DEST.map(function(d){return '<span style="--c:'+d[1]+'"><i></i>'+esc(d[0])+(tot?' <b>'+pct(tD[d[0]],tot)+'</b>':'')+'</span>'}).join('');
+}
+function tipos(rows){
+  var c={};rows.forEach(function(p){var k=TIPOS.some(function(t){return t[0]===p.categoria})?p.categoria:'otros';c[k]=(c[k]||0)+1});
+  var mx=Math.max.apply(null,TIPOS.map(function(t){return c[t[0]]||0}).concat([1])),tot=rows.length;
+  document.getElementById('tipos').innerHTML=TIPOS.filter(function(t){return c[t[0]]}).map(function(t){var n=c[t[0]];
+    return '<div class="hb'+(t[2]?' edif':'')+'"><span>'+esc(t[1])+'</span><span class="bar"><b class="'+(t[2]?'':'g')+'" style="width:'+Math.max(1.5,100*n/mx)+'%"></b></span><span class="n">'+fmt(n)+' <small>'+pct(n,tot)+'</small></span></div>'}).join('')||'<p class="nota">Sin documentos con estos filtros.</p>';
+  var e=TIPOS.filter(function(t){return t[2]}).reduce(function(a,t){return a+(c[t[0]]||0)},0);
+  document.getElementById('notaTipos').textContent=tot?'De '+fmt(tot)+' documentos publicados, '+fmt(e)+' ('+pct(e,tot)+') son permisos de edificación. Las regularizaciones se informan aparte porque regularizan obras ya construidas.':'';
+}
+function spark(vals){
+  var W=96,H=26,mx=Math.max.apply(null,vals.concat([1])),bw=W/vals.length;
+  return '<svg class="sp" width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'" aria-hidden="true">'+vals.map(function(v,i){var h=v?Math.max(2,(H-2)*v/mx):0;return '<rect x="'+(i*bw+.5).toFixed(1)+'" y="'+(H-h).toFixed(1)+'" width="'+Math.max(1,bw-1).toFixed(1)+'" height="'+h.toFixed(1)+'" fill="#5A97DB"/>'}).join('')+'<line x1="0" x2="'+W+'" y1="'+(H-.5)+'" y2="'+(H-.5)+'" stroke="#9AA5B1"/></svg>';
+}
+var COLC=[['n','Comuna',0],['n1','Permisos',1],['pc','% del total',1],['viv','Viviendas',1],['m2','m²',1],['var','Variación',1],['dp','Destino principal',0],['sp','Meses del período',0]];
+function comunasTabla(rows){
+  var meses=mesesRango(S.f.desde,S.f.hasta),cs=comunasAlcance(),tot=rows.length,vv=ventanas(),lista=[];
+  cs.forEach(function(c){
+    var r=rows.filter(function(p){return p.comuna===c.nombre});
+    var dp={};r.forEach(function(p){var k=dest(p);dp[k]=(dp[k]||0)+1});var kd=Object.keys(dp).sort(function(a,b){return dp[b]-dp[a]})[0];
+    var v=vv?variacion(vv.A,vv.B,'n',[c]):null;
+    lista.push({nombre:c.nombre,n1:r.length,pc:tot?r.length/tot:0,viv:sum(r,'viv'),m2:sum(r,'m2'),varp:v&&v.p!=null?v.p:null,v:v,dp:kd?kd+' ('+Math.round(100*dp[kd]/r.length)+' %)':'—',sp:meses.map(function(x){return r.filter(function(p){return p.mes===x}).length}),pub:S.pub?meses.filter(function(x){return publicado(c.slug,x)}).length:null});
+  });
+  var k=S.orden.k,d=S.orden.d,mapk={n:'nombre',n1:'n1',pc:'pc',viv:'viv',m2:'m2','var':'varp',dp:'dp',sp:'pub'};
+  lista.sort(function(a,b){var x=a[mapk[k]],y=b[mapk[k]];if(x==null&&y==null)return 0;if(x==null)return 1;if(y==null)return -1;return (typeof x==='number'?x-y:String(x).localeCompare(String(y),'es'))*d});
+  document.querySelector('#tCom thead').innerHTML='<tr>'+COLC.map(function(c){return '<th class="th-s" data-k="'+c[0]+'" tabindex="0"'+(S.orden.k===c[0]?' aria-sort="'+(S.orden.d>0?'ascending':'descending')+'"':'')+'>'+c[1]+'</th>'}).join('')+'<th>En el panel</th></tr>';
+  var th=document.querySelector('#tCom thead');
+  th.onclick=function(e){var kk=e.target.dataset&&e.target.dataset.k;if(!kk)return;S.orden=S.orden.k===kk?{k:kk,d:-S.orden.d}:{k:kk,d:(kk==='n'||kk==='dp')?1:-1};render()};
+  th.onkeydown=function(e){if(e.key==='Enter'&&e.target.dataset&&e.target.dataset.k)e.target.click()};
+  document.getElementById('cuerpoC').innerHTML=lista.map(function(x){
+    return '<tr><td>'+esc(x.nombre)+'</td><td class="num">'+fmt(x.n1)+'</td><td class="num">'+(tot?(x.pc*100).toLocaleString('es-CL',{maximumFractionDigits:1})+' %':'—')+'</td><td class="num">'+(x.viv?fmt(x.viv):'—')+'</td><td class="num">'+(x.m2?fmt(x.m2):'—')+'</td><td class="num">'+(x.v&&x.v.p!=null?chg(x.v):'<span class="chg na" title="'+esc(x.v&&x.v.no||'')+'">Datos incompletos</span>')+'</td><td>'+esc(x.dp)+'</td><td>'+spark(x.sp)+'</td><td><a href="index.html?comuna='+encodeURIComponent(x.nombre)+'&amp;desde='+S.f.desde+'&amp;hasta='+S.f.hasta+'">Ver permisos</a></td></tr>'}).join('');
+  var sin=lista.filter(function(x){return !x.n1}).length;
+  document.getElementById('notaCom').textContent=sin?sin+' de '+lista.length+' comunas no tienen permisos leídos en este período: puede ser que no publiquen en el Portal o que aún no se hayan leído sus documentos (ver la matriz del panel principal).':'';
+}
+var BINS=[['1 a 5',1,5],['6 a 20',6,20],['21 a 50',21,50],['51 a 100',51,100],['101 a 200',101,200],['Más de 200',201,1e9]];
+function bins(rows){
+  var hab=rows.filter(function(p){return p.viviendas>0}),vt=sum(hab,'viv'),n=hab.length;
+  document.getElementById('bins').innerHTML=n?BINS.map(function(b){var r=hab.filter(function(p){return p.viviendas>=b[1]&&p.viviendas<=b[2]}),v=sum(r,'viv'),a=100*r.length/n,c=vt?100*v/vt:0;
+    return '<div class="par2"><span>'+b[0]+' viviendas<br><small style="color:#66778A">'+fmt(r.length)+' proyectos</small></span><span class="bars"><span class="bar"><b style="width:'+Math.max(a?1:0,a)+'%"></b><i>'+pct(r.length,n)+' de los proyectos</i></span><span class="bar"><b class="v" style="width:'+Math.max(c?1:0,c)+'%"></b><i>'+pct(v,vt)+' de las viviendas</i></span></span></div>'}).join(''):'<p class="nota">Ningún permiso informa viviendas con estos filtros.</p>';
+  var todos=rows.length;document.getElementById('notaBins').textContent=todos?fmt(n)+' de '+fmt(todos)+' permisos ('+pct(n,todos)+') informan número de viviendas; solo ellos entran en este gráfico.':'';
+}
+function empresas(rows){
+  var acc={};rows.forEach(function(p){if(p.propietario){var o=acc[p.propietario]||(acc[p.propietario]={n:0,v:0,m:0});o.n++;o.v+=p.viviendas||0;o.m+=p.superficie_m2||0}});
+  var arr=Object.keys(acc).map(function(k){return {k:k,n:acc[k].n,v:acc[k].v,m:acc[k].m}});
+  var porViv=arr.some(function(x){return x.v>0}),key=porViv?'v':'n';
+  arr.sort(function(a,b){return b[key]-a[key]||b.n-a.n});var top=arr.slice(0,10),mx=top.length?top[0][key]:1,tot=arr.reduce(function(a,x){return a+x[key]},0);
+  document.getElementById('emp').innerHTML=top.length?top.map(function(x){return '<div class="hb emp" title="'+esc(x.k)+'"><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+esc(x.k)+'</span><span class="bar"><b style="width:'+Math.max(1.5,100*x[key]/mx)+'%"></b></span><span class="n">'+fmt(x[key])+'</span></div>'}).join(''):'<p class="nota">Ningún permiso informa empresa propietaria con estos filtros.</p>';
+  var s10=top.reduce(function(a,x){return a+x[key]},0);
+  document.getElementById('notaEmp').textContent=top.length?'Medido en '+(porViv?'viviendas':'permisos')+'. Las 10 primeras reúnen el '+pct(s10,tot)+' de lo atribuido a empresas ('+fmt(arr.length)+' empresas). El '+pct(rows.filter(function(p){return p.propietario}).length,rows.length)+' de los permisos informa empresa.':'';
+}
+function calidad(rows){
+  var n=rows.length;function c(f){return rows.filter(f).length}
+  var it=[['Con viviendas informadas',c(function(p){return p.viviendas>0}),'solo aplica a proyectos habitacionales'],['Con superficie informada',c(function(p){return p.superficie_m2>0}),'m² edificados'],['Con ubicación en la dirección',c(function(p){return p.lat!=null&&p.precision==='direccion'}),'el resto va al centro de la comuna'],['Con documento vinculado',c(function(p){return /^https?:/i.test(p.documento_url||'')}),'enlace al PDF municipal']];
+  document.getElementById('cal').innerHTML=n?it.map(function(x){var p=100*x[1]/n;return '<div><b>'+Math.round(p)+' %</b>'+x[0]+'<br><small>'+x[2]+'</small><div class="bar"><i style="width:'+p+'%"></i></div></div>'}).join(''):'<p class="nota">Sin permisos con estos filtros.</p>';
+}
+cargar();
+})();
+</script>
+</body>
+</html>
