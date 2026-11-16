@@ -1,0 +1,58 @@
+name: Diagnóstico del Portal
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  diagnostico:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Instalar navegador
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+      - name: Mirar el Portal
+        run: |
+          node - <<'JS'
+          const { chromium } = require('playwright');
+          const fs = require('fs');
+          (async () => {
+            const d = { fecha: new Date().toISOString() };
+            const b = await chromium.launch();
+            try {
+              const pg = await (await b.newContext({ locale: 'es-CL' })).newPage();
+              const r = await pg.goto('https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU260', { waitUntil: 'domcontentloaded', timeout: 60000 });
+              await pg.waitForTimeout(8000);
+              d.portal = { status: r && r.status(), url: pg.url(), titulo: await pg.title(), texto: (await pg.evaluate(() => document.body.innerText)).replace(/\s+/g, ' ').slice(0, 800), enlaces116: await pg.evaluate(() => [...document.querySelectorAll('a')].filter(a => /116 bis C/i.test(a.textContent)).length) };
+              fs.mkdirSync('data/debug', { recursive: true });
+              await pg.screenshot({ path: 'data/debug/portal.png' });
+            } catch (e) { d.portal = { error: String(e.message).slice(0, 300) }; }
+            await b.close();
+            const urls = { portal_home: 'https://www.portaltransparencia.cl/', requinoa_home: 'https://transparenciarequinoa.cl/', requinoa_pdf: 'https://transparenciarequinoa.cl/nueweb/tact/requinoa/2026/Dom/Enero/Cumplimiento%20articulo%20116%20bis/01_ENERO_2026.pdf' };
+            for (const k of Object.keys(urls)) {
+              try {
+                const r = await fetch(urls[k], { signal: AbortSignal.timeout(30000) });
+                const x = Buffer.from(await r.arrayBuffer());
+                d[k] = { status: r.status, tipo: r.headers.get('content-type'), bytes: x.length, inicio: x.slice(0, 160).toString('latin1').replace(/\s+/g, ' ') };
+              } catch (e) { d[k] = { error: String(e.message).slice(0, 200), causa: e.cause ? String(e.cause.code || e.cause.message).slice(0, 120) : null }; }
+            }
+            fs.writeFileSync('data/portal_debug.json', JSON.stringify(d, null, 1));
+          })();
+          JS
+      - name: Guardar resultado
+        if: always()
+        run: |
+          git config user.name "cchc-ohiggins-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A data
+          git diff --staged --quiet || git commit -m "Diagnóstico del Portal"
+          git pull --rebase origin "${GITHUB_REF_NAME}" || true
+          git push
