@@ -124,13 +124,13 @@ def publicacion():
     slugs = [c["slug"] for c in json.loads((RAIZ / "data" / "comunas.json").read_text(encoding="utf-8"))["comunas"]]
     com = {s: {"meses": {}, "nota": notas.get(s)} for s in slugs}
     for f in filas:
-        if f.get("ym") and f["slug"] in com and f["ym"] >= "2025-05" and f.get("url"):
+        if f.get("ym") and f["slug"] in com and f["ym"] >= "2026-01" and f.get("url"):
             com[f["slug"]]["meses"][f["ym"]] = com[f["slug"]]["meses"].get(f["ym"], 0) + 1
     todos = sorted({m for c in com.values() for m in c["meses"]})
     (RAIZ / "data" / "publicacion.json").write_text(json.dumps({
         "generado": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "fuente": "Portal de Transparencia (CPLT)",
-        "desde": "2025-05", "hasta": todos[-1] if todos else "2025-05", "comunas": com},
+        "desde": "2026-01", "hasta": todos[-1] if todos else "2026-01", "comunas": com},
         ensure_ascii=False, indent=1), encoding="utf-8")
 
 
