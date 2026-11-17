@@ -1,0 +1,48 @@
+{
+ "comuna": "La Estrella",
+ "slug": "la-estrella",
+ "mes": "2026-09",
+ "archivo": "2026-09.pdf",
+ "documento_url": null,
+ "errores": [],
+ "registros": [
+  {
+   "numero": "105",
+   "fecha": "2026-09-02",
+   "tipo_original": "Certificado de regularización, permiso y recepción definitiva simultánea (Ley 20.898)",
+   "destino": "Habitacional",
+   "proyecto": null,
+   "direccion": "Diputado Pedro González N° 467",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "44-71",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  },
+  {
+   "numero": "9",
+   "fecha": "2026-09-02",
+   "tipo_original": "Certificado de recepción definitiva de obras de edificación",
+   "destino": "Vivienda",
+   "proyecto": null,
+   "direccion": "San Rafael, Ruta I-150",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "57-82",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  }
+ ]
+}

@@ -1,0 +1,48 @@
+{
+ "comuna": "Coinco",
+ "slug": "coinco",
+ "mes": "2026-09",
+ "archivo": "2026-09.pdf",
+ "documento_url": null,
+ "errores": [],
+ "registros": [
+  {
+   "numero": "36",
+   "fecha": "2026-09-02",
+   "tipo_original": "Regularización Ley 20.898",
+   "destino": "Vivienda",
+   "proyecto": null,
+   "direccion": "Coinco",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "25-20",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  },
+  {
+   "numero": "37",
+   "fecha": "2026-09-11",
+   "tipo_original": "Anteproyecto de edificación",
+   "destino": "Vivienda",
+   "proyecto": null,
+   "direccion": "Coinco",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "36-17",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  }
+ ]
+}

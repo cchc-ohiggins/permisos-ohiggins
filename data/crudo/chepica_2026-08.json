@@ -1,0 +1,69 @@
+{
+ "comuna": "Chépica",
+ "slug": "chepica",
+ "mes": "2026-08",
+ "archivo": "2026-09.pdf",
+ "documento_url": null,
+ "errores": [
+  "En el Portal este documento (Resolución DOM N°09/2026, 03/09/2026) aparece publicado como mes 2026-09, pero corresponde a agosto."
+ ],
+ "registros": [
+  {
+   "numero": "113",
+   "fecha": "2026-08-17",
+   "tipo_original": "Permiso de edificación de obra nueva",
+   "destino": "Residencial",
+   "proyecto": null,
+   "direccion": "Camino I-808 N° 1.779",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "40-92",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 2
+  },
+  {
+   "numero": "114",
+   "fecha": "2026-08-13",
+   "tipo_original": "Ampliación acogida a Ley 20.898",
+   "destino": "Residencial",
+   "proyecto": null,
+   "direccion": "Calle 18 de Septiembre s/n",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "17-15",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 2
+  },
+  {
+   "numero": "115",
+   "fecha": "2026-08-20",
+   "tipo_original": "Ampliación acogida a Ley 20.898",
+   "destino": "Residencial",
+   "proyecto": null,
+   "direccion": "Pasaje El Trébol s/n",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "14-28",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 2
+  }
+ ]
+}
