@@ -1,32 +1,27 @@
 {
  "chepica": {
-  "descargados": 2,
+  "descargados": 3,
   "ya_estaban": 0,
   "fallidos": []
  },
  "chimbarongo": {
-  "descargados": 2,
+  "descargados": 3,
   "ya_estaban": 0,
   "fallidos": []
  },
  "codegua": {
-  "descargados": 0,
+  "descargados": 2,
   "ya_estaban": 0,
   "fallidos": [
    {
-    "mes": "2026-04",
-    "url": "https://www.municipalidaddecodegua.cl/municipalidaddecodegua.cl/public/municipalidad/transparencia/archivos/obras/Documentos%20L.G.U.C._compressed.pdf",
-    "motivo": "la respuesta no es un PDF (¿requiere iniciar sesión o es imagen/Word?)"
-   },
-   {
-    "mes": "2026-05",
-    "url": "https://www.municipalidaddecodegua.cl/municipalidaddecodegua.cl/public/municipalidad/transparencia/archivos/obras/Documentaci%C3%B3n%20L.G.U.C..pdf",
+    "mes": "2026-02",
+    "url": "https://www.municipalidaddecodegua.cl/municipalidaddecodegua.cl/public/municipalidad/transparencia/archivos/obras/Documentaci%C3%B3n%20L.G.U.C._compressed.pdf",
     "motivo": "la respuesta no es un PDF (¿requiere iniciar sesión o es imagen/Word?)"
    }
   ]
  },
  "coinco": {
-  "descargados": 2,
+  "descargados": 3,
   "ya_estaban": 0,
   "fallidos": []
  },
@@ -35,29 +30,34 @@
   "ya_estaban": 0,
   "fallidos": [
    {
-    "mes": "2026-04",
-    "url": "http://documentos.coltauco.cl/nobaldragas/2026/municipalidad/04/dom/res-11.pdf",
+    "mes": "2026-01",
+    "url": "http://documentos.coltauco.cl/nobaldragas/2026/municipalidad/01/dom/res-04.pdf",
     "motivo": "HTTPError: HTTP Error 403: Forbidden"
    },
    {
-    "mes": "2026-05",
-    "url": "http://documentos.coltauco.cl/nobaldragas/2026/municipalidad/05/dom/res-14.pdf",
+    "mes": "2026-02",
+    "url": "http://documentos.coltauco.cl/nobaldragas/2026/municipalidad/02/dom/res-05.pdf",
+    "motivo": "HTTPError: HTTP Error 403: Forbidden"
+   },
+   {
+    "mes": "2026-03",
+    "url": "http://documentos.coltauco.cl/nobaldragas/2026/municipalidad/03/dom/res-09.pdf",
     "motivo": "HTTPError: HTTP Error 403: Forbidden"
    }
   ]
  },
  "donihue": {
-  "descargados": 0,
+  "descargados": 1,
   "ya_estaban": 0,
   "fallidos": [
    {
-    "mes": "2026-04",
-    "url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/RESOLUCI%C3%93N+ABRIL+2026.pdf/303e77e1-7cc8-46f0-ad2f-08b9ab46f6b6",
+    "mes": "2026-01",
+    "url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/RESOLUCION+N%C2%B0%20001-2026+DOM.pdf/89748d72-7c90-4daf-9c64-17d84ecc1255",
     "motivo": "HTTPError: HTTP Error 403: Forbidden"
    },
    {
-    "mes": "2026-05",
-    "url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/RESOLUCI%C3%93N+N%C2%B0%20005-2026+MAYO+2026+DOM.pdf/4a2d5e37-5d84-4abb-8c8a-06dce2806470",
+    "mes": "2026-02",
+    "url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/RESOLUCION+02+DEL+2026.pdf/2fe98496-1aee-4b00-9847-19dd0f1433c1",
     "motivo": "HTTPError: HTTP Error 403: Forbidden"
    }
   ]
@@ -67,35 +67,29 @@
   "ya_estaban": 0,
   "fallidos": [
    {
-    "mes": "2026-04",
-    "url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/Resolucion+n%C2%B042.pdf_1778701928578/04337122-4046-4ad8-b298-f25ac32136ac",
+    "mes": "2026-01",
+    "url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/Resoluci%C3%B3n+Art+116+Bis+C+Transparencia+ENERO2026.pdf_1775660257045/4bf0a4f2-467f-4030-9108-39bea420b350",
     "motivo": "HTTPError: HTTP Error 403: Forbidden"
    },
    {
-    "mes": "2026-05",
-    "url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/RESOLUCION+47.pdf/9483d435-f064-4df4-8a41-11a109850232",
+    "mes": "2026-02",
+    "url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/Resoluci%C3%B3n+27%28ART.+116+BIS+C%29.pdf_1775660122387/ccdbe56c-50af-4b64-bf11-53104de3c0fa",
+    "motivo": "HTTPError: HTTP Error 403: Forbidden"
+   },
+   {
+    "mes": "2026-03",
+    "url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/Resoluci%C3%B3n+DOM+N%C2%B032++++02-04-2026.pdf_1775659804467/211cff85-528d-4c99-9f59-2270cb7aeae7",
     "motivo": "HTTPError: HTTP Error 403: Forbidden"
    }
   ]
  },
  "la-estrella": {
-  "descargados": 0,
+  "descargados": 3,
   "ya_estaban": 0,
-  "fallidos": [
-   {
-    "mes": "2026-04",
-    "url": "https://www.munilaestrella.cl/archivos_transparencia/07Actos_resoluciones/permisosyautorizacionesdelArt116bisCLGUC/Resolucion09_Mes_Abril_DOM.pdf",
-    "motivo": "URLError: <urlopen error timed out>"
-   },
-   {
-    "mes": "2026-05",
-    "url": "https://www.munilaestrella.cl/archivos_transparencia/07Actos_resoluciones/permisosyautorizacionesdelArt116bisCLGUC/Resolucion10_Mes_Mayo_2026.pdf",
-    "motivo": "URLError: <urlopen error timed out>"
-   }
-  ]
+  "fallidos": []
  },
  "las-cabras": {
-  "descargados": 2,
+  "descargados": 3,
   "ya_estaban": 0,
   "fallidos": []
  },
@@ -104,29 +98,34 @@
   "ya_estaban": 0,
   "fallidos": [
    {
-    "mes": "2026-04",
-    "url": "http://transparencia.machali.cl/DOM/2026/ABRIL%20FINAL.pdf",
+    "mes": "2026-01",
+    "url": "http://transparencia.machali.cl/DOM/2026/ENERO%20FINAL.pdf",
     "motivo": "HTTPError: HTTP Error 403: Forbidden"
    },
    {
-    "mes": "2026-05",
-    "url": "http://transparencia.machali.cl/DOM/2026/MAYO%20FINAL.pdf",
+    "mes": "2026-02",
+    "url": "http://transparencia.machali.cl/DOM/2026/FEBRERO%20FINAL.pdf",
+    "motivo": "HTTPError: HTTP Error 403: Forbidden"
+   },
+   {
+    "mes": "2026-03",
+    "url": "http://transparencia.machali.cl/DOM/2026/MARZO%20FINAL.pdf",
     "motivo": "HTTPError: HTTP Error 403: Forbidden"
    }
   ]
  },
  "malloa": {
-  "descargados": 2,
+  "descargados": 3,
   "ya_estaban": 0,
   "fallidos": []
  },
  "marchihue": {
-  "descargados": 2,
+  "descargados": 3,
   "ya_estaban": 0,
   "fallidos": []
  },
  "mostazal": {
-  "descargados": 2,
+  "descargados": 3,
   "ya_estaban": 0,
   "fallidos": []
  },
@@ -135,96 +134,101 @@
   "ya_estaban": 0,
   "fallidos": [
    {
-    "mes": "2026-04",
-    "url": "https://www.municipalidadnancagua.cl/descargas/Transparencia2026/07.%20Actos%20con%20efectos%20sobre%20terceros/Obras/Resolucion%20ART%20116%20LGUC/04.%20Abril/Resolucion%2009-2026%20Minvu.pdf",
+    "mes": "2026-01",
+    "url": "https://www.municipalidadnancagua.cl/descargas/Transparencia2026/07.%20Actos%20con%20efectos%20sobre%20terceros/Obras/Resolucion%20ART%20116%20LGUC/01.%20Enero/Resolucion%2002-2026%20ENERO.pdf",
     "motivo": "HTTPError: HTTP Error 403: Forbidden"
    },
    {
-    "mes": "2026-05",
-    "url": "https://www.municipalidadnancagua.cl/descargas/Transparencia2026/07.%20Actos%20con%20efectos%20sobre%20terceros/Obras/Resolucion%20ART%20116%20LGUC/05.%20Mayo/Resolucion%2010-2026%20minvu.pdf",
+    "mes": "2026-02",
+    "url": "https://www.municipalidadnancagua.cl/descargas/Transparencia2026/07.%20Actos%20con%20efectos%20sobre%20terceros/Obras/Resolucion%20ART%20116%20LGUC/02.%20Febrero/Resolucion%2003-2026%20minvu.pdf",
     "motivo": "HTTPError: HTTP Error 403: Forbidden"
-   }
-  ]
- },
- "navidad": {
-  "descargados": 0,
-  "ya_estaban": 0,
-  "fallidos": [
-   {
-    "mes": "2026-04",
-    "url": "https://mnavidad-my.sharepoint.com/personal/javiera_veas_muninavidad_cl/_layouts/15/guestaccess.aspx?share=IQAWKY3z0k7XTYXffX9Eu3RfAcK91vDy16b9u0u42%2DI4cDE",
-    "motivo": "la respuesta no es un PDF (¿requiere iniciar sesión o es imagen/Word?); HTTPError: HTTP Error 403: FORBIDDEN; HTTPError: HTTP Error 403: Forbidden"
    },
    {
-    "mes": "2026-05",
-    "url": "https://mnavidad-my.sharepoint.com/personal/javiera_veas_muninavidad_cl/_layouts/15/guestaccess.aspx?share=IQAXC5yfn7DFRbVvJc8SNWYHARpkowGztaMEVFUJTVNlU1Q&e=HzFSFV",
-    "motivo": "la respuesta no es un PDF (¿requiere iniciar sesión o es imagen/Word?); HTTPError: HTTP Error 403: FORBIDDEN; HTTPError: HTTP Error 403: Forbidden"
+    "mes": "2026-03",
+    "url": "https://www.municipalidadnancagua.cl/descargas/Transparencia2026/07.%20Actos%20con%20efectos%20sobre%20terceros/Obras/Resolucion%20ART%20116%20LGUC/03.%20Marzo/Resolucion%204-2026%20Minvu.pdf",
+    "motivo": "HTTPError: HTTP Error 403: Forbidden"
    }
   ]
  },
  "paredones": {
-  "descargados": 2,
+  "descargados": 3,
   "ya_estaban": 0,
   "fallidos": []
  },
  "peralillo": {
-  "descargados": 2,
+  "descargados": 3,
   "ya_estaban": 0,
   "fallidos": []
  },
  "peumo": {
-  "descargados": 2,
+  "descargados": 3,
   "ya_estaban": 0,
   "fallidos": []
  },
  "pichidegua": {
-  "descargados": 2,
+  "descargados": 3,
   "ya_estaban": 0,
   "fallidos": []
  },
  "pichilemu": {
-  "descargados": 2,
+  "descargados": 3,
   "ya_estaban": 0,
   "fallidos": []
  },
  "pumanque": {
-  "descargados": 1,
+  "descargados": 3,
   "ya_estaban": 0,
-  "fallidos": [
-   {
-    "mes": "2026-04",
-    "url": "https://drive.google.com/file/d/1oW-d1UpxIj69EkwMTIWVG-Cau5s7arNg/view?usp=sharing",
-    "motivo": "la respuesta no es un PDF (¿requiere iniciar sesión o es imagen/Word?)"
-   }
-  ]
+  "fallidos": []
  },
  "quinta-de-tilcoco": {
-  "descargados": 2,
+  "descargados": 3,
   "ya_estaban": 0,
   "fallidos": []
  },
  "rancagua": {
-  "descargados": 2,
+  "descargados": 3,
   "ya_estaban": 0,
   "fallidos": []
  },
  "rengo": {
-  "descargados": 2,
+  "descargados": 3,
   "ya_estaban": 0,
   "fallidos": []
  },
  "requinoa": {
-  "descargados": 2,
+  "descargados": 1,
   "ya_estaban": 0,
-  "fallidos": []
+  "fallidos": [
+   {
+    "mes": "2026-02",
+    "url": "https://transparenciarequinoa.cl/nueweb/tact/requinoa/2026/Dom/Febrero/Cumplimiento%20articulo%20116%20bis/02_FEBRERO_2026.pdf",
+    "motivo": "HTTPError: HTTP Error 404: Not Found"
+   },
+   {
+    "mes": "2026-03",
+    "url": "https://transparenciarequinoa.cl/nueweb/tact/requinoa/2026/Dom/Marzo/Cumplimiento%20articulo%20116%20bis/03_MARZO_2026.pdf",
+    "motivo": "HTTPError: HTTP Error 404: Not Found"
+   }
+  ]
  },
  "san-fernando": {
-  "descargados": 2,
+  "descargados": 1,
   "ya_estaban": 0,
-  "fallidos": []
+  "fallidos": [
+   {
+    "mes": "2026-01",
+    "url": "https://drive.google.com/file/d/12Y_QqbMRbi9XwBUdpGHJ5EvspKgdRkws/view?usp=drive_link",
+    "motivo": "ValueError: archivo mayor a 80 MB"
+   },
+   {
+    "mes": "2026-02",
+    "url": "https://drive.google.com/file/d/1ZqFnm-u1zLgHnXVdPmcnyFWxyXm-baHB/view?usp=drive_link",
+    "motivo": "ValueError: archivo mayor a 80 MB"
+   }
+  ]
  },
  "santa-cruz": {
-  "descargados": 2,
+  "descargados": 3,
   "ya_estaban": 0,
   "fallidos": []
  }

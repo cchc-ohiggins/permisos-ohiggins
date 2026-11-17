@@ -1,0 +1,16 @@
+=== página 1 ===
+N° TIPO DE APROBACION FECHA DESTINO DIRECCION PREDIO ROL DE AVALUO PREDIO
+1 Modificación Edificación 20-01-2026 Vivienda Los Aromos Lote C-3 Golf Los Lirios 68-3
+2 Modificación Edificación 29-01-2026 Local Comercial Ruta 5 Sur Travesía S/N 37-150
+1 Permiso de Edificación 07-01-2026 Vivienda Los Peumos Lote K-33a Golf Los Lirios 76-43
+2 Permiso de Edificación 15-01-2026 Vivienda El Vaticano S/N 37-806
+3 Permiso de Edificación 20-01-2026 Cuartel Bomberos Las Dalias N° 546 Villa Jardín 19-153
+4 Permiso de Edificación 20-01-2026 Jardín Infantil El Carmen S/N 30-42
+5 Permiso de Edificación 22-01-2026 Vivienda Las Mercedes S/N 47-38
+6 Permiso de Edificación 26-01-2026 Vivienda Las Mercedes S/N 95-159
+1 Resolución 21-01-2026 ----- Callejón Droguett S/N 35-59
+Resolucion 08 2026
+LISTADO DE PERMISOS Y AUTORIZACIONES OTORGADAS POR LA DOM DE 
+REQUINOA
+ANEXO
+ENERO DE 2026
