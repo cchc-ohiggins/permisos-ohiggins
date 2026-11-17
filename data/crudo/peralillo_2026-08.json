@@ -1,0 +1,48 @@
+{
+ "comuna": "Peralillo",
+ "slug": "peralillo",
+ "mes": "2026-08",
+ "archivo": "2026-08.pdf",
+ "documento_url": null,
+ "errores": [],
+ "registros": [
+  {
+   "numero": "35",
+   "fecha": "2026-08-21",
+   "tipo_original": "Permiso de edificación obra nueva",
+   "destino": "Residencial",
+   "proyecto": null,
+   "direccion": "Ruta 90 s/n",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "152-195",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  },
+  {
+   "numero": "36",
+   "fecha": "2026-08-21",
+   "tipo_original": "Permiso de edificación obra nueva",
+   "destino": "Residencial",
+   "proyecto": null,
+   "direccion": "La Troya Norte s/n",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "156-47",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  }
+ ]
+}

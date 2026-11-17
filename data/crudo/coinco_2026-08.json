@@ -1,0 +1,31 @@
+{
+ "comuna": "Coinco",
+ "slug": "coinco",
+ "mes": "2026-08",
+ "archivo": "2026-08.pdf",
+ "documento_url": null,
+ "errores": [
+  "Permiso N° 35/2026: el listado indica destino \"Vivienda\", pero el certificado de regularización (microempresa inofensiva) indica destino \"Oficina y bodega\"."
+ ],
+ "registros": [
+  {
+   "numero": "35",
+   "fecha": "2026-08-03",
+   "tipo_original": "Regularización Ley 20.898",
+   "destino": "Vivienda",
+   "proyecto": null,
+   "direccion": "Cam. Vecinal Pje. González Trincado, Copequén",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "29-24",
+   "superficie_m2": 232.3,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  }
+ ]
+}

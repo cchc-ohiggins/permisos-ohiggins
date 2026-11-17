@@ -1,0 +1,69 @@
+{
+ "comuna": "La Estrella",
+ "slug": "la-estrella",
+ "mes": "2026-08",
+ "archivo": "2026-08.pdf",
+ "documento_url": null,
+ "errores": [
+  "El PDF incluye además un listado \"regularícese\" de enero a julio 2026 (8 recepciones definitivas); se registró en los meses 2026-02, 04, 05, 06 y 07 de La Estrella."
+ ],
+ "registros": [
+  {
+   "numero": "1",
+   "fecha": "2026-08-04",
+   "tipo_original": "Resolución de aprobación de anteproyecto de obras de edificación",
+   "destino": "Habitacional",
+   "proyecto": null,
+   "direccion": "Camino interior - Fundo Santa Josefina - San Gabriel - Ruta I-20",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "450-257",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  },
+  {
+   "numero": "15",
+   "fecha": "2026-08-12",
+   "tipo_original": "Permiso de edificación - Obra nueva",
+   "destino": "Vivienda",
+   "proyecto": null,
+   "direccion": "Costa del Sol",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "600-149",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  },
+  {
+   "numero": "16",
+   "fecha": "2026-08-13",
+   "tipo_original": "Permiso de edificación - Obra nueva",
+   "destino": "Vivienda",
+   "proyecto": null,
+   "direccion": "Fundo San Carlos de Mallermo - Ruta I-80-G - La Aguada",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "67-48",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  }
+ ]
+}

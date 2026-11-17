@@ -134,6 +134,61 @@ def publicacion():
         ensure_ascii=False, indent=1), encoding="utf-8")
 
 
+def mes_sig(ym, d):
+    a, m = int(ym[:4]), int(ym[5:])
+    t = a * 12 + (m - 1) + d
+    return f"{t // 12}-{t % 12 + 1:02d}"
+
+
+# El Portal rotula mal los meses de algunas comunas (Chépica: el rótulo va un mes adelante del mes real)
+DESFASE_PORTAL = {"chepica": -1}
+
+
+def estados(comunas, por_doc):
+    """Para cada mes de 2026 y cada comuna: ¿hay información?, y si no, por qué.
+    Estados: con (permisos leídos) · cero (el municipio declara 0) · fallo (publicado, pero no se pudo leer)
+    · pendiente (publicado, lectura en curso) · no_publicado."""
+    pub_f = RAIZ / "data" / "publicacion.json"
+    notas_f = RAIZ / "data" / "cobertura_notas.json"
+    if not pub_f.exists():
+        return {}
+    pub = json.loads(pub_f.read_text(encoding="utf-8"))["comunas"]
+    notas = json.loads(notas_f.read_text(encoding="utf-8")) if notas_f.exists() else {}
+    publicados = {}
+    for slug, x in pub.items():
+        d = DESFASE_PORTAL.get(slug, 0)
+        publicados[slug] = {mes_sig(m, d) for m in x.get("meses", {})}
+    reales = [m for s in publicados.values() for m in s if m >= "2026-01"] + [m for (_, m) in por_doc]
+    if not reales:
+        return {}
+    ult = max(reales)
+    out, m = {}, "2026-01"
+    while m <= ult:
+        out[m] = {}
+        for slug, c in comunas.items():
+            if (slug, m) in por_doc:
+                n, err = por_doc[(slug, m)]
+                tardio = any("publicación tardía" in e for e in err)
+                if n and tardio:
+                    out[m][c["nombre"]] = {"e": "parcial", "t": "Solo se conocen recepciones publicadas tarde en otro listado; falta el listado oficial del mes."}
+                elif n:
+                    out[m][c["nombre"]] = {"e": "con", "n": n}
+                else:
+                    t = next((e for e in err if "declara" in e.lower()), None)
+                    out[m][c["nombre"]] = {"e": "cero", "t": t or "El municipio informa que no otorgó permisos este mes."} if t else {"e": "fallo", "t": "El documento publicado no trae permisos legibles."}
+                continue
+            if slug in notas.get("fallo_todos", {}):
+                out[m][c["nombre"]] = {"e": "fallo", "t": notas["fallo_todos"][slug]}
+            elif m in publicados.get(slug, set()):
+                nf = notas.get("fallo", {}).get(slug, {})
+                t = nf.get(m) or nf.get("*")
+                out[m][c["nombre"]] = {"e": "fallo", "t": t} if t else {"e": "pendiente", "t": "Documento publicado en el Portal; lectura en curso."}
+            else:
+                out[m][c["nombre"]] = {"e": "no_publicado", "t": notas.get("no_publicado", {}).get(slug, "Sin documento publicado en el Portal para este mes.")}
+        m = mes_sig(m, 1)
+    return out
+
+
 def main():
     publicacion()
     ap = argparse.ArgumentParser()
@@ -142,7 +197,7 @@ def main():
 
     comunas = {c["slug"]: c for c in json.loads((RAIZ / "data" / "comunas.json").read_text())["comunas"]}
     cache = json.loads(CACHE.read_text()) if CACHE.exists() else {}
-    permisos, cobertura, alertas = [], {}, []
+    permisos, cobertura, alertas, por_doc = [], {}, [], {}
 
     for f in sorted(CRUDO.glob("*.json")):
         doc = json.loads(f.read_text())
@@ -150,6 +205,7 @@ def main():
         if not c:
             continue
         cobertura.setdefault(c["nombre"], []).append(doc["mes"])
+        por_doc[(doc["slug"], doc["mes"])] = (len(doc["registros"]), doc.get("errores") or [])
         if doc.get("errores"):
             alertas.append(f"{c['nombre']} {doc['mes']}: " + " | ".join(doc["errores"]))
         if not doc["registros"]:
@@ -197,7 +253,7 @@ def main():
         cobertura[k] = sorted(set(cobertura[k]))
     SALIDA.write_text(json.dumps({
         "meta": {"demo": False, "generado": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-                 "total": len(unicos), "cobertura": cobertura, "alertas": alertas},
+                 "total": len(unicos), "cobertura": cobertura, "estado": estados(comunas, por_doc), "alertas": alertas},
         "permisos": unicos,
     }, ensure_ascii=False, indent=1))
     print(f"{len(unicos)} permisos en {len(cobertura)} comunas → {SALIDA.relative_to(RAIZ)}")

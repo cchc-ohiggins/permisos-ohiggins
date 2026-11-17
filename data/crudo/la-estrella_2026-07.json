@@ -1,0 +1,31 @@
+{
+ "comuna": "La Estrella",
+ "slug": "la-estrella",
+ "mes": "2026-07",
+ "archivo": "2026-08.pdf",
+ "documento_url": null,
+ "errores": [
+  "Listado \"Regularícese enero a julio 2026\" publicado en el PDF de agosto (publicación tardía)."
+ ],
+ "registros": [
+  {
+   "numero": "8",
+   "fecha": "2026-07-13",
+   "tipo_original": "Recepción definitiva de obras de edificación",
+   "destino": "Vivienda",
+   "proyecto": null,
+   "direccion": "Costa del Sol II, LT 309",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "602-32",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 4
+  }
+ ]
+}

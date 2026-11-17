@@ -1,0 +1,50 @@
+{
+ "comuna": "La Estrella",
+ "slug": "la-estrella",
+ "mes": "2026-04",
+ "archivo": "2026-08.pdf",
+ "documento_url": null,
+ "errores": [
+  "Listado \"Regularícese enero a julio 2026\" publicado en el PDF de agosto (publicación tardía)."
+ ],
+ "registros": [
+  {
+   "numero": "2",
+   "fecha": "2026-04-29",
+   "tipo_original": "Recepción definitiva de obras de urbanización",
+   "destino": "Urbanización",
+   "proyecto": null,
+   "direccion": "Costa del Sol II, LT 26 A1, Lago Rapel",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "600-212",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 4
+  },
+  {
+   "numero": "3",
+   "fecha": "2026-04-29",
+   "tipo_original": "Recepción definitiva de obras de edificación",
+   "destino": "Vivienda",
+   "proyecto": null,
+   "direccion": "Costa del Sol II, LT 26 A1, Lago Rapel",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "600-212",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 4
+  }
+ ]
+}

@@ -1,0 +1,53 @@
+{
+ "no_publicado": {
+  "olivar": "El Portal de Transparencia no tiene el ítem del art. 116 bis C para esta municipalidad.",
+  "litueche": "El Portal de Transparencia no tiene el ítem del art. 116 bis C para esta municipalidad.",
+  "palmilla": "El Portal de Transparencia no tiene el ítem del art. 116 bis C para esta municipalidad.",
+  "placilla": "El Portal de Transparencia no tiene el ítem del art. 116 bis C para esta municipalidad.",
+  "lolol": "El ítem existe en el Portal, pero no tiene documentos publicados.",
+  "san-vicente": "El ítem existe en el Portal, pero no muestra tabla ni enlaces a los documentos.",
+  "mostazal": "El Portal solo enlaza documentos de enero a mayo de 2026.",
+  "coltauco": "El Portal no tiene el documento de este mes.",
+  "marchihue": "El Portal enlaza documentos solo hasta septiembre de 2026."
+ },
+ "fallo": {
+  "graneros": {
+   "*": "Documento publicado, pero el sitio municipal bloquea la descarga automática (error 403). Falta obtener el PDF."
+  },
+  "nancagua": {
+   "*": "Documento publicado, pero el sitio municipal bloquea la descarga automática (error 403). Falta obtener el PDF."
+  },
+  "machali": {
+   "*": "Documento publicado, pero el sitio municipal bloquea la descarga automática (error 403). Falta obtener el PDF."
+  },
+  "coltauco": {
+   "*": "Documento publicado, pero el sitio municipal bloquea la descarga automática (error 403). Falta obtener el PDF."
+  },
+  "peumo": {
+   "2026-06": "El enlace del Portal apunta a una carpeta de Google Drive, no a un PDF.",
+   "2026-09": "Documento publicado, pero pesa más de 80 MB y no se pudo descargar automáticamente."
+  },
+  "san-fernando": {
+   "2026-06": "Documento publicado, pero pesa más de 80 MB y no se pudo descargar automáticamente.",
+   "2026-07": "Documento publicado, pero pesa más de 80 MB y no se pudo descargar automáticamente."
+  },
+  "codegua": {
+   "2026-06": "La descarga agotó el tiempo de espera; se reintentará.",
+   "2026-07": "La descarga agotó el tiempo de espera; se reintentará."
+  },
+  "la-estrella": {
+   "2026-06": "La descarga agotó el tiempo de espera; se reintentará.",
+   "2026-07": "La descarga agotó el tiempo de espera; se reintentará."
+  },
+  "requinoa": {
+   "2026-06": "El enlace del sitio municipal ya no existe (error 404)."
+  },
+  "santa-cruz": {
+   "2026-08": "El enlace del Portal está roto.",
+   "2026-10": "El enlace del Portal apunta al documento de julio, no al de octubre."
+  }
+ },
+ "fallo_todos": {
+  "navidad": "Publica resoluciones sueltas en enlaces de SharePoint de invitado, que no se pueden descargar automáticamente. Falta obtener los PDF."
+ }
+}

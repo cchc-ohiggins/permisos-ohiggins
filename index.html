@@ -179,6 +179,26 @@ main{max-width:1320px;margin:0 auto;padding:0 24px 56px}
 a.doc{color:var(--azul);font-weight:600;text-decoration:none}
 .sub{color:var(--suave);font-size:13px}
 
+
+/* ───────── Cobertura del período ───────── */
+.cobp{margin-top:22px;background:var(--hoja);border:1px solid var(--linea);border-left:5px solid var(--azul);padding:14px 20px 16px}
+.cobp h2{font:700 19px var(--display);color:var(--navy);margin:0 0 2px}
+.cobp .res{display:flex;flex-wrap:wrap;gap:6px 26px;font-size:15px;color:var(--tinta2);margin:8px 0 6px}
+.cobp .res b{font:700 24px var(--display);margin-right:4px}
+.cobp .res .ok b{color:var(--azul)}.cobp .res .pa b{color:var(--navy)}.cobp .res .no b{color:var(--naranja)}
+.cobp details{border-top:1px solid var(--linea);padding:4px 0}
+.cobp summary{cursor:pointer;font-weight:700;color:var(--navy);padding:6px 0}
+.cobp .chips{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 8px}
+.cobp .chip2{background:#EAF3FD;color:var(--navy);border-radius:3px;padding:2px 9px;font-size:13.5px}
+.cobp .chip2 small{color:var(--suave);margin-left:4px}
+.cobp ul{list-style:none;margin:4px 0 8px;padding:0;display:grid;gap:8px 28px;grid-template-columns:repeat(auto-fill,minmax(310px,1fr))}
+.cobp li{font-size:14px;color:var(--tinta2);padding:2px 0 2px 10px;border-left:3px solid var(--naranja)}
+.cobp li.pa{border-left-color:var(--azul)}
+.cobp li b{color:var(--tinta);display:block;font-size:15px}
+.cobp li small{display:block;color:var(--tinta2);margin-top:2px;font-size:13.5px}
+.cobp .etq{display:inline-block;font-size:11.5px;font-weight:700;padding:0 6px;border-radius:3px;margin-right:6px;background:var(--gris);color:var(--tinta)}
+.cobp .nota{font-size:13.5px;color:var(--suave);margin:8px 0 0}
+
 /* ───────── Matriz de cobertura ───────── */
 .mx-wrap{overflow-x:auto;padding-bottom:6px}
 .mx{--n:18;display:grid;grid-template-columns:150px repeat(var(--n),minmax(25px,1fr)) 58px;gap:3px;min-width:720px;align-items:center}
@@ -310,6 +330,7 @@ footer h3{font:700 15px var(--display);color:var(--navy);margin-bottom:4px}
 </div></div>
 
 <main>
+  <section class="cobp" id="cobPer" aria-labelledby="hCobP"><h2 id="hCobP">Cobertura del período</h2><div id="cobPerBody"><p class="nota">Cargando…</p></div></section>
   <details class="uso" open id="uso"><summary>Cómo usar este panel</summary>
     <div class="cols">
       <p><b>Ver dónde se concentra la inversión.</b>La matriz y los rankings muestran qué comunas, meses y empresas reúnen más permisos.</p>
@@ -577,7 +598,7 @@ function render(){
   document.getElementById('ddComTxt').textContent=nCom===total?'Todas ('+total+')':nCom===0?'Ninguna':nCom===1?Array.from(S.f.comunas)[0]:nCom+' de '+total;
   document.getElementById('demo').hidden=!S.meta.demo;
   document.getElementById('sub').textContent='Estudios'+(S.meta.generado?', actualizado el '+new Date(S.meta.generado).toLocaleDateString('es-CL',{day:'numeric',month:'long',year:'numeric'}):'');
-  activos();hero(rows);skyline();alertas(rows);matriz();grafico(rows);ranking(rows);notaRango(rows);mapa(rows);tabla(rows);
+  activos();hero(rows);cobPeriodo();skyline();alertas(rows);matriz();grafico(rows);ranking(rows);notaRango(rows);mapa(rows);tabla(rows);
   S.primera=false;
 }
 /* Filtros activos: cada uno se puede quitar con un clic */
@@ -608,6 +629,43 @@ function hero(rows){
     '<small>'+(m2.length||vv.length?'La superficie viene en '+fmt(m2.length)+' de esos permisos y las viviendas en '+fmt(vv.length)+'; el resto no las informa. ':'')+
     'Hay permisos leídos de '+cv.con.length+' de '+S.f.comunas.size+' comunas'+(pub!=null?' ('+pub+' de '+S.comunas.length+' publican documentos). ':'. ')+
     '<a href="#cobertura">Ver cuáles faltan y por qué</a>.</small>';
+}
+
+
+/* Cobertura del período: qué comunas tienen información y cuáles no (meta.estado) */
+function listaMeses(ms){var y=ms[0].slice(0,4);return ms.every(function(m){return m.slice(0,4)===y})?ms.map(function(m){return MES[+m.slice(5)-1]}).join(', ')+' '+y:ms.map(mesTxt).join(', ')}
+function cobPeriodo(){
+  var el=document.getElementById('cobPerBody');if(!el)return;
+  var est=S.meta.estado;
+  if(!est){el.innerHTML='<p class="nota">Aún no hay detalle de cobertura por mes.</p>';return}
+  var meses=mesesRango(S.f.desde,S.f.hasta).filter(function(m){return est[m]});
+  if(!meses.length){el.innerHTML='<p class="nota">En este período todavía no se espera ningún documento publicado.</p>';return}
+  var ETQ={parcial:'Información incompleta',cero:'Declara 0 permisos',fallo:'Publicado, no se pudo leer',pendiente:'Publicado, en lectura',no_publicado:'No publicado'};
+  var uno=meses.length===1,full=[],parc=[],sin=[];
+  S.comunas.filter(function(c){return S.f.comunas.has(c.nombre)}).sort(function(a,b){return a.nombre.localeCompare(b.nombre,'es')}).forEach(function(c){
+    var info=0,ceros=0,faltan=[];
+    meses.forEach(function(m){var x=(est[m]&&est[m][c.nombre])||{e:'no_publicado',t:'Sin documento publicado en el Portal para este mes.'};
+      if(x.e==='con')info++;else if(x.e==='cero'){info++;ceros++}else faltan.push([m,x])});
+    var r={c:c.nombre,info:info,ceros:ceros,faltan:faltan};
+    (info===meses.length?full:info?parc:sin).push(r);
+  });
+  function motivos(faltan){
+    var g={},ord=[];
+    faltan.forEach(function(f){var k=f[1].e+'|'+f[1].t;if(!g[k]){g[k]={e:f[1].e,t:f[1].t,m:[]};ord.push(k)}g[k].m.push(f[0])});
+    return ord.map(function(k){var o=g[k];return '<small><span class="etq">'+ETQ[o.e]+'</span>'+(uno?'':esc(listaMeses(o.m))+': ')+esc(o.t)+'</small>'}).join('');
+  }
+  function filas(a,cl){return '<ul>'+a.map(function(r){return '<li class="'+cl+'"><b>'+esc(r.c)+(uno?'':' <span class="sub">('+r.info+' de '+meses.length+' meses con información)</span>')+'</b>'+motivos(r.faltan)+'</li>'}).join('')+'</ul>'}
+  var per=uno?mesLargo(meses[0]):mesLargo(meses[0])+' a '+mesLargo(meses[meses.length-1]);
+  var h='<p class="sub" style="margin:0">'+esc(per)+' · '+S.f.comunas.size+' comunas en el filtro</p><div class="res">';
+  h+='<span class="ok"><b>'+full.length+'</b>'+(uno?'con información':'con información todos los meses')+'</span>';
+  if(!uno)h+='<span class="pa"><b>'+parc.length+'</b>con información parcial</span>';
+  h+='<span class="no"><b>'+sin.length+'</b>'+(uno?'sin información':'sin información en el período')+'</span></div>';
+  h+='<details'+(full.length?' open':'')+'><summary>'+(uno?'Con información':'Información completa')+' ('+full.length+')</summary><div class="chips">'+
+    (full.length?full.map(function(r){return '<span class="chip2">'+esc(r.c)+(r.ceros===meses.length?'<small>declara 0 permisos</small>':r.ceros?'<small>incluye meses con 0</small>':'')+'</span>'}).join(''):'<span class="sub">Ninguna comuna del filtro.</span>')+'</div></details>';
+  if(!uno)h+='<details open><summary>Información parcial ('+parc.length+')</summary>'+(parc.length?filas(parc,'pa'):'<p class="sub">Ninguna.</p>')+'</details>';
+  h+='<details open><summary>Sin información ('+sin.length+') y por qué</summary>'+(sin.length?filas(sin,''):'<p class="sub">Todas las comunas del filtro tienen información.</p>')+'</details>';
+  h+='<p class="nota">Con información = documento oficial del municipio leído para ese mes. Sin información no significa que la comuna no haya otorgado permisos: solo que su documento no está publicado o todavía no se pudo leer. Las cifras son un mínimo informado.</p>';
+  el.innerHTML=h;
 }
 
 /* Matriz de cobertura */

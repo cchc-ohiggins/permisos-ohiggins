@@ -1,0 +1,31 @@
+{
+ "comuna": "La Estrella",
+ "slug": "la-estrella",
+ "mes": "2026-02",
+ "archivo": "2026-08.pdf",
+ "documento_url": null,
+ "errores": [
+  "Listado \"Regularícese enero a julio 2026\" publicado en el PDF de agosto (publicación tardía)."
+ ],
+ "registros": [
+  {
+   "numero": "1",
+   "fecha": "2026-02-27",
+   "tipo_original": "Recepción definitiva de obras de edificación",
+   "destino": "Vivienda",
+   "proyecto": null,
+   "direccion": "Ruta H-20, Lote 5, Fundo La Cueva",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "49-106",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 4
+  }
+ ]
+}

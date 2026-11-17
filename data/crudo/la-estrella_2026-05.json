@@ -1,0 +1,50 @@
+{
+ "comuna": "La Estrella",
+ "slug": "la-estrella",
+ "mes": "2026-05",
+ "archivo": "2026-08.pdf",
+ "documento_url": null,
+ "errores": [
+  "Listado \"Regularícese enero a julio 2026\" publicado en el PDF de agosto (publicación tardía)."
+ ],
+ "registros": [
+  {
+   "numero": "4",
+   "fecha": "2026-05-18",
+   "tipo_original": "Recepción definitiva de obras de edificación",
+   "destino": "Vivienda",
+   "proyecto": null,
+   "direccion": "Camino interior, LT A77, La Aguada",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "67-77",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 4
+  },
+  {
+   "numero": "5",
+   "fecha": "2026-05-28",
+   "tipo_original": "Recepción definitiva de obras de edificación",
+   "destino": "Vivienda",
+   "proyecto": null,
+   "direccion": "Costa del Sol II, LT 23",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "600-236",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 4
+  }
+ ]
+}

@@ -1,0 +1,50 @@
+{
+ "comuna": "La Estrella",
+ "slug": "la-estrella",
+ "mes": "2026-06",
+ "archivo": "2026-08.pdf",
+ "documento_url": null,
+ "errores": [
+  "Listado \"Regularícese enero a julio 2026\" publicado en el PDF de agosto (publicación tardía)."
+ ],
+ "registros": [
+  {
+   "numero": "6",
+   "fecha": "2026-06-04",
+   "tipo_original": "Recepción definitiva de obras de edificación",
+   "destino": "Vivienda",
+   "proyecto": null,
+   "direccion": "Los Cardillos, S7R I-144",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "62-6",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 4
+  },
+  {
+   "numero": "7",
+   "fecha": "2026-06-16",
+   "tipo_original": "Recepción definitiva de obras de edificación",
+   "destino": "Infraestructura",
+   "proyecto": null,
+   "direccion": "Ruta I-162, Camino Las Chacras",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "100-121",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 4
+  }
+ ]
+}

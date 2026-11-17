@@ -1,0 +1,48 @@
+{
+ "comuna": "Doñihue",
+ "slug": "donihue",
+ "mes": "2026-08",
+ "archivo": "2026-08.pdf",
+ "documento_url": null,
+ "errores": [],
+ "registros": [
+  {
+   "numero": "59",
+   "fecha": "2026-08-04",
+   "tipo_original": "Resolución Aprobación Modificación Permiso Obra Nueva",
+   "destino": "Habitacional",
+   "proyecto": null,
+   "direccion": "Pasaje Interior Proyectado N°001",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "163-1",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 2
+  },
+  {
+   "numero": "62",
+   "fecha": "2026-08-06",
+   "tipo_original": "Resolución Aprobación Modificación Permiso Obra Nueva",
+   "destino": "Habitacional",
+   "proyecto": null,
+   "direccion": "Rosa López N°026",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "46-6",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 2
+  }
+ ]
+}

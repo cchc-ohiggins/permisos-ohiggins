@@ -1,0 +1,31 @@
+{
+ "comuna": "Pumanque",
+ "slug": "pumanque",
+ "mes": "2026-08",
+ "archivo": "2026-08.pdf",
+ "documento_url": null,
+ "errores": [
+  "El memo de la DOM informa una (1) resolución aprobada en agosto 2026; el certificado de regularización es el único documento."
+ ],
+ "registros": [
+  {
+   "numero": "5",
+   "fecha": "2026-08-28",
+   "tipo_original": "Certificado de regularización Ley 20.898",
+   "destino": "Vivienda",
+   "proyecto": null,
+   "direccion": "Camino interior, Hacienda de Pumanque s/n, lote 1-89",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "55-194",
+   "superficie_m2": 57.01,
+   "viviendas": 1,
+   "propietario": "Sociedad de Inversiones y Procesos Metalúrgicos ByV Ltda.",
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 1
+  }
+ ]
+}
