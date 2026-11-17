@@ -1,0 +1,69 @@
+{
+ "comuna": "Requínoa",
+ "slug": "requinoa",
+ "mes": "2026-07",
+ "archivo": "2026-07.pdf",
+ "documento_url": null,
+ "errores": [
+  "El listado publicado trae solo 3 ítems; la numeración correlativa (16, 28, 29) sugiere que podría estar incompleto."
+ ],
+ "registros": [
+  {
+   "numero": "16",
+   "fecha": "2026-07-14",
+   "tipo_original": "Modificación Edificación",
+   "destino": "Vivienda",
+   "proyecto": null,
+   "direccion": "Lote H-22a Golf Los Lirios",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "73-58",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 1
+  },
+  {
+   "numero": "28",
+   "fecha": "2026-07-02",
+   "tipo_original": "Permiso de Edificación",
+   "destino": "Vivienda",
+   "proyecto": null,
+   "direccion": "Camino Interior sector Pichiguao S/N",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "1233-548",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 1
+  },
+  {
+   "numero": "29",
+   "fecha": "2026-07-08",
+   "tipo_original": "Permiso de Edificación",
+   "destino": "Seguridad",
+   "proyecto": null,
+   "direccion": "Callejón Droguett S/N",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "35-45",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 1
+  }
+ ]
+}

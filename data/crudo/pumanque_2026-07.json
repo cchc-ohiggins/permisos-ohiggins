@@ -1,0 +1,31 @@
+{
+ "comuna": "Pumanque",
+ "slug": "pumanque",
+ "mes": "2026-07",
+ "archivo": "2026-07.pdf",
+ "documento_url": null,
+ "errores": [
+  "El encabezado del anexo dice 'mes de marzo' (error de la municipalidad); la resolución, el oficio y la fecha de aprobación (24-07-2026) corresponden a julio."
+ ],
+ "registros": [
+  {
+   "numero": "4",
+   "fecha": "2026-07-24",
+   "tipo_original": "Permiso de Edificación: obra nueva",
+   "destino": "Residencial",
+   "proyecto": null,
+   "direccion": "Ex Hacienda de Pumanque s/n",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "255-47",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 11
+  }
+ ]
+}
