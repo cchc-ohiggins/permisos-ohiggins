@@ -1,17 +1,17 @@
 {
  "chepica": {
-  "descargados": 3,
-  "ya_estaban": 0,
+  "descargados": 0,
+  "ya_estaban": 3,
   "fallidos": []
  },
  "chimbarongo": {
-  "descargados": 3,
-  "ya_estaban": 0,
+  "descargados": 0,
+  "ya_estaban": 3,
   "fallidos": []
  },
  "codegua": {
-  "descargados": 2,
-  "ya_estaban": 0,
+  "descargados": 0,
+  "ya_estaban": 2,
   "fallidos": [
    {
     "mes": "2026-02",
@@ -21,8 +21,8 @@
   ]
  },
  "coinco": {
-  "descargados": 3,
-  "ya_estaban": 0,
+  "descargados": 0,
+  "ya_estaban": 3,
   "fallidos": []
  },
  "coltauco": {
@@ -47,8 +47,8 @@
   ]
  },
  "donihue": {
-  "descargados": 1,
-  "ya_estaban": 0,
+  "descargados": 0,
+  "ya_estaban": 1,
   "fallidos": [
    {
     "mes": "2026-01",
@@ -84,13 +84,13 @@
   ]
  },
  "la-estrella": {
-  "descargados": 3,
-  "ya_estaban": 0,
+  "descargados": 0,
+  "ya_estaban": 3,
   "fallidos": []
  },
  "las-cabras": {
-  "descargados": 3,
-  "ya_estaban": 0,
+  "descargados": 0,
+  "ya_estaban": 3,
   "fallidos": []
  },
  "machali": {
@@ -115,18 +115,18 @@
   ]
  },
  "malloa": {
-  "descargados": 3,
-  "ya_estaban": 0,
+  "descargados": 0,
+  "ya_estaban": 3,
   "fallidos": []
  },
  "marchihue": {
-  "descargados": 3,
-  "ya_estaban": 0,
+  "descargados": 0,
+  "ya_estaban": 3,
   "fallidos": []
  },
  "mostazal": {
-  "descargados": 3,
-  "ya_estaban": 0,
+  "descargados": 0,
+  "ya_estaban": 3,
   "fallidos": []
  },
  "nancagua": {
@@ -151,53 +151,53 @@
   ]
  },
  "paredones": {
-  "descargados": 3,
-  "ya_estaban": 0,
+  "descargados": 0,
+  "ya_estaban": 3,
   "fallidos": []
  },
  "peralillo": {
-  "descargados": 3,
-  "ya_estaban": 0,
+  "descargados": 0,
+  "ya_estaban": 3,
   "fallidos": []
  },
  "peumo": {
-  "descargados": 3,
-  "ya_estaban": 0,
+  "descargados": 0,
+  "ya_estaban": 3,
   "fallidos": []
  },
  "pichidegua": {
-  "descargados": 3,
-  "ya_estaban": 0,
+  "descargados": 0,
+  "ya_estaban": 3,
   "fallidos": []
  },
  "pichilemu": {
-  "descargados": 3,
-  "ya_estaban": 0,
+  "descargados": 0,
+  "ya_estaban": 3,
   "fallidos": []
  },
  "pumanque": {
-  "descargados": 3,
-  "ya_estaban": 0,
+  "descargados": 0,
+  "ya_estaban": 3,
   "fallidos": []
  },
  "quinta-de-tilcoco": {
-  "descargados": 3,
-  "ya_estaban": 0,
+  "descargados": 0,
+  "ya_estaban": 3,
   "fallidos": []
  },
  "rancagua": {
-  "descargados": 3,
-  "ya_estaban": 0,
+  "descargados": 0,
+  "ya_estaban": 3,
   "fallidos": []
  },
  "rengo": {
-  "descargados": 3,
-  "ya_estaban": 0,
+  "descargados": 0,
+  "ya_estaban": 3,
   "fallidos": []
  },
  "requinoa": {
-  "descargados": 1,
-  "ya_estaban": 0,
+  "descargados": 0,
+  "ya_estaban": 1,
   "fallidos": [
    {
     "mes": "2026-02",
@@ -212,8 +212,8 @@
   ]
  },
  "san-fernando": {
-  "descargados": 1,
-  "ya_estaban": 0,
+  "descargados": 0,
+  "ya_estaban": 1,
   "fallidos": [
    {
     "mes": "2026-01",
@@ -228,8 +228,8 @@
   ]
  },
  "santa-cruz": {
-  "descargados": 3,
-  "ya_estaban": 0,
+  "descargados": 0,
+  "ya_estaban": 3,
   "fallidos": []
  }
 }
