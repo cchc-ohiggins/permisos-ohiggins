@@ -1,0 +1,16 @@
+=== página 1 ===
+N° TIPO DE APROBACION FECHA DESTINO DIRECCION PREDIO ROL DE AVALUO PREDIO
+6 Modificación Edificación 02-04-2026 Infraestructura Camino Interior sector Los Boldos S/N 31-360
+7 Modificación Edificación 06-04-2026 Servicios Comercio N° 121 4-2
+8 Modificación Edificación 15-04-2026 Industria Ruta H-35 S/N 38-7
+9 Modificación Edificación 24-04-2026 Vivienda Camino Interior sector La Gloria S/N 36-723
+17 Permiso de Edificación 27-04-2026 Industria Ruta H-409 S/N 36-455
+4 Resolución 09-04-2026 ----- Rosalinda Ahumada S/N 36-30
+5 Resolución 14-04-2026 ----- Manuel Rodríguez N° 188 36-534
+6 Resolución 22-04-2026 ----- Rosalinda Ahumada S/N 36-30/36-534
+7 Resolución 29-04-2026 ----- Lote A-2 Golf Norte 37-248
+Resolucion
+LISTADO DE PERMISOS Y AUTORIZACIONES OTORGADAS POR LA DOM DE 
+REQUINOA
+ANEXO
+ABRIL DE 2026

@@ -1,0 +1,20 @@
+=== página 1 ===
+N° TIPO DE APROBACION FECHA DESTINO DIRECCION PREDIO ROL DE AVALUO PREDIO
+10 Modificación Edificación 08-05-2026 Vivienda Camino Interior sector El Maitén S/N 37-529
+11 Modificación Edificación 13-05-2026 Infraestructura Camino San Javier S/N 36-60
+12 Modificación Edificación 20-05-2026 Vivienda/Comercio Santa Lucila N° 387 30-958
+1 Modificación Loteo 19-05-2026 Vivienda/Comercio Santa Lucila N° 387 30-958
+18 Permiso de Edificación 06-05-2026 Vivienda Lote A1a-2 Golf Los Lirios 66-103
+19 Permiso de Edificación 07-05-2026 Vivienda Lote J-5a Golf Los Lirios 75-6
+20 Permiso de Edificación 11-05-2026 Sede Social Los Canelos N° 122 415-12
+21 Permiso de Edificación 22-05-2026 Comercio Daniel Vial N° 218 16-2
+22 Permiso de Edificación 22-05-2026 Vivienda Camino Interior sector Pichiguao S/N 1233-549
+23 Permiso de Edificación 26-05-2026 Vivienda Camino a Pimpinela S/N 81-250
+2 Permiso Obra Menor 19-05-2026 ----- Guillermo Schiell N° 63 4-9
+3 Permiso Obra Menor 19-05-2026 ----- Comercio N° 199 4-8
+8 Resolución 18-05-2026 ----- Lote I-35 a Golf Los Lirios 74-35
+Resolucion
+LISTADO DE PERMISOS Y AUTORIZACIONES OTORGADAS POR LA DOM DE 
+REQUINOA
+ANEXO
+MAYO DE 2026
