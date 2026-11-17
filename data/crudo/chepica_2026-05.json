@@ -1,0 +1,33 @@
+{
+ "comuna": "Chépica",
+ "slug": "chepica",
+ "mes": "2026-05",
+ "archivo": "2026-06.pdf",
+ "documento_url": null,
+ "errores": [
+  "En el Portal este documento (Resolución DOM N°06/2026, 03/06/2026) aparece publicado como mes 2026-06, pero corresponde a mayo.",
+  "El anexo dice 'Resolución DOM N°02/2025 del 3/7/25' (resto de una plantilla anterior); el permiso es de mayo de 2026.",
+  "El listado trae la dirección cortada ('Av. Bernardo O'Higgins N°'); sin número."
+ ],
+ "registros": [
+  {
+   "numero": "1",
+   "fecha": "2026-05-13",
+   "tipo_original": "Permiso de Ampliación (Permiso de Obra Menor, ampliación hasta 100 m²)",
+   "destino": "Equipamiento comunitario",
+   "proyecto": null,
+   "direccion": "Av. Bernardo O'Higgins (número no indicado en el listado)",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "5-16",
+   "superficie_m2": 11.79,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 2
+  }
+ ]
+}

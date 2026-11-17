@@ -1,0 +1,31 @@
+{
+ "comuna": "Pumanque",
+ "slug": "pumanque",
+ "mes": "2026-06",
+ "archivo": "2026-06.pdf",
+ "documento_url": null,
+ "errores": [
+  "La resolución y el memo informan 1 permiso o autorización en junio (el listado dice 'mes de marzo' por error de plantilla); el acto es una declaración jurada de inicio de obras del 09-06-2026."
+ ],
+ "registros": [
+  {
+   "numero": "14",
+   "fecha": "2026-06-09",
+   "tipo_original": "Declaración Jurada de inicio de obras de edificación (obra nueva)",
+   "destino": "Residencial",
+   "proyecto": null,
+   "direccion": "Camarico, Lote 25",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "178-154",
+   "superficie_m2": 66.0,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 7
+  }
+ ]
+}

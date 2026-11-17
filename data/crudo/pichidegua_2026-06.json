@@ -1,0 +1,29 @@
+{
+ "comuna": "Pichidegua",
+ "slug": "pichidegua",
+ "mes": "2026-06",
+ "archivo": "2026-06.pdf",
+ "documento_url": null,
+ "errores": [],
+ "registros": [
+  {
+   "numero": "36",
+   "fecha": "2026-06-23",
+   "tipo_original": "REGULARIZACION LEY 20.898",
+   "destino": "HABITACIONAL",
+   "proyecto": null,
+   "direccion": "Mancumán S/N, Santa Amelia",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "32-682",
+   "superficie_m2": 114.43,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  }
+ ]
+}
