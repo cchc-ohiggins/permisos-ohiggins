@@ -1,0 +1,31 @@
+{
+ "comuna": "Pumanque",
+ "slug": "pumanque",
+ "mes": "2026-03",
+ "archivo": "2026-03.pdf",
+ "documento_url": null,
+ "errores": [
+  "Resolución N° 04/2026 del 09-04-2026. El listado informa 1 permiso; el anexo viene girado 90° en el PDF."
+ ],
+ "registros": [
+  {
+   "numero": "01",
+   "fecha": "2026-03-02",
+   "tipo_original": "Obra Nueva",
+   "destino": "Residencial, Equipamiento, act. productiva",
+   "proyecto": null,
+   "direccion": "Nilahue Alto s/n",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "153-2",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 5
+  }
+ ]
+}

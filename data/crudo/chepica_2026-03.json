@@ -1,0 +1,33 @@
+{
+ "comuna": "Chépica",
+ "slug": "chepica",
+ "mes": "2026-03",
+ "archivo": "2026-04.pdf",
+ "documento_url": null,
+ "errores": [
+  "En el Portal este documento (Resolución DOM N° 04/2026, 01/04/2026) aparece publicado como mes 2026-04, pero corresponde a marzo.",
+  "El anexo dice 'Resolución DOM N°02/2025 del 3/7/25' (resto de una plantilla anterior); el permiso es de marzo de 2026.",
+  "El listado escribe 'Calle Público I-774'; se registró como 'Camino Público I-774'."
+ ],
+ "registros": [
+  {
+   "numero": "91",
+   "fecha": "2026-03-06",
+   "tipo_original": "Permiso Ampliación acogida a Ley 20.898",
+   "destino": "Vivienda",
+   "proyecto": null,
+   "direccion": "Camino Público I-774 N° 1.558",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "36-422",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 2
+  }
+ ]
+}

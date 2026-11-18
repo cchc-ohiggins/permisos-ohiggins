@@ -1,0 +1,69 @@
+{
+ "comuna": "Coinco",
+ "slug": "coinco",
+ "mes": "2026-01",
+ "archivo": "2026-01.pdf",
+ "documento_url": null,
+ "errores": [
+  "Resolución N° 01/2026 (31-01-2026). El N° 1 figura como 'P/E 01/26 R/D 02/26' y el N° 3 como 'P/E 03/26 R/D 03-26'."
+ ],
+ "registros": [
+  {
+   "numero": "P/E 01/26",
+   "fecha": "2026-01-19",
+   "tipo_original": "Permiso de Edificación",
+   "destino": "habitacional",
+   "proyecto": null,
+   "direccion": "Calle Las Palmeras N° 46 (comité sin casa nueva esperanza)",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "34-46",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  },
+  {
+   "numero": "P/E 02/26",
+   "fecha": "2026-01-28",
+   "tipo_original": "Permiso de Edificación",
+   "destino": "Habitacional",
+   "proyecto": null,
+   "direccion": "Camino vecinal El Cajón",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "33-308",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  },
+  {
+   "numero": "P/E 03/26",
+   "fecha": "2026-01-30",
+   "tipo_original": "Permiso de Edificación",
+   "destino": "Habitacional",
+   "proyecto": null,
+   "direccion": "Calle La Pérgola, Villa La Unión",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "80-21",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  }
+ ]
+}

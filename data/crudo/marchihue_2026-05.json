@@ -1,0 +1,69 @@
+{
+ "comuna": "Marchihue",
+ "slug": "marchihue",
+ "mes": "2026-05",
+ "archivo": "2026-05.pdf",
+ "documento_url": null,
+ "errores": [
+  "Resolución DOM N° 06/2026 del 05-06-2026 (comuna escrita 'Marchigüe')."
+ ],
+ "registros": [
+  {
+   "numero": "25",
+   "fecha": "2026-05-04",
+   "tipo_original": "Permiso de Edificación: Obra Nueva",
+   "destino": "Habitacional",
+   "proyecto": null,
+   "direccion": "Servidumbre de Tránsito, Sector de Mallermo",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "161-166",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  },
+  {
+   "numero": "26",
+   "fecha": "2026-05-04",
+   "tipo_original": "Permiso de Edificación: Obra Nueva",
+   "destino": "Habitacional",
+   "proyecto": null,
+   "direccion": "Servidumbre de Tránsito, Sector de Mallermo",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "161-72",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  },
+  {
+   "numero": "27",
+   "fecha": "2026-05-04",
+   "tipo_original": "Certificado de Regularización",
+   "destino": "Habitacional",
+   "proyecto": null,
+   "direccion": "Camino Público, Sector San Miguel de Viluco",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "164-153",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  }
+ ]
+}

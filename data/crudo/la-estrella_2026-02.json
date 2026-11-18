@@ -2,12 +2,50 @@
  "comuna": "La Estrella",
  "slug": "la-estrella",
  "mes": "2026-02",
- "archivo": "2026-08.pdf",
+ "archivo": "2026-02.pdf",
  "documento_url": null,
  "errores": [
-  "Listado \"Regularícese enero a julio 2026\" publicado en el PDF de agosto (publicación tardía)."
+  "Resolución DOM N° 06/2026 del 03-03-2026 (2 permisos). La recepción definitiva del 27-02-2026 (rol 49-106) viene del listado 'Regularícese enero a julio 2026' publicado tarde en el PDF de agosto."
  ],
  "registros": [
+  {
+   "numero": "01/2026",
+   "fecha": "2026-02-02",
+   "tipo_original": "Permiso de Edificación, Obra nueva",
+   "destino": "Vivienda",
+   "proyecto": null,
+   "direccion": "Costa del Sol",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "600-269",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 2
+  },
+  {
+   "numero": "02/2026",
+   "fecha": "2026-02-03",
+   "tipo_original": "Permiso de Edificación, Obra nueva",
+   "destino": "Vivienda",
+   "proyecto": null,
+   "direccion": "Costa del Sol, Lt MC Lt 2",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "600-270",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 2
+  },
   {
    "numero": "1",
    "fecha": "2026-02-27",

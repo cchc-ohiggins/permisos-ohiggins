@@ -1,0 +1,31 @@
+{
+ "comuna": "Coinco",
+ "slug": "coinco",
+ "mes": "2026-05",
+ "archivo": "2026-05.pdf",
+ "documento_url": null,
+ "errores": [
+  "Resolución N° 05/2026 del 01-06-2026. El listado informa 1 permiso/autorización en mayo (N° 22/2026)."
+ ],
+ "registros": [
+  {
+   "numero": "22",
+   "fecha": "2026-05-12",
+   "tipo_original": "Regularización Ley 20898",
+   "destino": "Vivienda",
+   "proyecto": null,
+   "direccion": "La Panchina 143",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "43-33",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  }
+ ]
+}

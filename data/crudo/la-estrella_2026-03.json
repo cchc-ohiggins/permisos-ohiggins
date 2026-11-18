@@ -1,0 +1,50 @@
+{
+ "comuna": "La Estrella",
+ "slug": "la-estrella",
+ "mes": "2026-03",
+ "archivo": "2026-03.pdf",
+ "documento_url": null,
+ "errores": [
+  "Resolución DOM N° 00/2026 del 02-04-2026 (número parcialmente legible)."
+ ],
+ "registros": [
+  {
+   "numero": "03/2026",
+   "fecha": "2026-03-16",
+   "tipo_original": "Permiso de Edificación, Obra nueva",
+   "destino": "Vivienda",
+   "proyecto": null,
+   "direccion": "Av. Manuel Rodríguez 779 \"A\"",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "31-4",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 2
+  },
+  {
+   "numero": "04/2026",
+   "fecha": "2026-03-18",
+   "tipo_original": "Permiso de Edificación, Obra nueva",
+   "destino": "Vivienda",
+   "proyecto": null,
+   "direccion": "El Pihuelo, Lote A-B",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "61-361",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 2
+  }
+ ]
+}

@@ -1,0 +1,69 @@
+{
+ "comuna": "Peralillo",
+ "slug": "peralillo",
+ "mes": "2026-04",
+ "archivo": "2026-04.pdf",
+ "documento_url": null,
+ "errores": [
+  "Resolución N° 005/2026 del 04-05-2026. Los tres actos son aprobaciones de anteproyecto (no permisos de edificación propiamente tales); se registraron tal como se publican."
+ ],
+ "registros": [
+  {
+   "numero": "16",
+   "fecha": "2026-04-10",
+   "tipo_original": "RES. APROBACION ANTEPROYECTO EDIFICACION OBRA NUEVA",
+   "destino": "RESIDENCIAL",
+   "proyecto": null,
+   "direccion": "SAN ISIDRO S/N, PERALILLO",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "102-71",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 4
+  },
+  {
+   "numero": "3",
+   "fecha": "2026-04-10",
+   "tipo_original": "RES. APROBACION ANTEPROYECTO LOTEO DFL 2",
+   "destino": "RESIDENCIAL",
+   "proyecto": null,
+   "direccion": "SAN ISIDRO S/N, PERALILLO",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "102-71",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 4
+  },
+  {
+   "numero": "18",
+   "fecha": "2026-04-30",
+   "tipo_original": "RES. APROBACION ANTEPROYECTO EDIFICACION NUEVA",
+   "destino": "COMERCIAL",
+   "proyecto": null,
+   "direccion": "AV. ERRAZURIZ N°16",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "148-180",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 4
+  }
+ ]
+}

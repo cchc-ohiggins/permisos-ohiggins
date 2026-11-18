@@ -1,0 +1,69 @@
+{
+ "comuna": "Coinco",
+ "slug": "coinco",
+ "mes": "2026-04",
+ "archivo": "2026-04.pdf",
+ "documento_url": null,
+ "errores": [
+  "Resolución N° 04/2026 del 04-05-2026. El N° de aprobación 'P/E 20/26' se repite en dos filas; se conservó el texto publicado."
+ ],
+ "registros": [
+  {
+   "numero": "P/E 19/26",
+   "fecha": "2026-04-02",
+   "tipo_original": "Permiso de Edificación",
+   "destino": "HABITACIONAL",
+   "proyecto": null,
+   "direccion": "AVDA. LIB. BDO. O'HIGGINS 442",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "09-16",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  },
+  {
+   "numero": "P/E 20/26 VIVIENDA ANTIGUA",
+   "fecha": "2026-04-14",
+   "tipo_original": "Permiso de Regularización ley vivienda antigua antes 1929",
+   "destino": "HABITACIONAL",
+   "proyecto": null,
+   "direccion": "FRANCISCO DIAZ MUÑOZ 214",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "15-18",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  },
+  {
+   "numero": "P/E 20/26 PERMISO EDIFICACION",
+   "fecha": "2026-04-20",
+   "tipo_original": "Permiso de Edificación",
+   "destino": "HABITACIONAL",
+   "proyecto": null,
+   "direccion": "CAMINO PUBLICO CHILLEHUE N° 590",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "50-186",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  }
+ ]
+}

@@ -1,0 +1,69 @@
+{
+ "comuna": "Paredones",
+ "slug": "paredones",
+ "mes": "2026-05",
+ "archivo": "2026-05.pdf",
+ "documento_url": null,
+ "errores": [
+  "Resolución N° 29/2026 del 05-06-2026. Las copias de los permisos se publican como enlaces de Google Drive (no incluidas en el PDF)."
+ ],
+ "registros": [
+  {
+   "numero": "20",
+   "fecha": "2026-05-08",
+   "tipo_original": "Permiso de Edificación Obra Nueva",
+   "destino": "Habitacional",
+   "proyecto": null,
+   "direccion": "Ruta I-456, La Ligua s/n",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "41-266",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 2
+  },
+  {
+   "numero": "4",
+   "fecha": "2026-05-04",
+   "tipo_original": "Recepción Final Obra Nueva",
+   "destino": "Habitacional",
+   "proyecto": null,
+   "direccion": "Ruta I-566-J, Cutemu, s/n",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "259-355",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 2
+  },
+  {
+   "numero": "5",
+   "fecha": "2026-05-28",
+   "tipo_original": "Recepción Final Obra Nueva",
+   "destino": "Habitacional",
+   "proyecto": null,
+   "direccion": "Ruta I-572, La Huertilla s/n",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "356-89",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 2
+  }
+ ]
+}

@@ -1,0 +1,31 @@
+{
+ "comuna": "La Estrella",
+ "slug": "la-estrella",
+ "mes": "2026-01",
+ "archivo": "2026-01.pdf",
+ "documento_url": null,
+ "errores": [
+  "Resolución DOM N° 05/2026 (02-02-2026): informa 1 acto en enero. Los datos de superficie y presupuesto salen del Certificado de Regularización N° 103 adjunto (págs. 2-3)."
+ ],
+ "registros": [
+  {
+   "numero": "103",
+   "fecha": "2026-01-19",
+   "tipo_original": "Permiso de Edificación, Ley N° 20.898 (Certificado de Regularización: permiso y recepción definitiva)",
+   "destino": "Vivienda",
+   "proyecto": null,
+   "direccion": "Ruta I-160 Sector Guadalao, Lote 26 (rural)",
+   "descripcion": null,
+   "presupuesto": 251958,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "100-198",
+   "superficie_m2": 124.8,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  }
+ ]
+}

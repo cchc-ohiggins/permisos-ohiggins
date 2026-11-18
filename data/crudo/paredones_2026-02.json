@@ -1,0 +1,31 @@
+{
+ "comuna": "Paredones",
+ "slug": "paredones",
+ "mes": "2026-02",
+ "archivo": "2026-02.pdf",
+ "documento_url": null,
+ "errores": [
+  "El PDF es solo la planilla del anexo; la copia del acto se publica como enlace de Google Drive (no incluida)."
+ ],
+ "registros": [
+  {
+   "numero": "3",
+   "fecha": "2026-02-20",
+   "tipo_original": "Recepción Definitiva de Obras de Edificación Obra Nueva",
+   "destino": "Habitacional",
+   "proyecto": null,
+   "direccion": "San Pedro de Alcántara s/n",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "256-187",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 1
+  }
+ ]
+}

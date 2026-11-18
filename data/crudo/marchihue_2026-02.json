@@ -1,0 +1,69 @@
+{
+ "comuna": "Marchihue",
+ "slug": "marchihue",
+ "mes": "2026-02",
+ "archivo": "2026-02.pdf",
+ "documento_url": null,
+ "errores": [
+  "Resolución N° 03/2026 del 06-03-2026."
+ ],
+ "registros": [
+  {
+   "numero": "13",
+   "fecha": "2026-02-06",
+   "tipo_original": "PERMISO DE EDIFICACION: OBRA NUEVA",
+   "destino": "HABITACIONAL",
+   "proyecto": null,
+   "direccion": "SECTOR MALLERMO",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "105-21",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  },
+  {
+   "numero": "14",
+   "fecha": "2026-02-16",
+   "tipo_original": "CERTIFICADO DE REGULARIZACIÓN DE EDIFICACIONES EXISTENTES DAÑADAS A CONSECUENCIA DE UNA CATASTROFE",
+   "destino": "ACTIVIDAD PRODUCTIVA",
+   "proyecto": null,
+   "direccion": "RUTA - 90, SECTOR MALLERMO",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "61-465",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  },
+  {
+   "numero": "15",
+   "fecha": "2026-02-16",
+   "tipo_original": "PERMISO DE EDIFICACION: OBRA NUEVA",
+   "destino": "HABITACIONAL",
+   "proyecto": null,
+   "direccion": "CASANOVA 1879",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "104-17",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  }
+ ]
+}
