@@ -1,0 +1,50 @@
+{
+ "comuna": "Nancagua",
+ "slug": "nancagua",
+ "mes": "2026-09",
+ "archivo": "Nancagua_septiembre.pdf",
+ "documento_url": null,
+ "errores": [
+  "Fuente: listado oficial del mes (anexo de la Resolución DOM de Nancagua) enviado por el usuario; el listado no trae descripción, superficie ni presupuesto."
+ ],
+ "registros": [
+  {
+   "numero": "39",
+   "fecha": "2026-09-01",
+   "tipo_original": "Obra nueva",
+   "destino": "Vivienda",
+   "proyecto": null,
+   "direccion": "Calle Evelyn Smith",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "512-96",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  },
+  {
+   "numero": "40",
+   "fecha": "2026-09-08",
+   "tipo_original": "Obra nueva",
+   "destino": "Galpón agrícola",
+   "proyecto": null,
+   "direccion": "Fundo La Gloria (Hijuela El Sauce), Ruta I-826",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "131-63",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  }
+ ]
+}

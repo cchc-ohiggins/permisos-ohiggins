@@ -1,0 +1,31 @@
+{
+ "comuna": "Navidad",
+ "slug": "navidad",
+ "mes": "2026-05",
+ "archivo": "Navidad_mayo.pdf",
+ "documento_url": null,
+ "errores": [
+  "Fuente: certificado individual enviado por el usuario (el Portal de Navidad publica resoluciones sueltas). Solo se recibió este certificado de recepción definitiva; no se recibió ningún permiso de edificación de este mes, por lo que puede haber otros documentos no incluidos. La fecha del certificado se lee 28-mayo-2026 en el formulario."
+ ],
+ "registros": [
+  {
+   "numero": "102",
+   "fecha": "2026-05-28",
+   "tipo_original": "Certificado de Recepción Definitiva de obras de edificación - Obra nueva (total)",
+   "destino": "Vivienda",
+   "proyecto": "OBRA NUEVA (vivienda unifamiliar), Lote 5 Manzana S, loteo Las Brisas",
+   "direccion": "Servidumbre S/N, lote 5, loteo Las Brisas (rural), Navidad",
+   "descripcion": "Recepción del permiso de edificación N° 224/2025 (09-10-2025, 84,06 m²), expediente de recepción 73/2026. Se aprobaron modificaciones menores (art. 5.2.8 OGUC).",
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "30-139",
+   "superficie_m2": 84.06,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 1
+  }
+ ]
+}

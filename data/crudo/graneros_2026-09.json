@@ -1,0 +1,69 @@
+{
+ "comuna": "Graneros",
+ "slug": "graneros",
+ "mes": "2026-09",
+ "archivo": "Graneros_septiembre1pdf.pdf; Graneros_septiembre.pdf (listado, Resolución 142)",
+ "documento_url": null,
+ "errores": [
+  "Fuente: formularios individuales de cada permiso/certificado de la DOM de Graneros, descargados manualmente por el usuario (el Portal solo muestra una tabla sin descripciones). Datos leídos del escaneo: número, fecha, rol, dirección, superficie y presupuesto según el formulario. No se incluyen nombres de personas."
+ ],
+ "registros": [
+  {
+   "numero": "31",
+   "fecha": "2026-09-02",
+   "tipo_original": "Ley 20.898 (regularización de vivienda)",
+   "destino": "Vivienda",
+   "proyecto": null,
+   "direccion": "Calle Miraflores N°226",
+   "descripcion": "Figura solo en el listado oficial del mes (Resolución 142); no se recibió el formulario.",
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "139-213",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 2
+  },
+  {
+   "numero": "32",
+   "fecha": "2026-09-02",
+   "tipo_original": "Ley 20.898 (regularización de vivienda)",
+   "destino": "Vivienda",
+   "proyecto": null,
+   "direccion": "Calle Los Alerces N°73",
+   "descripcion": "Figura solo en el listado oficial del mes (Resolución 142); no se recibió el formulario.",
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "318-10",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 2
+  },
+  {
+   "numero": "33",
+   "fecha": "2026-09-21",
+   "tipo_original": "Permiso de Edificación - Obra nueva",
+   "destino": "Actividad productiva",
+   "proyecto": "PLANTELES DE CRIANZA DE AVES",
+   "direccion": "Camino El Cerro N°4000, Hijuela B La Soledad (rural)",
+   "descripcion": "Planteles de crianza de aves (33 edificios).",
+   "presupuesto": 2477533081,
+   "pisos": 1,
+   "superficie_terreno_m2": null,
+   "rol": "152-80",
+   "superficie_m2": 36042.85,
+   "viviendas": null,
+   "propietario": "AGRICOLA SUPER LIMITADA",
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 1
+  }
+ ]
+}

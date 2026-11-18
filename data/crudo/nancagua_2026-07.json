@@ -1,0 +1,69 @@
+{
+ "comuna": "Nancagua",
+ "slug": "nancagua",
+ "mes": "2026-07",
+ "archivo": "Nancagua_julio.pdf",
+ "documento_url": null,
+ "errores": [
+  "Fuente: listado oficial del mes (anexo de la Resolución DOM de Nancagua) enviado por el usuario; el listado no trae descripción, superficie ni presupuesto. El texto resolutivo dice 'mes de Junio de 2026', pero el anexo y las fechas son de julio."
+ ],
+ "registros": [
+  {
+   "numero": "32",
+   "fecha": "2026-07-27",
+   "tipo_original": "Obra nueva",
+   "destino": "Galpón agrícola",
+   "proyecto": null,
+   "direccion": "El Maitén, Fundo El Carmen",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "149-666",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 2
+  },
+  {
+   "numero": "33",
+   "fecha": "2026-07-27",
+   "tipo_original": "Obra nueva",
+   "destino": "Vivienda",
+   "proyecto": null,
+   "direccion": "Cura Montero - Pasaje Interior, Lote A-1",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "23-123",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 2
+  },
+  {
+   "numero": "34",
+   "fecha": "2026-07-29",
+   "tipo_original": "Ampliación menor a 100 m²",
+   "destino": "Educación",
+   "proyecto": null,
+   "direccion": "Calle 21 de Mayo",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "23-135",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 2
+  }
+ ]
+}

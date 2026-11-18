@@ -1,0 +1,52 @@
+{
+ "comuna": "Coltauco",
+ "slug": "coltauco",
+ "mes": "2026-09",
+ "archivo": "Coltauco_septiembre.pdf",
+ "documento_url": null,
+ "errores": [
+  "Fuente: PDF enviado por el usuario (resolución de septiembre 2026 con 2 certificados de recepción y las copias de los permisos relacionados). El listado del mes solo trae 2 actos, ambos recepciones definitivas; no hay permisos nuevos del mes.",
+  "El municipio tapó direcciones, destino y datos del propietario, por lo que no se pueden ubicar en el mapa.",
+  "La glosa de la resolución dice 'septiembre de 2025' (error de tipeo); el listado y las fechas son de septiembre de 2026."
+ ],
+ "registros": [
+  {
+   "numero": "924/2026",
+   "fecha": "2026-09-04",
+   "tipo_original": "Certificado de Recepción Definitiva de Obra de Edificación, Obra Nueva, Parcial",
+   "destino": null,
+   "proyecto": null,
+   "direccion": null,
+   "descripcion": "Localidad: Coltauco Centro.",
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "1-7",
+   "superficie_m2": 581.0,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 2
+  },
+  {
+   "numero": "930/2026",
+   "fecha": "2026-09-09",
+   "tipo_original": "Certificado de Recepción Definitiva de Obra de Edificación, Obra Nueva",
+   "destino": null,
+   "proyecto": "VIVIENDA UNIFAMILIAR",
+   "direccion": null,
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "19-41",
+   "superficie_m2": 206.55,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 10
+  }
+ ]
+}

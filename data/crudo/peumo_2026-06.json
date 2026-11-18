@@ -1,0 +1,52 @@
+{
+ "comuna": "Peumo",
+ "slug": "peumo",
+ "mes": "2026-06",
+ "archivo": "Peumo_junio1.pdf, Peumo_junio2.pdf",
+ "documento_url": null,
+ "errores": [
+  "Fuente: 2 formularios individuales enviados por el usuario (junio1 = permiso 11, junio2 = permiso 10). El listado del mes no se pudo bajar, por lo que puede haber otros permisos de junio no incluidos.",
+  "N° 11: el formulario no informa la superficie del terreno. El destino del permiso es 'Viviendas' (155) más una sede social (equipamiento, 96 m²); se registró como Vivienda por ser el destino principal.",
+  "N° 10: la fecha de aprobación del formulario es 11-jun-2026 (el giro de pago es del 09-jun)."
+ ],
+ "registros": [
+  {
+   "numero": "10",
+   "fecha": "2026-06-11",
+   "tipo_original": "Permiso de Edificación - Obra nueva",
+   "destino": "Vivienda",
+   "proyecto": "CASA HABITACION",
+   "direccion": "Callejón Alcalde Enrique López 065, Peumo (urbano)",
+   "descripcion": "Casa habitación de 1 piso. Presupuesto $33.127.233 (derechos $496.908 = 1,5%). Expediente SPE 25.",
+   "presupuesto": 33127233,
+   "pisos": 1,
+   "superficie_terreno_m2": 806.52,
+   "rol": "24-37",
+   "superficie_m2": 178.37,
+   "viviendas": 1,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 1
+  },
+  {
+   "numero": "11",
+   "fecha": "2026-06-16",
+   "tipo_original": "Permiso de Edificación - Obra nueva (155 viviendas y 1 sede social)",
+   "destino": "Vivienda",
+   "proyecto": "Obra nueva. Comité de Vivienda Villa Ensueño-Peumo",
+   "direccion": "Cocha y Toro 189, lote UNO A-a, manzana 31, Peumo (urbano)",
+   "descripcion": "Conjunto de 155 viviendas y 1 sede social (equipamiento social, 96,00 m²), 2 pisos, loteo DFL 2 con construcción simultánea; superficie residencial 9.921,55 m² + 96,00 m² de sede = 10.017,55 m². Presupuesto $969.629.026; derechos $14.544.435 (1,5%), con descuento por unidades repetidas de $5.521.244 y 30% por revisor independiente: total a pagar $6.316.234. Expediente SPE 42/2026.",
+   "presupuesto": 969629026,
+   "pisos": 2,
+   "superficie_terreno_m2": null,
+   "rol": "31-8",
+   "superficie_m2": 10017.55,
+   "viviendas": 155,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 1
+  }
+ ]
+}

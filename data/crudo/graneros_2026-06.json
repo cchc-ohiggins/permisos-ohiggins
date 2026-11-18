@@ -1,0 +1,69 @@
+{
+ "comuna": "Graneros",
+ "slug": "graneros",
+ "mes": "2026-06",
+ "archivo": "Graneros_junio.pdf",
+ "documento_url": null,
+ "errores": [
+  "Fuente: listado anexo de la Resolución DOM N° 63 (06-07-2026) enviado por el usuario; el listado no trae descripción, superficie ni presupuesto. Los 3 actos corresponden al mismo predio (rol 13-20) y misma fecha: ampliación, modificación y cambio de destino de vivienda a comercio."
+ ],
+ "registros": [
+  {
+   "numero": "19",
+   "fecha": "2026-06-22",
+   "tipo_original": "Permiso de Edificación - Ampliación mayor 100 m²",
+   "destino": "Vivienda",
+   "proyecto": null,
+   "direccion": "Calle Antonio Varas 87, Graneros",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "13-20",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 2
+  },
+  {
+   "numero": "20",
+   "fecha": "2026-06-22",
+   "tipo_original": "Modificación de edificación existente que no altera su estructura",
+   "destino": "Vivienda",
+   "proyecto": null,
+   "direccion": "Calle Antonio Varas 87, Graneros",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "13-20",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 2
+  },
+  {
+   "numero": "21",
+   "fecha": "2026-06-22",
+   "tipo_original": "Cambio de destino",
+   "destino": "Comercio",
+   "proyecto": null,
+   "direccion": "Calle Antonio Varas 87, Graneros",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "13-20",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 2
+  }
+ ]
+}

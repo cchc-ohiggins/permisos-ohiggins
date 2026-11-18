@@ -2,12 +2,34 @@
  "comuna": "La Estrella",
  "slug": "la-estrella",
  "mes": "2026-05",
- "archivo": "2026-08.pdf",
+ "archivo": "LaEstrella_mayo.pdf + 2026-08.pdf",
  "documento_url": null,
  "errores": [
+  "Fuente: Resolución DOM con listado oficial (1 permiso) y copia del permiso, enviada por el usuario. Se agregaron a este mes las 2 recepciones definitivas que ya estaban registradas desde el listado tardío del PDF de agosto.",
+  "El formulario no imprime el presupuesto (solo los derechos municipales), por lo que el presupuesto queda sin dato. (N° 06/2026)",
+  "La resolución dice 'publíquese ... durante el quinto día hábil del mes de abril' (error de tipeo del municipio); el listado y las fechas son de mayo de 2026.",
   "Listado \"Regularícese enero a julio 2026\" publicado en el PDF de agosto (publicación tardía)."
  ],
  "registros": [
+  {
+   "numero": "06/2026",
+   "fecha": "2026-05-25",
+   "tipo_original": "Permiso de Edificación, Obra nueva",
+   "destino": "Vivienda",
+   "proyecto": "CASA HABITACIÓN",
+   "direccion": "Ruta 150 - San Rafael S/N, lote 3, La Estrella (rural)",
+   "descripcion": "Casa habitación de 1 piso. Expediente SPE 12-2026. Derechos municipales: subtotal $864.509, con 30% de descuento por revisor independiente; total a pagar $636.870.",
+   "presupuesto": null,
+   "pisos": 1,
+   "superficie_terreno_m2": 5092.0,
+   "rol": "57-151",
+   "superficie_m2": 228.18,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  },
   {
    "numero": "4",
    "fecha": "2026-05-18",

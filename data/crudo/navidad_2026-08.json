@@ -1,0 +1,31 @@
+{
+ "comuna": "Navidad",
+ "slug": "navidad",
+ "mes": "2026-08",
+ "archivo": "Navidad_agosto.pdf",
+ "documento_url": null,
+ "errores": [
+  "Fuente: certificado individual enviado por el usuario (el Portal de Navidad publica resoluciones sueltas). Solo se recibió este certificado de recepción definitiva; no se recibió ningún permiso de edificación de este mes, por lo que puede haber otros documentos no incluidos."
+ ],
+ "registros": [
+  {
+   "numero": "1163",
+   "fecha": "2026-08-03",
+   "tipo_original": "Certificado de Recepción Definitiva de obras de edificación - Obra nueva (total)",
+   "destino": "Vivienda",
+   "proyecto": "VIVIENDA UNIFAMILIAR RODRIGO ARAYA LOTE 35",
+   "direccion": "Servidumbre S/N, lote 35, Las Águilas - Pupuya (rural)",
+   "descripcion": "Recepción del permiso de edificación N° 281/2025. El número de certificado se lee 1163 en el formulario.",
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "157-35",
+   "superficie_m2": 54.68,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 1
+  }
+ ]
+}

@@ -1,0 +1,52 @@
+{
+ "comuna": "Doñihue",
+ "slug": "donihue",
+ "mes": "2026-05",
+ "archivo": "Donihue_mayo.pdf",
+ "documento_url": null,
+ "errores": [
+  "Fuente: Resolución DOM N° 005/2026 (05-06-2026) con listado anexo (2 aprobaciones) y copia de cada resolución, enviada por el usuario.",
+  "Subdivisión N° 039: el formulario trae fecha 06-Apr-26 y certificado de informaciones previas con fecha 29-10-2026 (evidentes errores de digitación); se usó la fecha del listado oficial, 06-05-2026.",
+  "Modificación N° 040: el presupuesto ($10.011.078) corresponde solo a los 39,06 m² que se amplían (derechos municipales $150.166 = 1,5%), no al total de la obra."
+ ],
+ "registros": [
+  {
+   "numero": "039",
+   "fecha": "2026-05-06",
+   "tipo_original": "Subdivisión",
+   "destino": "Habitacional",
+   "proyecto": "Subdivisión predio Manuel Antonio Román (lotes B-1, B-4, B-5, B-6, B-7)",
+   "direccion": "Manuel Antonio Román S/N, Doñihue (rural)",
+   "descripcion": "Subdivisión de un predio rural de 7.812,50 m² en 5 lotes: B-1 (6.132,50 m²) y B-4, B-5, B-6, B-7 (420 m² cada uno). Expediente S.U. 012/2026.",
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": 7812.5,
+   "rol": "54-50",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 3
+  },
+  {
+   "numero": "040",
+   "fecha": "2026-05-06",
+   "tipo_original": "Resolución aprueba modificación de proyecto de edificación - Obra nueva",
+   "destino": "Vivienda",
+   "proyecto": "VIVIENDA FERRADA",
+   "direccion": "Camino Interior Lote B S/N, sector California, Doñihue (rural)",
+   "descripcion": "Modificación del permiso de obra nueva (expediente S.M.P.O.N. 109/2025): la superficie edificada pasa de 140,00 m² a 179,06 m² (aumenta 39,06 m²). 1 piso.",
+   "presupuesto": 10011078,
+   "pisos": 1,
+   "superficie_terreno_m2": 1360.0,
+   "rol": "95-41",
+   "superficie_m2": 179.06,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 5
+  }
+ ]
+}

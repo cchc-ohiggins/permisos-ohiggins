@@ -1,0 +1,31 @@
+{
+ "comuna": "Navidad",
+ "slug": "navidad",
+ "mes": "2026-07",
+ "archivo": "Navidad_julio.pdf",
+ "documento_url": null,
+ "errores": [
+  "Fuente: certificado individual enviado por el usuario (el Portal de Navidad publica resoluciones sueltas). Solo se recibió este certificado de recepción definitiva; no se recibió ningún permiso de edificación de este mes, por lo que puede haber otros documentos no incluidos."
+ ],
+ "registros": [
+  {
+   "numero": "113",
+   "fecha": "2026-07-01",
+   "tipo_original": "Certificado de Recepción Definitiva de obras de edificación - Obra nueva (total)",
+   "destino": "Vivienda",
+   "proyecto": "CASA ALLIENDE - BALMACEDA",
+   "direccion": "Sector rural, S/N, Navidad",
+   "descripcion": "Recepción del permiso de edificación N° 151/2024.",
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "79-879",
+   "superficie_m2": 168.5,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 1
+  }
+ ]
+}

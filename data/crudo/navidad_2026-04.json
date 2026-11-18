@@ -1,0 +1,31 @@
+{
+ "comuna": "Navidad",
+ "slug": "navidad",
+ "mes": "2026-04",
+ "archivo": "Navidad_abril.pdf",
+ "documento_url": null,
+ "errores": [
+  "Fuente: resolución individual enviada por el usuario (el Portal de Navidad publica resoluciones sueltas). Solo se recibió esta resolución de subdivisión; no se recibió ningún permiso de edificación de este mes, por lo que puede haber otros documentos no incluidos. La resolución no trae la fecha impresa en el encabezado de la página 2; se usó 09-Abr-26 del encabezado."
+ ],
+ "registros": [
+  {
+   "numero": "83",
+   "fecha": "2026-04-09",
+   "tipo_original": "Resolución de aprobación de subdivisión",
+   "destino": "Otro",
+   "proyecto": "Subdivisión Sitio 3 Lote A, sector Lagunillas",
+   "direccion": "Ruta I-130 S/N, sitio 3 lote A, sector Lagunillas (urbano)",
+   "descripcion": "Subdivisión de un predio de 1.138,44 m² en 2 lotes resultantes (449,06 m² y 689,38 m²). Expediente S.U. 162-2025. Derechos: 2% del avalúo fiscal del terreno ($14.619.969) = $292.399.",
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": 1138.44,
+   "rol": "57-296",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 1
+  }
+ ]
+}

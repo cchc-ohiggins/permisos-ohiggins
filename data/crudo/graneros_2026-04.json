@@ -1,0 +1,70 @@
+{
+ "comuna": "Graneros",
+ "slug": "graneros",
+ "mes": "2026-04",
+ "archivo": "Graneros_abril.pdf (listado) + Graneros_abril1.pdf y Graneros_abril2.pdf (formularios)",
+ "documento_url": null,
+ "errores": [
+  "Fuente: formularios individuales de cada permiso/certificado de la DOM de Graneros, descargados manualmente por el usuario (el Portal solo muestra una tabla sin descripciones). Datos leídos del escaneo: número, fecha, rol, dirección, superficie y presupuesto según el formulario. No se incluyen nombres de personas.",
+  "Resolución DOM N° 42 (11-05-2026) con 3 actos: 1 fusión de predios (N° 1, sin destino; solo en el listado) y los permisos 17 y 18. Numeración de resoluciones de fusión es propia (N° 1 de abril)."
+ ],
+ "registros": [
+  {
+   "numero": "1",
+   "fecha": "2026-04-02",
+   "tipo_original": "Resolución aprobación fusión",
+   "destino": null,
+   "proyecto": null,
+   "direccion": "Guillermo Barrios N° 1100, Graneros",
+   "descripcion": null,
+   "presupuesto": null,
+   "pisos": null,
+   "superficie_terreno_m2": null,
+   "rol": "139-966",
+   "superficie_m2": null,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 2
+  },
+  {
+   "numero": "17",
+   "fecha": "2026-04-09",
+   "tipo_original": "Permiso de Edificación - Obra nueva",
+   "destino": "Comercio",
+   "proyecto": "LOCALES COMERCIALES",
+   "direccion": "Calle José Manuel Cousiño N°85, Graneros",
+   "descripcion": "Construcción de locales comerciales.",
+   "presupuesto": 33794450,
+   "pisos": 1,
+   "superficie_terreno_m2": 338.0,
+   "rol": "15-06",
+   "superficie_m2": 253.44,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 1
+  },
+  {
+   "numero": "18",
+   "fecha": "2026-04-21",
+   "tipo_original": "Permiso de Edificación - Obra nueva",
+   "destino": "Comercio",
+   "proyecto": "SUPERMERCADO GAMOVI",
+   "direccion": "Camino Real N°0280, Graneros",
+   "descripcion": "Supermercado.",
+   "presupuesto": 181824295,
+   "pisos": 1,
+   "superficie_terreno_m2": null,
+   "rol": "22-45",
+   "superficie_m2": 1305.74,
+   "viviendas": null,
+   "propietario": null,
+   "arquitecto": null,
+   "constructora": null,
+   "pagina": 1
+  }
+ ]
+}
