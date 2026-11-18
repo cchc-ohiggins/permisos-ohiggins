@@ -47,41 +47,14 @@
   ]
  },
  "donihue": {
-  "descargados": 0,
+  "descargados": 2,
   "ya_estaban": 1,
-  "fallidos": [
-   {
-    "mes": "2026-01",
-    "url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/RESOLUCION+N%C2%B0%20001-2026+DOM.pdf/89748d72-7c90-4daf-9c64-17d84ecc1255",
-    "motivo": "HTTPError: HTTP Error 403: Forbidden"
-   },
-   {
-    "mes": "2026-02",
-    "url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/RESOLUCION+02+DEL+2026.pdf/2fe98496-1aee-4b00-9847-19dd0f1433c1",
-    "motivo": "HTTPError: HTTP Error 403: Forbidden"
-   }
-  ]
+  "fallidos": []
  },
  "graneros": {
-  "descargados": 0,
+  "descargados": 3,
   "ya_estaban": 0,
-  "fallidos": [
-   {
-    "mes": "2026-01",
-    "url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/Resoluci%C3%B3n+Art+116+Bis+C+Transparencia+ENERO2026.pdf_1775660257045/4bf0a4f2-467f-4030-9108-39bea420b350",
-    "motivo": "HTTPError: HTTP Error 403: Forbidden"
-   },
-   {
-    "mes": "2026-02",
-    "url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/Resoluci%C3%B3n+27%28ART.+116+BIS+C%29.pdf_1775660122387/ccdbe56c-50af-4b64-bf11-53104de3c0fa",
-    "motivo": "HTTPError: HTTP Error 403: Forbidden"
-   },
-   {
-    "mes": "2026-03",
-    "url": "https://www.portaltransparencia.cl/PortalPdT/documents/10179/62801/Resoluci%C3%B3n+DOM+N%C2%B032++++02-04-2026.pdf_1775659804467/211cff85-528d-4c99-9f59-2270cb7aeae7",
-    "motivo": "HTTPError: HTTP Error 403: Forbidden"
-   }
-  ]
+  "fallidos": []
  },
  "la-estrella": {
   "descargados": 0,
@@ -202,12 +175,12 @@
    {
     "mes": "2026-02",
     "url": "https://transparenciarequinoa.cl/nueweb/tact/requinoa/2026/Dom/Febrero/Cumplimiento%20articulo%20116%20bis/02_FEBRERO_2026.pdf",
-    "motivo": "HTTPError: HTTP Error 404: Not Found"
+    "motivo": "la respuesta no es un PDF (¿requiere iniciar sesión o es imagen/Word?)"
    },
    {
     "mes": "2026-03",
     "url": "https://transparenciarequinoa.cl/nueweb/tact/requinoa/2026/Dom/Marzo/Cumplimiento%20articulo%20116%20bis/03_MARZO_2026.pdf",
-    "motivo": "HTTPError: HTTP Error 404: Not Found"
+    "motivo": "la respuesta no es un PDF (¿requiere iniciar sesión o es imagen/Word?)"
    }
   ]
  },
