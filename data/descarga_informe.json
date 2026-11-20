@@ -16,7 +16,7 @@
    {
     "mes": "2026-02",
     "url": "https://www.municipalidaddecodegua.cl/municipalidaddecodegua.cl/public/municipalidad/transparencia/archivos/obras/Documentaci%C3%B3n%20L.G.U.C._compressed.pdf",
-    "motivo": "la respuesta no es un PDF (¿requiere iniciar sesión o es imagen/Word?)"
+    "motivo": "URLError: <urlopen error timed out>"
    }
   ]
  },
@@ -47,13 +47,13 @@
   ]
  },
  "donihue": {
-  "descargados": 2,
-  "ya_estaban": 1,
+  "descargados": 0,
+  "ya_estaban": 3,
   "fallidos": []
  },
  "graneros": {
-  "descargados": 3,
-  "ya_estaban": 0,
+  "descargados": 0,
+  "ya_estaban": 3,
   "fallidos": []
  },
  "la-estrella": {
@@ -175,12 +175,12 @@
    {
     "mes": "2026-02",
     "url": "https://transparenciarequinoa.cl/nueweb/tact/requinoa/2026/Dom/Febrero/Cumplimiento%20articulo%20116%20bis/02_FEBRERO_2026.pdf",
-    "motivo": "la respuesta no es un PDF (¿requiere iniciar sesión o es imagen/Word?)"
+    "motivo": "HTTPError: HTTP Error 404: Not Found"
    },
    {
     "mes": "2026-03",
     "url": "https://transparenciarequinoa.cl/nueweb/tact/requinoa/2026/Dom/Marzo/Cumplimiento%20articulo%20116%20bis/03_MARZO_2026.pdf",
-    "motivo": "la respuesta no es un PDF (¿requiere iniciar sesión o es imagen/Word?)"
+    "motivo": "HTTPError: HTTP Error 404: Not Found"
    }
   ]
  },
